@@ -1,4 +1,4 @@
 def index():
-    print("<b>test</b>")
+    return "<b>test</b>"
 
 index()
