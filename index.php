@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Mon super site</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
 </head>
 
 <body>
@@ -15,8 +17,13 @@
 <!-- Le corps -->
 
 <div>
-    <h1>Mon super site</h1>
-    
+    <h1>Bienvenue dans votre parking</h1>
+    <img src="media/images/accueil_park.jpg">
+
+</div>
+
+<div class="bouton">
+    <input type="button" value="bouton">
 </div>
 
 <!-- Le pied de page -->
