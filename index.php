@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--salut c'est moi-->
+<!--salut c'est moi hehe-->
 <html>
 <?php include("template/head.php"); ?>
 
