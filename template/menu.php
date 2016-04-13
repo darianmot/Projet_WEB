@@ -1,6 +1,6 @@
 <nav>
         <ul>
-            <li> Accueil</li>
+            <li><a href='index.php'>Accueil</a></li>
             <li> Nos offres
                 <ul>
                     <li>Voitures</li>
