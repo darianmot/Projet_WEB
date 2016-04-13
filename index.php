@@ -13,10 +13,11 @@
 
 <div>
     <h1>Bienvenue dans votre parking</h1>
+</div>
+
+<div>
     <img src="media/images/accueil_park.jpg">
     <img src="media/images/ferrari.jpg">
-
-
 </div>
 
 
