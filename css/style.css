@@ -86,7 +86,8 @@ nav
     right: 0;
     left: 0;
     width: 100%;
-    background: #474847;
+    background: #333433;
+    color: #ffffff;
 }
 
 nav  ul  li
@@ -101,12 +102,11 @@ nav ul  li  a
     border: 0;
     text-decoration: none;
     font-weight: 400;
-    color: #777;
 }
 
 nav  ul  li a:hover
 {
-    color: #ed786a;
+    color: #ffffff;
     border-bottom-color: rgba(255,255,255,0);
 }
 
