@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>Mon super site</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-</head>
+<?php include("template/head.php"); ?>
 
 <body>
 
@@ -21,8 +16,10 @@
 
 </div>
 
+
 <div class="bouton">
-    <input type="button" value="bouton">
+    <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
+    <a href="connection.php"><input type = "button" value="Se connecter"></a>
 </div>
 
 <!-- Le pied de page -->
