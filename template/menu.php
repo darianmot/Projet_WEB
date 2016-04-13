@@ -1,12 +1,15 @@
 <nav>
-
-    <div id='cssmenu'>
         <ul>
-            <li class='active'><a href='#'>Accueil</a></li>
-            <li><a href='#'>Connexion</a></li>
+            <li> Accueil</li>
+            <li> Nos offres
+                <ul>
+                    <li>Voitures</li>
+                    <li>Motos</li>
+
+                </ul>
+            </li>
+            <li><a href='connexion.php'>Connexion</a></li>
 
         </ul>
-    </div>
-<?php echo "menu section" ?>
 
 </nav>

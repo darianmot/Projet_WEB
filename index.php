@@ -19,7 +19,7 @@
 
 <div class="bouton">
     <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
-    <a href="connection.php"><input type = "button" value="Se connecter"></a>
+    <a href="connexion.php"><input type = "button" value="Se connecter"></a>
 </div>
 
 <!-- Le pied de page -->
