@@ -14,7 +14,7 @@
 
 <?php include("template/menu.php"); ?>
 
-<!-- Le corps -->
+<!-- Le corps  -->
 
 <div>
     <h1>Bienvenue dans votre parking</h1>
