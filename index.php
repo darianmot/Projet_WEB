@@ -20,6 +20,10 @@
     <img src="media/images/ferrari.jpg">
 </div>
 
+<!-- slider -->
+<div>
+    <?php include("template/slider.php"); ?>
+</div>
 
 <div class="bouton">
     <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
