@@ -8,6 +8,9 @@
 
                 </ul>
             </li>
+            <li> Plan des parkings</li>
+            <li> Nous contacter</li>
+            <li> S'inscrire</li>
             <li><a href='connexion.php'>Connexion</a></li>
 
         </ul>
