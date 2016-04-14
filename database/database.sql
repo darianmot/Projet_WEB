@@ -56,3 +56,8 @@ CREATE TABLE Facture
   FOREIGN KEY (plaque) REFERENCES Client(plaque)
 )ENGINE=INNODB;
 
+
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('1', 'zone1', '100');
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('2', 'zone2', '200');
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('3', 'zone3', '300');
+
