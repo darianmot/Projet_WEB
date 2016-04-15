@@ -11,6 +11,11 @@
 
 <!-- Le corps -->
 
+<!-- slider -->
+<div>
+    <?php include("template/slider.php"); ?>
+</div>
+
 <div>
     <h1>Bienvenue dans votre parking</h1>
 </div>
@@ -20,10 +25,7 @@
 <!--    <img src="media/images/ferrari.jpg">-->
 <!--</div>-->
 
-<!-- slider -->
-<div>
-    <?php include("template/slider.php"); ?>
-</div>
+
 
 <div>
     

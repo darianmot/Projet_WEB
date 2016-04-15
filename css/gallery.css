@@ -11,6 +11,7 @@
 .gallery .item:first-of-type {
   position: static;
   opacity: 1;
+  top: 50%;
 }
 .gallery .item {
   position: absolute;
