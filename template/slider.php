@@ -1,9 +1,9 @@
 <!DOCTYPE>
 <html>
 <head>
-    <link rel="stylesheet" href="/css/gallery.theme.css">
-    <link rel="stylesheet" href="/css/gallery.css">
-    <script src="/js/jslider.js"></script>
+    <link rel="stylesheet" href="css/gallery.theme.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="js/jslider.js"></script>
 </head>
 
 <body>
@@ -13,15 +13,15 @@
 		<div id="item-3" class="control-operator"></div>
 
 		<figure class="item">
-			<h1><img src="/media/images/accueil_park.jpg"></h1>
+			<h1><img src="media/images/accueil_park.jpg"></h1>
 		</figure>
 
 		<figure class="item">
-			<h1><img src="/media/images/ferrari.jpg"></h1>
+			<h1><img src="media/images/ferrari.jpg"></h1>
 		</figure>
 
 		<figure class="item">
-			<h1><img src="/media/images/parking.jpg"></h1>
+			<h1><img src="media/images/parking.jpg"></h1>
 		</figure>
 
 		<div class="controls">
