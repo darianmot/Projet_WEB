@@ -1,35 +1,34 @@
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/ajSlider.js"></script>
-
-<title>ajSlider</title>
-<script>
-$(document).ready(function() {
-    $('#ajSlider').ajSlider(3000,{
-		"width":"100%",//width of slider
-		"height":"100%",//height of slider
-		"textPosition":"30%",//position of text from top
-		"textSize":"60px"//font size of the text
-		});
-});
-</script>
+    <link rel="stylesheet" href="/css/gallery.theme.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+    <script src="/js/jslider.js"></script>
 </head>
 
 <body>
+	<div class="gallery items-3">
+		<div id="item-1" class="control-operator"></div>
+		<div id="item-2" class="control-operator"></div>
+		<div id="item-3" class="control-operator"></div>
 
-<div id="ajSlider">
-	<img src="/media/images/ferrari.jpg" width="1600" height="1000" />
-    <img src="/media/images/parking.jpg" width="1600" height="1000" />
-    <img src="/media/images/accueil_park.jpg" width="1600" height="1000" />
+		<figure class="item">
+			<h1><img src="/media/images/accueil_park.jpg"></h1>
+		</figure>
 
-	<a>first slide in the slider</a>
-    <a>second slide in the slider</a>
-    <a>third slide in the slider</a>
-</div>
+		<figure class="item">
+			<h1><img src="/media/images/ferrari.jpg"></h1>
+		</figure>
 
+		<figure class="item">
+			<h1><img src="/media/images/parking.jpg"></h1>
+		</figure>
+
+		<div class="controls">
+			<a href="#item-1" class="control-button">•</a>
+			<a href="#item-2" class="control-button">•</a>
+			<a href="#item-3" class="control-button">•</a>
+		</div>
+	</div>
 </body>
 </html>
