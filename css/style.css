@@ -191,17 +191,17 @@ nav  ul ul
 nav  ul ul li
 {
     position:relative;
-    /*line-height: 1.2em;*/
-    /*border-bottom: solid 1px #e5e5e5;*/
-    padding: 1em 0 1em 0;
+    line-height: 1.2em;
+    border-bottom: solid 1px #e5e5e5;
+    padding: 1em 100em 1em 0;
     width: 100%;
-}
+   }
 
-nav  ul ul li  i { padding-left: 1em;}
+/*nav  ul ul li  i { padding-left: 1em;}*/
 
-nav  ul ul li  a
-{
-    font-size:1em;
-    text-transform: none!important;
-    padding-left: 1em;
-}
+/*nav  ul ul li  a*/
+/*{*/
+    /*font-size:1em;*/
+    /*text-transform: none!important;*/
+    /*padding-left: 1em;*/
+/*}*/
