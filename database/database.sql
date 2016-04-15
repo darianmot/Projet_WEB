@@ -29,9 +29,9 @@ CREATE TABLE Client
   type_vehicule CHAR(20),
   date_entree DATETIME,
   reservation CHAR(20),
-  zone_choisi INT,
+  zone_choisie INT,
   PRIMARY KEY (plaque),
-  FOREIGN KEY (zone_choisi) REFERENCES Zone(id_zone)
+  FOREIGN KEY (zone_choisie) REFERENCES Zone(id_zone)
 )ENGINE=INNODB;
 
 CREATE TABLE PlaceOccupee
