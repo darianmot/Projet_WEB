@@ -9,7 +9,7 @@
                 </ul>
             </li>
             <li>Parking direct</li>
-            <li> Plan des parkings</li>
+            <li><a href="parking_view.php"> Plan des parkings</a></li>
             <li> Nous contacter</li>
             <li> S'inscrire</li>
             <li><a href='connexion.php'>Connexion</a></li>
