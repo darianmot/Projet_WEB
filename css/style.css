@@ -82,6 +82,7 @@ menu
 ********************************************************************************/
 nav
 {
+    /*Pour faire suivre le menu quand on deroule la page*/
     position: fixed;
     top: 10%;
     right: 0;
