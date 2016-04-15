@@ -50,6 +50,7 @@
         $('#newClient').submit(function(e) {
             e.preventDefault();
 
+            //On met a jour la database
             var $this = $(this);
             var plaque = $('#plaque').val();
             var vehicule = $('#vehicule').val();
@@ -64,9 +65,13 @@
                 $.post('database/add_client.php', donnees);
             }
 
+            //On met a jour le visu
             $.get('database/zone_view.php',function(data) {
                 $('#view').html(data);
             });
+
+            //On reset le form
+            $('#newClient')[0].reset();
         });
     });
 </script>
