@@ -1,7 +1,19 @@
 @import
 url("http://fonts.googleapis.com/css?family=Open+Sans:400");
 
-
+table {
+    border-width:1px;
+    border-style:solid;
+    border-color:darkslategray;
+    width:50%;
+    border-collapse:collapse;
+}
+td {
+    border-width:1px;
+    border-style:solid;
+    border-color:grey;
+    width:50%;
+}
 body
 {
 	background:#fff;
