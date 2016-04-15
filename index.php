@@ -25,6 +25,11 @@
     <?php include("template/slider.php"); ?>
 </div>
 
+<div>
+    
+</div>
+
+
 <div class="bouton">
     <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
     <a href="connexion.php"><input type = "button" value="Se connecter"></a>
