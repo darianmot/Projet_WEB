@@ -1,11 +1,11 @@
 .gallery .control-button {
   color: #5e5f5e;
-  color: rgba(204, 18, 25, 0.4);
+  color: rgba(94, 95, 94, 0.4);
 }
 
 .gallery .control-button:hover {
-  color: white;
-  color: rgba(255, 255, 255, 0.8);
+  color: #5e5f5e;
+  color: rgba(51, 52, 51, 0.8);
 }
 
 /*
@@ -13,6 +13,8 @@
 */
 .gallery {
   position: absolute;
+  margin-top: 60px;
+  margin-left : auto;
 }
 .gallery .item {
   height: 400px;
