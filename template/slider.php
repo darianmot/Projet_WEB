@@ -12,9 +12,9 @@
 		<div id="item-2" class="control-operator"></div>
 		<div id="item-3" class="control-operator"></div>
 
-<!--		<figure class="item">-->
-<!--			<h1></h1>-->
-<!--		</figure>-->
+		<figure class="item">
+			<h1><img src="media/images/avion.jpg"></h1>
+		</figure>
 
 		<figure class="item">
 			<h1><img src="media/images/ferrari.jpg"></h1>
