@@ -13,7 +13,7 @@
             </td></tr>
     </tbody>
 </table>
-    <input type = "submit" value = "Envoyer">
+    <input type = "submit" value = "S'identifier">
 </form>
 <a href="index.php"><input type="button" value="Précédent"><f</a>
 </body>
