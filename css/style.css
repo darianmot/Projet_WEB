@@ -121,7 +121,6 @@ nav {
 }
 
 
-
 /*mise en forme du menu*/
 nav  ul  li
 {
@@ -138,6 +137,18 @@ nav ul  li  a
     font-weight: 400;
     color: #ffffff;
 }
+
+/*Changement couleur lien menu avec passage souris*/
+nav ul li:hover
+{
+    color: #d0d1d0;
+}
+
+nav ul  li  a:hover
+{
+    color: #d0d1d0;
+}
+
 /*ne sert a rien j'ai l'impression*/
 /*nav  ul  li a:hover*/
 /*{*/
