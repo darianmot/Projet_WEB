@@ -117,7 +117,7 @@ nav {
     background: #333433;
     color: #ffffff;
     font-family: 'Open Sans';
-    z-index: 10;
+    z-index: 99;
 }
 
 
