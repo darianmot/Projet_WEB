@@ -28,9 +28,12 @@ body
 	text-align: center;
     background-color:#d7d7d7;
     margin:0;
-
-
 }
+
+/*.entete*/
+/*{*/
+    /*height: 70px;*/
+/*}*/
 
 header
 {
@@ -118,6 +121,7 @@ nav {
     color: #ffffff;
     font-family: 'Open Sans';
     z-index: 99;
+    opacity: 70;
 }
 
 
@@ -212,10 +216,9 @@ nav  ul ul
     display: none;
     text-align: left;
     z-index: 1000;
-    min-width: 10em;
+    /*min-width: 10em;*/
     padding: 0;
     margin:-10px;
-
     border-radius: 4px;
     background: rgba(51, 52, 51, 0.96);
 }
@@ -227,7 +230,8 @@ nav  ul ul li
     border-bottom: solid 1px #e5e5e5;
     padding: 1em 100em 1em 0;
     width: 100%;
-   }
+
+}
 
 /*nav  ul ul li  i { padding-left: 1em;}*/
 

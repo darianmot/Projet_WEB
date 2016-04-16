@@ -9,10 +9,14 @@
 
 <?php include("template/menu.php"); ?>
 
-<!-- Le corps -->
+<!--En-tete-->
+<!--<div class="entete">-->
+<!--    Le meilleur parking-->
+<!--</div>-->
 
+<!-- Le corps -->
 <!-- slider -->
-    <?php include("template/slider.php"); ?>
+<?php include("template/slider.php"); ?>
 
 
 <div>
@@ -29,6 +33,9 @@
     <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
     <a href="connexion.php"><input type = "button" value="Se connecter"></a>
 </div>
+
+<!--La carte-->
+<?php include("template/carte.php"); ?>
 
 <!-- Le pied de page -->
 
