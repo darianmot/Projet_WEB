@@ -29,13 +29,13 @@
 			<li><img src="media/images/osakaairportnightbuswallpaper.jpg" alt="osaka-airport-night-bus-wallpaper" title="osaka-airport-night-bus-wallpaper" id="wows1_2"/></li>
 		</ul></div>
 	<div class="ws_bullets"><div>
-			<a href="#" title="abstarct_bluetexture"><span><img src="data1/tooltips/abstarct_bluetexture.png" alt="abstarct_bluetexture"/>1</span></a>
-			<a href="#" title="Plane-Pictures-HD"><span><img src="data1/tooltips/planepictureshd.jpg" alt="Plane-Pictures-HD"/>2</span></a>
-			<a href="#" title="osaka-airport-night-bus-wallpaper"><span><img src="data1/tooltips/osakaairportnightbuswallpaper.jpg" alt="osaka-airport-night-bus-wallpaper"/>3</span></a>
+			<a href="#" title="abstarct_bluetexture"><span>1</span></a>
+			<a href="#" title="Plane-Pictures-HD"><span>2</span></a>
+			<a href="#" title="osaka-airport-night-bus-wallpaper"><span>3</span></a>
 		</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wowslider</a> by WOWSlider.com v8.7</div>
 	<div class="ws_shadow"></div>
 </div>
 <script type="text/javascript" src="js/wowslider.js"></script>
-<script type="text/javascript" src="engine1/script.js"></script>
+<script type="text/javascript" src="js/script_slider.js"></script>
 <!-- End WOWSlider.com BODY section -->
 
