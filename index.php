@@ -12,9 +12,8 @@
 <!-- Le corps -->
 
 <!-- slider -->
-<div>
     <?php include("template/slider.php"); ?>
-</div>
+
 
 <div>
     <h1>Bienvenue dans votre parking</h1>

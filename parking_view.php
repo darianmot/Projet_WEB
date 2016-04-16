@@ -7,7 +7,7 @@
 
 <?php include("template/header.php"); ?>
 
-<?php //include("template/menu.php"); ?>
+<?php include("template/menu.php"); ?>
 
 <!-- Le corps -->
 

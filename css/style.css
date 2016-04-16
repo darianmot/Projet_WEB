@@ -17,7 +17,8 @@ td {
 }
 body
 {
-	background:#fff;
+    position :relative;
+    top:70px;
 	font-weight: 300;
 	/*color: "777;   FP*/
 	color:#777;
@@ -25,6 +26,9 @@ body
 	font-size: 16px;
 	/*text-align: center:  FP*/
 	text-align: center;
+    background-color:#d7d7d7;
+    margin:0;
+
 
 }
 
@@ -102,18 +106,21 @@ footer
 /********************************************************************************
 menu
 ********************************************************************************/
-nav
-{
+nav {
     /*Pour faire suivre le menu quand on deroule la page*/
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     width: 100%;
+    height: 70px;
     background: #333433;
     color: #ffffff;
     font-family: 'Open Sans';
+    z-index: 10;
 }
+
+
 
 /*mise en forme du menu*/
 nav  ul  li
