@@ -13,13 +13,22 @@ CREATE TABLE Zone
 )ENGINE=INNODB;
 
 
+CREATE TABLE TypeEmplacement
+(
+  type CHAR(20),
+  PRIMARY KEY(type)
+)ENGINE=INNODB;
+
+
 CREATE TABLE Emplacement
 (
-  id_emplacement INT NOT NULL,
+  id_emplacement INT NOT NULL auto_increment,
   id_zone INT,
+  type_emplacement CHAR(20),
   occupe CHAR(20) DEFAULT NULL,
   PRIMARY KEY (id_emplacement),
-  FOREIGN KEY (id_zone) REFERENCES Zone(id_zone)
+  FOREIGN KEY (id_zone) REFERENCES Zone(id_zone),
+  FOREIGN KEY (type_emplacement) REFERENCES TypeEmplacement(type)
 )ENGINE=INNODB;
 
 
@@ -60,4 +69,5 @@ CREATE TABLE Facture
 INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('1', 'zone1', '100');
 INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('2', 'zone2', '200');
 INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('3', 'zone3', '300');
+INSERT INTO `ienac15_`.`TypeEmplacement` VALUES ('voiture'),('moto'),('handicape');
 
