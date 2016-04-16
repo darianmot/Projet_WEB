@@ -5,12 +5,16 @@
 <?php include("template/header.php"); ?>
 <?php include("template/menu.php")?>
 <h1>Connexion</h1>
-<table>
+<form>
+    <table>
     <tbody>
-    <tr><td><b>Identifiant</b></td><td><form><input type="text" name="texte" value="..."></form></td></tr>
-    <tr><td><b>Password</b></td><td><form><input type="text" name="texte" value="..."></form></td></tr>
+    <tr><td><b>Identifiant</b></td><td><input type="text" name="texte" value=""></td></tr>
+    <tr><td><b>Password</b></td><td><input type="password" name="texte" value="">
+            </td></tr>
     </tbody>
 </table>
+    <input type = "submit" value = "Envoyer">
+</form>
 <a href="index.php"><input type="button" value="Précédent"><f</a>
 </body>
 </html>
