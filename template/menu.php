@@ -12,9 +12,22 @@
                 </a>
             </li>
             <li> Nos offres
-                <ul>
-                    <li>Voitures</li>
-                    <li>Motos</li>
+                <ul class="menu2">
+
+                    <li><span class="fa-stack fa-lg">
+                        <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+                    </span>Voitures
+                    </li>
+
+                    <li><span class="fa-stack fa-lg">
+                        <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
+                    </span>Moto
+                    </li>
+
+                    <li><span class="fa-stack fa-lg">
+                        <i class="fa fa-taxi fa-stack-1x fa-inverse"></i>
+                    </span>Location
+                    </li>
 
                 </ul>
             </li>

@@ -17,8 +17,9 @@
 
 <!-- Le corps -->
 <!-- slider -->
-<?php include("template/slider.php"); ?>
-
+<div class="slider">
+    <?php include("template/slider.php"); ?>
+</div>
 
 <div>
     <h1>Bienvenue dans votre parking</h1>
@@ -41,8 +42,9 @@
 </div>
 
 <!-- Le pied de page -->
-
-<?php include("template/footer.php"); ?>
+<div class="pied">
+    <?php include("template/footer.php"); ?>
+</div>
 
 </body>
 </html>

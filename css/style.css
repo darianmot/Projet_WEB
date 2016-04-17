@@ -103,6 +103,7 @@ footer
 	background-color: #f0f0f0;
 	border-top: 2px solid #e5e5e5;
 	color: #666;
+    bottom: 0;
 }
 
 
@@ -116,7 +117,7 @@ nav {
     right: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 57px;
     background: #333433;
     color: #ffffff;
     font-family: 'Open Sans';
@@ -154,47 +155,10 @@ nav ul  li  a:hover
     color: #d0d1d0;
 }
 
-/*ne sert a rien j'ai l'impression*/
-/*nav  ul  li a:hover*/
-/*{*/
-    /*color: #ffffff;*/
-    /*border-bottom-color: rgba(255,255,255,0);*/
-/*}*/
-
-/*nav  span.fa-stack*/
-/*{*/
-    /*font-size:1.2em;*/
-/*}*/
-
-/*nav i.fa-inverse {color: #ffffff;}*/
-/*nav i.fa-circle { }*/
-
-/*nav  ul  li  a:before*/
-/*{*/
-    /*display: inline-block;*/
-    /*background: #333433;*/
-    /*color: #ffffff;*/
-    /*width: 1.65em;*/
-    /*height: 1.65em;*/
-    /*border-radius: 1.65em;*/
-    /*line-height: 1.65em;*/
-    /*text-align: center;*/
-    /*box-shadow: 0.125em 0.175em 0 0 rgba(0,0,0,0.125);*/
-    /*margin-right: 0.75em;*/
-/*}*/
-
-/*nav > ul > li.active > a:before,*/
-/*nav > ul > li:hover > a:before*/
-/*{*/
-    /*background: #ffffff;*/
-    /*color: #fff;*/
-/*}*/
-
-/*nav > ul > li.active > a > span,*/
-/*nav > ul > li:hover > a > span*/
-/*{*/
-    /*color: #ffffff;*/
-/*}*/
+.fa:hover
+{
+    color: #d0d1d0;
+}
 
 /*2e niveau*/
 
@@ -217,9 +181,9 @@ nav  ul ul
     display: none;
     text-align: left;
     z-index: 1000;
-    /*min-width: 10em;*/
+    min-width: 10em;
     padding: 0;
-    margin:-10px;
+    margin: -10px;
     border-radius: 4px;
     background: rgba(51, 52, 51, 0.96);
 }
@@ -230,16 +194,16 @@ nav  ul ul li
     position:relative;
     line-height: 1.2em;
     border-bottom: solid 1px #e5e5e5;
-    padding: 1em 100em 1em 0;
+    padding: 1em 0 1em 0;
     width: 100%;
+    color: #FFFFFF;
+}
+
+nav  ul ul li  a
+{
+    font-size:1em;
+    text-transform: none!important;
+    padding-left: 1em;
 
 }
 
-/*nav  ul ul li  i { padding-left: 1em;}*/
-
-/*nav  ul ul li  a*/
-/*{*/
-    /*font-size:1em;*/
-    /*text-transform: none!important;*/
-    /*padding-left: 1em;*/
-/*}*/
