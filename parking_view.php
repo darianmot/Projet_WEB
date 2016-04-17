@@ -41,7 +41,8 @@
 <script>
 
     $(document).ready(function(e) {
-
+        $.ajaxSetup({async: false});//Evite de continuer le scirpt avant que les requetes soit finies
+        
         $.get('database/zone_view.php',function(data) {
               $('#view').html(data);
         });
@@ -61,7 +62,6 @@
                 alert("Le numéro de plaque n'est pas renseignée");
             }
             else {
-
                 $.post('database/add_client.php', donnees);
             }
 
