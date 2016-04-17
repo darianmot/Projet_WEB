@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--salut c'est moi hehe-->
 <html>
+
 <?php include("template/head.php"); ?>
 
 <body>
@@ -35,7 +36,9 @@
 </div>
 
 <!--La carte-->
-<?php include("template/carte.php"); ?>
+<div class="map">
+    <?php include("template/carte.php"); ?>
+</div>
 
 <!-- Le pied de page -->
 

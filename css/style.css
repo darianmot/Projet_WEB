@@ -26,7 +26,7 @@ body
 	font-size: 16px;
 	/*text-align: center:  FP*/
 	text-align: center;
-    background-color:#d7d7d7;
+    background-color: #ffffff;
     margin:0;
 }
 
@@ -131,6 +131,7 @@ nav  ul  li
     display: inline-block;
     padding-right: 2em;
     cursor:pointer;
+    left: -10%;
 }
 
 /*style police*/
@@ -225,6 +226,7 @@ nav  ul ul
 
 nav  ul ul li
 {
+    left:0;
     position:relative;
     line-height: 1.2em;
     border-bottom: solid 1px #e5e5e5;
