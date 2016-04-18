@@ -93,7 +93,7 @@ img
 {
     width: 100%;
 	text-align: center;
-	
+
 }
 
 footer
@@ -105,7 +105,6 @@ footer
 	color: #666;
     bottom: 0;
 }
-
 
 /********************************************************************************
 menu
@@ -172,36 +171,36 @@ nav  ul li:hover >ul
     display:block;
 }
 
-.menu2
-{
-    position: fixed;
-    left: 10px;
-    right: 0;
-    top: 60px;
-    display: none;
-    text-align: left;
-    z-index: 1000;
-    min-width: 100%;
-    padding: 0;
-    margin: -10px;
-    border-radius: 4px;
-    background: rgba(208, 209, 208, 0.96);
-}
-
-/*nav  ul ul*/
+/*.menu2*/
 /*{*/
-    /*position: absolute;*/
-    /*left: 0;*/
+    /*position: relative;*/
+    /*!*left: 10px;*!*/
+    /*!*right: 0;*!*/
     /*top: 2.2em;*/
     /*display: none;*/
     /*text-align: left;*/
     /*z-index: 1000;*/
-    /*min-width: 10em;*/
+    /*min-width: 100%;*/
     /*padding: 0;*/
     /*margin: -10px;*/
     /*border-radius: 4px;*/
     /*background: rgba(208, 209, 208, 0.96);*/
 /*}*/
+
+nav  ul ul
+{
+    position: absolute;
+    left: 0;
+    top: 2.2em;
+    display: none;
+    text-align: left;
+    z-index: 1000;
+    min-width: 10em;
+    padding: 0;
+    margin: -10px;
+    border-radius: 4px;
+    background: rgba(208, 209, 208, 0.96);
+}
 
 nav  ul ul li
 {

@@ -5,7 +5,7 @@
 </head>
 <style type="text/css">
     #container{position:relative;width:990px;margin:auto;}
-    #container #map{width:500px;height:500px;margin:auto;}
+    #container #map{width:1000px;height:350px;margin:auto;}
 </style>
 <body>
 <div id="container">

@@ -36,11 +36,10 @@
 <!--    <img src="media/images/ferrari.jpg">-->
 <!--</div>-->
 
-
-<div class="bouton">
-    <a href="reservation.php " ><input type="button" value="Acheter une place"></a>
-    <a href="connexion.php"><input type = "button" value="Se connecter"></a>
+<div class="imgp">
+    <img src="media/images/p.png" style="width: 180px;">
 </div>
+
 
 <!--La carte-->
 <div class="map">
@@ -57,6 +56,10 @@
 
 </div>
 
+<!--<div class="bouton">-->
+<!--    <a href="reservation.php " ><input type="button" value="Acheter une place"></a>-->
+<!--    <a href="connexion.php"><input type = "button" value="Se connecter"></a>-->
+<!--</div>-->
 
 </body>
 </html>
