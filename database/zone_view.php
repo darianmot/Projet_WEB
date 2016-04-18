@@ -4,7 +4,7 @@ function clientList()
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_', $db); //Selection de la database
 
-    $sql = "SELECT * from ienac15_.PlaceOccupee";
+    $sql = "SELECT * from ienac15_.PlaceOccupee ORDER BY id_client";
 
     $req = mysqli_query($db, $sql) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
