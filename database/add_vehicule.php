@@ -28,7 +28,7 @@ function newVehicule()
 
 
     $sql_client = "INSERT INTO `ienac15_`.`Vehicule` (`plaque`, `type_vehicule`)
-        VALUES('{$_POST['plaque']}', '{$_POST['vehicule']}') ON DUPLICATE KEY UPDATE plaque = {$_POST['plaque']} ";
+        VALUES('{$_POST['plaque']}', '{$_POST['vehicule']}') ON DUPLICATE KEY UPDATE plaque = '{$_POST['plaque']}' ";
     $req = mysqli_query($db, $sql_client) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
     mysqli_close($db);
