@@ -93,7 +93,7 @@ img
 {
     width: 100%;
 	text-align: center;
-	
+
 }
 
 footer
@@ -105,7 +105,6 @@ footer
 	color: #666;
     bottom: 0;
 }
-
 
 /********************************************************************************
 menu
@@ -132,7 +131,7 @@ nav  ul  li
     display: inline-block;
     padding-right: 2em;
     cursor:pointer;
-    left: -10%;
+    left: -20%;
 }
 
 /*style police*/
@@ -172,6 +171,21 @@ nav  ul li:hover >ul
     display:block;
 }
 
+/*.menu2*/
+/*{*/
+    /*position: relative;*/
+    /*!*left: 10px;*!*/
+    /*!*right: 0;*!*/
+    /*top: 2.2em;*/
+    /*display: none;*/
+    /*text-align: left;*/
+    /*z-index: 1000;*/
+    /*min-width: 100%;*/
+    /*padding: 0;*/
+    /*margin: -10px;*/
+    /*border-radius: 4px;*/
+    /*background: rgba(208, 209, 208, 0.96);*/
+/*}*/
 
 nav  ul ul
 {
@@ -185,7 +199,7 @@ nav  ul ul
     padding: 0;
     margin: -10px;
     border-radius: 4px;
-    background: rgba(51, 52, 51, 0.96);
+    background: rgba(208, 209, 208, 0.96);
 }
 
 nav  ul ul li
@@ -196,7 +210,7 @@ nav  ul ul li
     border-bottom: solid 1px #e5e5e5;
     padding: 1em 0 1em 0;
     width: 100%;
-    color: #FFFFFF;
+    color: #333433;
 }
 
 nav  ul ul li  a
