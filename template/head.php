@@ -6,5 +6,5 @@
 <!--    <link rel="stylesheet" href="css/gallery.css">-->
     <link rel="stylesheet" type="text/css" href="css/banniere.css">
     <script type="text/javascript" src="js/jquery.js"></script>
-
+    <script type="text/javascript" src="js/menu_reservation.js"></script>
 </head>

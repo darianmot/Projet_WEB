@@ -16,6 +16,12 @@
 <!--</div>-->
 
 <!-- Le corps -->
+<div id = "reserv">
+    
+</div>
+
+
+
 <!-- slider -->
 <div class="slider">
     <?php include("template/slider.php"); ?>
@@ -45,6 +51,12 @@
 <div class="pied">
     <?php include("template/footer.php"); ?>
 </div>
+
+<div class="reserv_rapide">
+    <form id="" ></form>
+
+</div>
+
 
 </body>
 </html>

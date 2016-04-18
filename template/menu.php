@@ -14,7 +14,7 @@
             <li> Nos offres
                 <ul class="menu2">
 
-                    <li><span class="fa-stack fa-lg">
+                    <li id = "voiture"><span class="fa-stack fa-lg">
                         <i class="fa fa-car fa-stack-1x fa-inverse"></i>
                     </span>Voitures
                     </li>
