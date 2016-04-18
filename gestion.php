@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--salut c'est moi hehe-->
 
 <?php include("template/head.php"); ?>
 
@@ -11,7 +10,7 @@
 
 <!-- Le corps -->
 <h2>Ajouter des emplacements</h2>
-<form method="POST" action="database/add_emplacement.php" id = "newEmplacement">
+<form method="POST" action="database/add_places.php" id="newEmplacement">
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="zone" value="1" checked="checked" /> <label for="1">1</label>
@@ -20,8 +19,8 @@
 
     <label for="type">Type d'emplacement :</label>
     <?php
-    include("database/add_emplacement.php");
-    listTypeEmplacement();
+    include("database/add_places.php");
+    listTypeEVehicule();
     ?>
     <br/>
 

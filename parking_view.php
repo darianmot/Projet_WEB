@@ -31,7 +31,7 @@
 
 </form>
 
-<h1>Liste des clients de la table</h1>
+<h1>Liste des stationnements de la table</h1>
 <div id="view">
     <p>
         Y'a personne wesh
@@ -62,7 +62,7 @@
                 alert("Le numéro de plaque n'est pas renseignée");
             }
             else {
-                $.post('database/add_client.php', donnees);
+                $.post('database/add_vehicule.php', donnees);
             }
 
             //On met a jour le visu

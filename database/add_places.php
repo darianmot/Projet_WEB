@@ -1,10 +1,10 @@
 <?php
-function listTypeEmplacement()
+function listTypeEVehicule()
 {
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_',$db); //Selection de la database
-    
-    $sql = "SELECT * FROM `ienac15_`.`TypeEmplacement`";
+
+    $sql = "SELECT * FROM `ienac15_`.`TypeVehicule`";
     
     $req = mysqli_query($db, $sql) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
@@ -18,22 +18,25 @@ function listTypeEmplacement()
 
 }
 
-function newEmplacement()
+function newplace()
 {
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_',$db); //Selection de la database
 
-    $sql = "INSERT INTO `ienac15_`.`Emplacement` (`id_emplacement`, `id_zone`, `type_emplacement`, `occupe`) VALUES (NULL, {$_POST['zone']}, '{$_POST['type']}', NULL);";
+    $sql = "INSERT INTO `ienac15_`.`Place` (`id_place`, `id_zone`, `type_vehicule`) 
+            VALUES (NULL, {$_POST['zone']}, '{$_POST['type']}');";
 
     $req = mysqli_query($db,$sql) or die('Erreur SQL : ' . mysqli_error($db));
 
     mysqli_close($db);
 }
+
+
 if (isset($_POST['nombre'])) //Si la variable nombre a été renseignée
 {
     for ($i = 1; $i <= $_POST['nombre']; $i++)
     {
-        newEmplacement();
+        newplace();
     }
     echo "success";
 }
