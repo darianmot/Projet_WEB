@@ -6,68 +6,112 @@ USE ienac15_;
 
 CREATE TABLE Zone
 (
-  id_zone INT NOT NULL,
-  nom_zone CHAR(20),
+  id_zone INT,
   capacite INT,
+  tarif INT,
   PRIMARY KEY (id_zone)
 )ENGINE=INNODB;
 
 
-CREATE TABLE TypeEmplacement
+CREATE TABLE Utilisateur
+(
+  id_utilisateur CHAR(20) NOT NULL,
+  password CHAR(20),
+  nom CHAR(20),
+  prenom CHAR(20),
+  mail CHAR(50),
+  PRIMARY KEY (id_utilisateur)
+)ENGINE=INNODB;
+
+
+CREATE TABLE ClientWeb
+(
+  id_utilisateur CHAR(20) NOT NULL,
+  Solde INT,
+  PRIMARY KEY(id_utilisateur),
+  FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=INNODB;
+
+
+CREATE TABLE Admin
+(
+  id_utilisateur CHAR(20) NOT NULL,
+  PRIMARY KEY(id_utilisateur),
+  FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=INNODB;
+
+
+CREATE TABLE Gestion
+(
+  id_gestion INT AUTO_INCREMENT,
+  id_admin CHAR(20),
+  id_zone INT,
+  PRIMARY KEY(id_gestion),
+  FOREIGN KEY (id_admin) REFERENCES Admin(id_utilisateur),
+  FOREIGN KEY (id_zone) REFERENCES Zone(id_zone)
+)ENGINE=INNODB;
+
+
+CREATE TABLE TypeVehicule
 (
   type CHAR(20),
   PRIMARY KEY(type)
 )ENGINE=INNODB;
 
 
-CREATE TABLE Emplacement
+CREATE TABLE Place
 (
-  id_emplacement INT NOT NULL auto_increment,
+  id_place INT NOT NULL auto_increment,
   id_zone INT,
-  type_emplacement CHAR(20),
-  occupe CHAR(20) DEFAULT NULL,
-  PRIMARY KEY (id_emplacement),
+  type_vehicule CHAR(20),
+  PRIMARY KEY (id_place),
   FOREIGN KEY (id_zone) REFERENCES Zone(id_zone),
-  FOREIGN KEY (type_emplacement) REFERENCES TypeEmplacement(type)
+  FOREIGN KEY (type_vehicule) REFERENCES TypeVehicule(type)
 )ENGINE=INNODB;
 
 
-CREATE TABLE Client
+CREATE TABLE Vehicule
 (
   plaque CHAR(20) NOT NULL,
   type_vehicule CHAR(20),
-  date_entree DATETIME,
-  reservation CHAR(20),
-  zone_choisie INT,
+  id_clientweb CHAR(20) DEFAULT NULL,
   PRIMARY KEY (plaque),
-  FOREIGN KEY (zone_choisie) REFERENCES Zone(id_zone)
+  FOREIGN KEY (id_clientweb) REFERENCES ClientWeb(id_utilisateur),
+  FOREIGN KEY (type_vehicule) REFERENCES TypeVehicule(type)
 )ENGINE=INNODB;
 
-CREATE TABLE PlaceOccupee
+
+CREATE TABLE Stationnement
 (
-  id_client CHAR(20) NOT NULL,
-  id_attribution INT NOT NULL,
-  id_choisi INT NOT NULL,
-  PRIMARY KEY (id_client,id_attribution),
-  FOREIGN KEY (id_client) REFERENCES Client(plaque),
-  FOREIGN KEY (id_attribution) REFERENCES Emplacement(id_emplacement),
-  FOREIGN KEY (id_choisi) REFERENCES Emplacement(id_emplacement)
+  id_stationnement INT NOT NULL auto_increment,
+  plaque CHAR(20) NOT NULL,
+  id_place INT NOT NULL,
+  date_debut DATETIME,
+  date_fin DATETIME,
+  etat CHAR(20),
+  id_facture CHAR(20),
+  PRIMARY KEY (id_stationnement),
+  FOREIGN KEY (plaque) REFERENCES Vehicule(plaque),
+  FOREIGN KEY (id_place) REFERENCES Place(id_place)
 )ENGINE=INNODB;
+
 
 CREATE TABLE Facture
 (
   id_facture CHAR(20) NOT NULL,
-  prix_tot INT,
+  prix INT,
   date DATETIME,
   penalite INT,
-  plaque CHAR(20),
+  id_stationnement INT,
   PRIMARY KEY (id_facture),
-  FOREIGN KEY (plaque) REFERENCES Client(plaque)
+  FOREIGN KEY (id_stationnement) REFERENCES Stationnement(id_stationnement)
 )ENGINE=INNODB;
 
 
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('1', 'zone1', '100');
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('2', 'zone2', '200');
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `nom_zone`, `capacite`) VALUES ('3', 'zone3', '300');
-INSERT INTO `ienac15_`.`TypeEmplacement` VALUES ('voiture'),('moto'),('handicape');
+
+
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('1', '100');
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('2', '200');
+INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('3', '300');
+INSERT INTO `ienac15_`.`TypeVehicule` VALUES ('voiture'),('moto'),('handicape');
 
