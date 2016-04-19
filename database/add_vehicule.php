@@ -1,14 +1,15 @@
 <?php
-function freePlace()
+function freePlace($type)
     /*Renvoie une place disponible*/
 {
 
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_', $db); //Selection de la database
 
+    /*On fait un 'RIGHT JOIN' pour selectionner eventuellement des places qui n'ont pas encore servi pour stationner*/
     $selection_sql = "SELECT MIN(`ienac15_`.Place.id_place) AS id_place FROM `ienac15_`.`Stationnement` 
                     RIGHT JOIN `ienac15_`.Place ON `ienac15_`.Stationnement.id_place = `ienac15_`.Place.id_pLace
-                    WHERE (Stationnement.id_place IS NULL);"; //On fait un RIGHT JOIN pour élimnier les occurences présentes dans stationnement
+                    WHERE ((Stationnement.etat NOT IN ('occupee') or Stationnement.id_place IS NULL) AND Place.type_vehicule = '$type');";
 
     $selection_req = mysqli_query($db, $selection_sql) or die('Erreur SQL : ' . mysqli_error($db));
     mysqli_close($db);
@@ -20,19 +21,18 @@ function freePlace()
 }
 
 
-function newVehicule()
-    /*Ajoute un client dans la table et renvoie sa plaque*/
+function newVehicule($plaque, $type_vehicule)
+    /*Ajoute un vehicule dans la table*/
 {
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_', $db); //Selection de la database
 
 
     $sql_client = "INSERT INTO `ienac15_`.`Vehicule` (`plaque`, `type_vehicule`)
-        VALUES('{$_POST['plaque']}', '{$_POST['type']}') ON DUPLICATE KEY UPDATE plaque = '{$_POST['plaque']}' ";
+        VALUES('{$plaque}', '{$type_vehicule}') ON DUPLICATE KEY UPDATE plaque = '{$plaque}' ";
     $req = mysqli_query($db, $sql_client) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
     mysqli_close($db);
-    return $_POST['plaque'];
 }
 
 function stationnement($plaque, $place)
@@ -50,8 +50,11 @@ function stationnement($plaque, $place)
     mysqli_close($db);
 }
 
-$client = newVehicule();
-$place = freePlace();
-stationnement($client, $place);
+if (isset($_POST['plaque']) and isset($_POST['type'])) {
+    newVehicule($_POST['plaque'], $_POST['type']);
+    $place = freePlace($_POST['type']);
+    stationnement($_POST['plaque'], $place);
+}
+
 
 ?>
