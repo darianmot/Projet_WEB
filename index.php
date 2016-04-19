@@ -16,31 +16,33 @@
 <!--</div>-->
 
 <!-- Le corps -->
-<div id = "reserv">
-    
-</div>
 
-
+<h1>Bienvenue dans votre parking Car'Park !</h1>
 
 <!-- slider -->
 <div class="slider">
     <?php include("template/slider.php"); ?>
 </div>
 
-<div>
-    <h1>Bienvenue dans votre parking</h1>
-</div>
+
 
 <!--<div>-->
 <!--    <img src="media/images/accueil_park.jpg">-->
 <!--    <img src="media/images/ferrari.jpg">-->
 <!--</div>-->
-<div class="img_center">
-    <img src="media/images/parking.jpg">
 
-</div>
+<!-- Image de pub-->
+<!--<div class="img_center">-->
+<!--    <img src="media/images/parking.jpg">-->
+<!--</div>-->
+
+<!--Formulaire de réservation rapide -->
+
+
+<?php include('formulaire_reservation.php') ?>
 
 <!--La carte-->
+
 <div class="map">
     <?php include("template/carte.php"); ?>
 </div>

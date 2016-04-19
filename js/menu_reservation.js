@@ -3,6 +3,6 @@
  */
 $(document).ready(function(){
    $("#voiture").click(function(){
-       $("#reserv").html("toto");
+       $("#reserv").replaceWith("<?php include('../formulaire_reservation.php')?>");
    });
 });
