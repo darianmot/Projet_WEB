@@ -8,7 +8,7 @@ function freePlace()
 
     $selection_sql = "SELECT MIN(`ienac15_`.Place.id_place) AS id_place FROM `ienac15_`.`Stationnement` 
                     RIGHT JOIN `ienac15_`.Place ON `ienac15_`.Stationnement.id_place = `ienac15_`.Place.id_pLace
-                    WHERE Stationnement.id_place IS NULL"; //On fait un RIGHT JOIN pour élimnier les occurences présentes dans stationnement
+                    WHERE (Stationnement.id_place IS NULL);"; //On fait un RIGHT JOIN pour élimnier les occurences présentes dans stationnement
 
     $selection_req = mysqli_query($db, $selection_sql) or die('Erreur SQL : ' . mysqli_error($db));
     mysqli_close($db);
@@ -28,7 +28,7 @@ function newVehicule()
 
 
     $sql_client = "INSERT INTO `ienac15_`.`Vehicule` (`plaque`, `type_vehicule`)
-        VALUES('{$_POST['plaque']}', '{$_POST['vehicule']}') ON DUPLICATE KEY UPDATE plaque = '{$_POST['plaque']}' ";
+        VALUES('{$_POST['plaque']}', '{$_POST['type']}') ON DUPLICATE KEY UPDATE plaque = '{$_POST['plaque']}' ";
     $req = mysqli_query($db, $sql_client) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
     mysqli_close($db);

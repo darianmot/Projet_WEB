@@ -16,11 +16,9 @@
     <label for="plaque">Plaque :</label>
     <input type="text" name="plaque" id="plaque" /><br/>
 
-    <label for="vehicule">Type de véhicule :</label>
-    <select name="vehicule" id="vehicule">
-        <option value="voiture">Voiture</option>
-        <option value="moto">Moto</option>
-    </select><br/>
+    <label for="type">Type de véhicule :</label>
+    <?php include "database/add_places.php";
+    listTypeEVehicule() ?>
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="zone" value="1" checked="checked" /> <label for="1">1</label>
@@ -41,10 +39,14 @@
 <script>
 
     $(document).ready(function(e) {
-        $.ajaxSetup({async: false});//Evite de continuer le scirpt avant que les requetes soit finies
-        
-        $.get('database/zone_view.php',function(data) {
-              $('#view').html(data);
+        $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
+
+        $.post('database/zone_view.php', {
+                id_zone: 1,
+                lg_table: 10
+            },
+            function (data) {
+                $('#view').html(data);
         });
 
 
@@ -54,19 +56,20 @@
             //On met a jour la database
             var $this = $(this);
             var plaque = $('#plaque').val();
-            var vehicule = $('#vehicule').val();
-            var zone = $('#zone').val();
-            var donnees = $this.serialize();
-
+            var zone = $('input[name="zone"]:checked').val()
+            var donnees = $this.serialize() + "&id_zone=" + zone;
             if(plaque === '') {
                 alert("Le numéro de plaque n'est pas renseignée");
             }
             else {
                 $.post('database/add_vehicule.php', donnees);
             }
-
             //On met a jour le visu
-            $.get('database/zone_view.php',function(data) {
+            $.post('database/zone_view.php', {
+                    id_zone: zone,
+                    lg_table: 10
+                },
+                function (data) {
                 $('#view').html(data);
             });
 

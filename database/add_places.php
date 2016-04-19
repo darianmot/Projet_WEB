@@ -9,7 +9,7 @@ function listTypeEVehicule()
     $req = mysqli_query($db, $sql) or die('Erreur SQL : ' . mysqli_error($db)); // Envoie de la requête
 
     mysqli_close($db);
-    echo '<select name="type">';
+    echo '<select name="type" id="type">';
     while($data = mysqli_fetch_assoc($req))
     {
         echo '<option>'.$data['type'].'</option>';
