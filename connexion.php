@@ -16,5 +16,6 @@
     <input type = "submit" value = "S'identifier">
 </form>
 <a href="index.php"><input type="button" value="Précédent"><f</a>
+<?php include("template/footer.php") ?>
 </body>
 </html>

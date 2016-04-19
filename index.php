@@ -35,11 +35,10 @@
 <!--    <img src="media/images/accueil_park.jpg">-->
 <!--    <img src="media/images/ferrari.jpg">-->
 <!--</div>-->
+<div class="img_center">
+    <img src="media/images/parking.jpg">
 
-<div class="imgp">
-    <img src="media/images/p.png" style="width: 180px;">
 </div>
-
 
 <!--La carte-->
 <div class="map">
@@ -47,14 +46,8 @@
 </div>
 
 <!-- Le pied de page -->
-<div class="pied">
-    <?php include("template/footer.php"); ?>
-</div>
+<?php include("template/footer.php"); ?>
 
-<div class="reserv_rapide">
-    <form id="" ></form>
-
-</div>
 
 <!--<div class="bouton">-->
 <!--    <a href="reservation.php " ><input type="button" value="Acheter une place"></a>-->
