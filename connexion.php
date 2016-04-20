@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <?php include("template/head.php") ?>
@@ -5,11 +6,11 @@
 <?php include("template/header.php"); ?>
 <?php include("template/menu.php")?>
 <h1>Connexion</h1>
-<form>
+<form action="compte.php" method="post">
     <table>
     <tbody>
-    <tr><td><b>Identifiant</b></td><td><input type="text" name="texte" value=""></td></tr>
-    <tr><td><b>Password</b></td><td><input type="password" name="texte" value="">
+    <tr><td><b>Identifiant</b></td><td><input type="text" name="identifiant" value=""></td></tr>
+    <tr><td><b>Password</b></td><td><input type="password" name="password" value="">
             </td></tr>
     </tbody>
 </table>

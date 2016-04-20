@@ -1,3 +1,6 @@
+<?php
+session_start(); // On démarre la session
+?>
 <head>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 </head>
@@ -35,7 +38,19 @@
             <li><a href="parking_view.php"> Plan des parkings</a></li>
             <li><a href="#map">Plan d'accès</a></li>
             <li> S'inscrire</li>
-            <li><a href='connexion.php'>Connexion</a></li>
+            <?php if ($_SESSION['identifiant']!='')
+            {echo(" <li id=offres> Bienvenue {$_SESSION['identifiant']}
+            <ul id=menu2>
+
+                    <li id = 'voiture'><span class='fa-stack fa-lg'>
+                        <i class='fa fa-user fa-stack-1x fa-inverse'></i>
+                    </span>Votre Compte
+                    <li><a href='deconnexion.php'>Deconnexion</a></li>
+                </ul>
+            </li>");}
+            else
+            {echo "<li><a href='connexion.php'>Connexion</a></li>";}?>
+</ul>
 </nav>
 <!---->
 <!--<nav id="menu2">-->
