@@ -1,3 +1,6 @@
+<?php
+session_start(); // On démarre la session
+?>
 <!DOCTYPE html>
 <!--salut c'est moi hehe-->
 <html>
@@ -5,11 +8,10 @@
 <?php include("template/head.php"); ?>
 
 <body>
-
 <?php include("template/header.php"); ?>
 
 <?php include("template/menu.php"); ?>
-
+<?php echo($_SESSION['identifiant']);?>
 <!--En-tete-->
 <div class="entete">
     <h1>parking aeroport enac</h1>

@@ -43,7 +43,7 @@ function placeTable($id_zone, $lg_table)
         /*On crée une case dans le tableau pour chaque place*/
         while ($place = mysqli_fetch_assoc($req_places)) {
 
-            /*On crée un nouvelle ligne si la ligne courante est trop longue*/
+            /*On crée un nouvelle ligne si la ligne courante du tableau est trop longue*/
             if ($i % $lg_table == 0)
             {
                 echo '</tr><tr>';
