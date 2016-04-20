@@ -2,8 +2,6 @@
 // demarrage de la session
 session_start();
 // creation des variables de session
-$_SESSION['identifiant'] = '';
-$_SESSION['password'] = '';
 ?>
 <!DOCTYPE html>
 <html>

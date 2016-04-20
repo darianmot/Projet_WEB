@@ -1,5 +1,7 @@
 <?php
-session_start(); // On démarre la session
+// demarrage de la session
+session_start();
+// creation des variables de session
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
