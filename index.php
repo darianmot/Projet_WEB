@@ -11,9 +11,9 @@
 <?php include("template/menu.php"); ?>
 
 <!--En-tete-->
-<!--<div class="entete">-->
-<!--    Le meilleur parking-->
-<!--</div>-->
+<div class="entete">
+    <h1>parking aeroport enac</h1>
+</div>
 
 <!-- Le corps -->
 

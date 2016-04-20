@@ -1,14 +1,6 @@
 @import
 url("http://fonts.googleapis.com/css?family=Open+Sans:400");
 
-@font-face {
-    font-family: 'MNSTRIAL';
-    src: url('../fonts/mnstrial/MNSTRIAL.eot');
-    src: local('MNSTRIAL'), url('../fonts/mnstrial/MNSTRIAL.woff') format('woff'), url('../fonts/mnstrial/MNSTRIAL.ttf') format('truetype');
-
-}
-
-
 table {
     border-width:1px;
     border-style:solid;
@@ -28,12 +20,20 @@ body
     position :relative;
     top:70px;
 	font-weight: 300;
+	/*color: "777;   FP*/
 	color:#777;
 	line-height: 1.65em;
 	font-size: 16px;
+	/*text-align: center:  FP*/
 	text-align: center;
-    background: url('../media/images/background.jpg') fixed no-repeat;
+    background-color: #ffffff;
     margin:0;
+}
+
+.entete
+{
+    height: 70px;
+    top: 0;
 }
 
 header
@@ -41,18 +41,20 @@ header
 	border-bottom: 2px solid #e5e5e5;
 }
 
-h1
+header h1
 {
-    color: darkorange;
+    position: fixed;
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: 700;
-	font-size: 2em;
-	letter-spacing: 10px;
+	color: #ffffff;
+	font-size: 2.5em;
+	letter-spacing: 15px;
 	text-shadow: 0.05em 0.075em 0 rgba(0,0,0,0.1);
 }
 
-h2
+
+header h2
 {
 	text-transform: uppercase;
 	text-align: center;
@@ -61,42 +63,15 @@ h2
 	letter-spacing: 12px;
 	font-size: 2em;}
 
-h3
+
+
+header p
 {
-    font-family: MNSTRIAL;
-    position: relative;
-    top: 10px;
-    text-transform: uppercase;
-    text-align: left;
-    margin-left: 20px;
-    color: orange;
-    font-size: 2em;
-
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 400;
+	color: #888;
 }
-
-.slider{
-    margin-left: 12%;
-    margin-right: 12%;
-}
-
-
-.reserv{
-    background: wheat;
-    height: 150px;
-    margin-top: 50px;
-    margin-left:180px;
-    margin-right: 180px;
-    margin-bottom: 50px;
-    opacity: 0.85;
-    align-items: left;
-}
-
-.reserv .encart_reserv{
-    position: absolute;
-    left:20%;
-
-}
-
 
 section
 {
@@ -150,8 +125,6 @@ menu
 ********************************************************************************/
 nav {
     /*Pour faire suivre le menu quand on deroule la page*/
-    text-align: right;
-    text-transform: uppercase;
     position: fixed;
     top: 0;
     width: 100%;
@@ -167,9 +140,8 @@ nav {
 /*mise en forme du menu*/
 nav  ul  li
 {
-    margin-left: 20px;
-    margin-right: 20px;
     display: inline-block;
+    padding-right: 2em;
     cursor:pointer;
     left: -20%;
 }
