@@ -35,6 +35,10 @@
         Y'a personne wesh
     </p>
 </div>
+
+<div id="place_info" style="background-color: #3399FF">
+    Cliquer sur une place pour afficher les détails
+</div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script>
 
@@ -76,7 +80,14 @@
             //On reset le form
             $('#newClient')[0].reset();
         });
+        $('.place').click(function () {
+            var id_place = $(this).attr('id');
+            $.post('database/place_view.php', {id_place: id_place}, function (data) {
+                $('#place_info').html(data);
+            });
+        });
     });
+
 </script>
 
 
