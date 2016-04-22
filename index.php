@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<!--salut c'est moi hehe-->
 <html>
 
 <?php include("template/head.php"); ?>
@@ -23,17 +22,6 @@
     <?php include("template/slider.php"); ?>
 </div>
 
-
-
-<!--<div>-->
-<!--    <img src="media/images/accueil_park.jpg">-->
-<!--    <img src="media/images/ferrari.jpg">-->
-<!--</div>-->
-
-<!-- Image de pub-->
-<!--<div class="img_center">-->
-<!--    <img src="media/images/parking.jpg">-->
-<!--</div>-->
 
 <!--Formulaire de réservation rapide -->
 
