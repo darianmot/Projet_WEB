@@ -5,6 +5,7 @@
 <?php include("template/header.php"); ?>
 <?php include("template/menu.php")?>
 <h1>Connexion</h1>
+
 <form action="compte.php" method="post">
     <table>
     <tbody>
