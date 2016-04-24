@@ -43,6 +43,13 @@ header
 	border-bottom: 2px solid #e5e5e5;
 }
 
+.titre img{
+    width: 20%;
+
+}
+
+
+
 h1
 {
     color: darkorange;
