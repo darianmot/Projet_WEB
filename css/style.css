@@ -32,6 +32,7 @@ body
 	line-height: 1.65em;
 	font-size: 16px;
 	text-align: center;
+    align-content: center;
     margin:0;
     background-image: url("../media/images/background.jpg");
     background-attachment: fixed;
@@ -86,8 +87,6 @@ h3
     height: auto;
     width: 76.5%;
     margin-top: 50px;
-    margin-left:180px;
-    margin-right: 100px;
     margin-bottom: 50px;
     opacity: 0.85;
 }
