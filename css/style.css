@@ -32,8 +32,9 @@ body
 	line-height: 1.65em;
 	font-size: 16px;
 	text-align: center;
-    background: url('../media/images/background.jpg') fixed no-repeat;
     margin:0;
+    background-image: url("../media/images/background.jpg");
+    background-attachment: fixed;
 }
 
 header
@@ -80,22 +81,20 @@ h3
 }
 
 
-.reserv{
+.reserv {
     background: wheat;
-    height: 150px;
+    height: auto;
     margin-top: 50px;
     margin-left:180px;
     margin-right: 180px;
     margin-bottom: 50px;
     opacity: 0.85;
-    align-items: left;
 }
 
-.reserv .encart_reserv{
-    position: absolute;
-    left:20%;
-
+td{
+    align-content: center;
 }
+
 
 
 section
