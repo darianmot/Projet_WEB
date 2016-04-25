@@ -1,5 +1,6 @@
 <?php
 function place_view($id_place)
+    /*Renvoie un tableau contenant les informations associées à une place*/
 {
     $db = mysqli_connect('localhost', 'root', 'mysql'); //Connection
     mysqli_select_db('ienac15_', $db); //Selection de la database

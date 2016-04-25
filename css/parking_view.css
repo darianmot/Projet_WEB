@@ -10,3 +10,13 @@
     opacity: 0.5;
     cursor: pointer;
 }
+
+#place_info {
+    float: right;
+    margin-right: 5%;
+}
+
+#view {
+    float: left;
+    margin-left: 50px;
+}

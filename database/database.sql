@@ -6,7 +6,6 @@ USE ienac15_;
 CREATE TABLE Zone
 (
   id_zone INT,
-  capacite INT,
   tarif INT,
   PRIMARY KEY (id_zone)
 )ENGINE=INNODB;
@@ -99,7 +98,6 @@ CREATE TABLE Facture
 (
   id_facture CHAR(20) NOT NULL,
   prix INT,
-  date DATETIME,
   penalite INT,
   id_stationnement INT,
   PRIMARY KEY (id_facture),

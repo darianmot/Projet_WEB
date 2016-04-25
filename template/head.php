@@ -3,7 +3,7 @@
     <title>Car Park</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/zone_view.css">
+    <link rel="stylesheet" type="text/css" href="css/parking_view.css">
     <link rel="stylesheet" type="text/css" href="css/banniere.css">
 
     <script type="text/javascript" src="js/jquery.js"></script>
