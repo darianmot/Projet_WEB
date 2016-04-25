@@ -9,6 +9,7 @@ session_start();
 
 <nav>
         <ul>
+            <img class="img_nav" src="./media/images/logo2.png">
             <li>
                 <a href='index.php'>
                     <span class="fa-stack fa-lg">
@@ -16,7 +17,7 @@ session_start();
                 </span>
                 </a>
             </li>
-            <li id="offres"> Nos offres
+            <li id="offres"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Nos offres
                 <ul id="menu2">
 
                     <li id = "voiture"><span class="fa-stack fa-lg">
@@ -36,10 +37,10 @@ session_start();
 
                 </ul>
             </li>
-            <li>Parking direct</li>
-            <li><a href="parking_view.php"> Plan des parkings</a></li>
-            <li><a href="#map">Plan d'accès</a></li>
-            <li> S'inscrire</li>
+            <li><i class="fa fa-bar-chart" aria-hidden="true"></i> Parking direct</li>
+            <li><a href="parking_view.php"><i class="fa fa-map" aria-hidden="true"></i>Plan des parkings</a></li>
+            <li><a href="#map"><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
+            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>S'inscrire</li>
             <?php if ($_SESSION['identifiant']!='')
             {echo(" <li id=offres> Bienvenue {$_SESSION['identifiant']}
             <ul id=menu2>
@@ -51,7 +52,7 @@ session_start();
                 </ul>
             </li>");}
             else
-            {echo "<li><a href='connexion.php'>Connexion</a></li>";}?>
+            {echo "<li><a href='connexion.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";}?>
 </ul>
 </nav>
 <!---->
