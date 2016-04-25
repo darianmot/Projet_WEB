@@ -22,7 +22,7 @@ $(document).ready(function (e) {
             alert("Le numéro de plaque n'est pas renseignée");
         }
         else {
-            $.post('database/add_vehicule.php', donnees);
+            $.post('database/zone_manager.php', donnees);
         }
         //On met a jour le visu
         $.post('database/zone_view.php', {
