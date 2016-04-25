@@ -55,33 +55,3 @@ session_start();
             {echo "<li><a href='connexion.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";}?>
 </ul>
 </nav>
-<!---->
-<!--<nav id="menu2">-->
-<!--    <ul>-->
-<!---->
-<!--        <li id = "voiture"><span class="fa-stack fa-lg">-->
-<!--                            <i class="fa fa-car fa-stack-1x fa-inverse"></i>-->
-<!--                        </span>Voitures-->
-<!--        </li>-->
-<!---->
-<!--        <li><span class="fa-stack fa-lg">-->
-<!--                            <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>-->
-<!--                        </span>Moto-->
-<!--        </li>-->
-<!---->
-<!--        <li><span class="fa-stack fa-lg">-->
-<!--                            <i class="fa fa-taxi fa-stack-1x fa-inverse"></i>-->
-<!--                        </span>Location-->
-<!--        </li>-->
-<!---->
-<!--    </ul>-->
-<!--</nav>-->
-<!---->
-<!---->
-<!--<script src="js/jquery.js"></script>-->
-<!--<script>-->
-<!--    $(function() {-->
-<!--        $('#offres').click(function(-->
-<!--            $('menu2').show('slow');))-->
-<!--    });-->
-<!--</script>-->

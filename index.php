@@ -5,18 +5,16 @@
 <?php include("template/head.php"); ?>
 
 <body>
-<?php include("template/header.php"); ?>
-
 <?php include("template/menu.php"); ?>
-<!--En-tete-->
-<!--<div class="entete">-->
-<!--    Le meilleur parking-->
-<!--</div>-->
 
 <!-- Le corps -->
+
+<!-- Logo -->
 <div class="titre">
     <img src="./media/images/logo2.png">
 </div>
+
+
 
 <!-- slider -->
 <div class="slider">
