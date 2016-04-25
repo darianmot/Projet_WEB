@@ -28,13 +28,14 @@ td {
 }
 body
 {
-    position :relative;
+    position: relative;
     top:70px;
 	font-weight: 300;
 	color:#777;
 	line-height: 1.65em;
 	font-size: 16px;
 	text-align: center;
+    align-content: center;
     margin:0;
     background-image: url("../media/images/background.jpg");
     background-attachment: fixed;
@@ -45,6 +46,19 @@ body
 header
 {
 	border-bottom: 2px solid #e5e5e5;
+}
+
+.titre img{
+    width: 20%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}
+
+.img_nav {
+    width: 6%;
+    position: absolute;
+    left: 0;
 }
 
 h1
@@ -87,14 +101,11 @@ h3
 
 
 .reserv {
-    background: wheat;
-    height: auto;
+    background: lightgrey;
     width: 76.5%;
     margin-top: 50px;
-    margin-left:180px;
-    margin-right: 100px;
     margin-bottom: 50px;
-    opacity: 0.85;
+    opacity: 0.7;
 }
 
 .map {

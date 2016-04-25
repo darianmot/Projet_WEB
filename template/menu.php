@@ -9,6 +9,7 @@ session_start();
 
 <nav>
         <ul>
+            <img class="img_nav" src="./media/images/logo2.png">
             <li>
                 <a href='index.php'>
                     <span class="fa-stack fa-lg">

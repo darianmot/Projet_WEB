@@ -14,8 +14,9 @@
 <!--</div>-->
 
 <!-- Le corps -->
-
-<h1>Bienvenue dans votre parking Car'Park !</h1>
+<div class="titre">
+    <img src="./media/images/logo2.png">
+</div>
 
 <!-- slider -->
 <div class="slider">
