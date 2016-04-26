@@ -11,14 +11,14 @@
 
 <!-- Le corps -->
 
-<form method="post" id = "newClient">
+<form method="post" id="newStationnement">
     
     <label for="plaque">Plaque :</label>
     <input type="text" name="plaque" id="plaque" /><br/>
 
     <label for="type">Type de véhicule :</label>
     <?php include "database/add_places.php";
-    listTypeEVehicule() ?>
+    listTypeVehicule() ?>
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="zone" value="1" checked="checked" /> <label for="1">1</label>
@@ -40,12 +40,13 @@
 <div id="place_info">
     Cliquer sur une place pour afficher les détails
 </div>
-<script type="text/javascript" src="js/parking_view.js"></script>
 
+<script type="text/javascript" src="js/parking_view.js"></script>
 
 <!-- Le pied de page -->
 
 <?php include("template/footer.php"); ?>
+
 </body>
 
 
