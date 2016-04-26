@@ -18,8 +18,9 @@
 
     <label for="type">Type d'emplacement :</label>
     <?php
-    include("database/add_places.php");
-    listTypeVehicule();
+    include("database/type_vehicule.php");
+    $type_manager = new TypeManager();
+    $type_manager->typeList();
     ?>
     <br/>
 

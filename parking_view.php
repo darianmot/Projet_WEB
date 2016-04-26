@@ -17,8 +17,11 @@
     <input type="text" name="plaque" id="plaque" /><br/>
 
     <label for="type">Type de véhicule :</label>
-    <?php include "database/add_places.php";
-    listTypeVehicule() ?>
+    <?php
+    include("database/type_vehicule.php");
+    $type_manager = new TypeManager();
+    $type_manager->typeList();
+    ?>
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="zone" value="1" checked="checked" /> <label for="1">1</label>

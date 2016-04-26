@@ -79,15 +79,23 @@ class Zone
 }
 
 if (isset($_POST['id_form'])) {
-    $bdd = new mysqli('localhost', 'root', 'mysql', 'ienac15_');
+    include "bdd_connection.php";
+    $conection = new Connection();
+    $bdd = $conection -> getBdd();
     $zone = new Zone($bdd, $_POST['id_zone']);
-    if ($_POST['id_form'] == 'newStationnement') {
-        if (isset($_POST['plaque']) and isset($_POST['type'])) {
+    
+    if ($_POST['id_form'] == 'newStationnement') 
+    {
+        if (isset($_POST['plaque']) and isset($_POST['type'])) 
+        {
             $zone->addStationnement($_POST['plaque'], $_POST['type']);
         }
-    } elseif ($_POST['id_form'] == 'newPlace') {
+    } 
+    elseif ($_POST['id_form'] == 'newPlace') 
+    {
         if (isset($_POST['nombre'])) {
-            for ($i = 1; $i <= $_POST['nombre']; $i++) {
+            for ($i = 1; $i <= $_POST['nombre']; $i++) 
+            {
                 $zone->addPlace($_POST['type']);
             }
         }
