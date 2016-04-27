@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/banniere.css">
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/menu_reservation.js"></script>
+    <script type="text/javascript" src="js/price.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>

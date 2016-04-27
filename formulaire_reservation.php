@@ -44,7 +44,11 @@
                 <label for="Véhicule handicapé ?">Véhicule handicapé ?</label>
             </div>
 
-            <div>
+            <div class="col-md-3">
+                <input type="date" name="date_reservation">
+            </div>
+
+            <div class="col-md-3">
                 <button type="submit" class="button_reserv">Réserver maintenant !</button>
             </div>
 

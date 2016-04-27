@@ -95,9 +95,21 @@ h3
 
 }
 
+h4 {
+    font-size: 1.4em;
+    color: red;
+
+}
+
 .slider{
     margin-left: 12%;
     margin-right: 12%;
+}
+
+
+.col-md-3{
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
@@ -115,6 +127,7 @@ h3
 .button_reserv {
     width: 300px;
     height: 60px;
+    left:0 ;
     font-size: 1.6em;
     background: linear-gradient(aliceblue, lightblue);
     text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
@@ -123,12 +136,37 @@ h3
 }
 
 .button_reserv:hover{
-    background: pink;
+    background: yellow;
 }
 
 .button_reserv:active{
     background: aliceblue;
 }
+
+.button_price {
+    width: 300px;
+    height: 60px;
+    left: 0;
+    font-size: 1.6em;
+    background: linear-gradient(orange, orangered);
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border-width: 3px;
+    border-radius: 8px;
+    color: white;
+}
+
+.button_price:hover {
+    background: forestgreen;
+
+}
+
+
+.button_reserv:active {
+    background: orange;
+}
+
+
+
 
 .encart_reserv{
     width: 250px;
@@ -147,6 +185,10 @@ h3
     border-width: 3px;
     border-radius: 8px;
 }
+
+
+
+
 
 
 .map {
