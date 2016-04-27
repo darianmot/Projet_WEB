@@ -9,7 +9,7 @@
 
 <!-- Le corps -->
 <h2>Ajouter des emplacements</h2>
-<form method="POST" action="database/zone_manager.php" id="newPlace">
+<form method="POST"  id="newPlace">
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="id_zone" value="1" checked="checked"/> <label for="1">1</label>

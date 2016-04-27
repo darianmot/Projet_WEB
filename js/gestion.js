@@ -12,7 +12,7 @@ $(document).ready(function (e) {
             alert("Le nombre de places à rajouter est incorrect");
         }
         else {
-            $.post('database/zone_manager.php', donnees);
+            $.post('database/place_manager.php', donnees);
             $('#message').html('<p style="color:green;">' + $('#nombre').val() +
                 ' place(s) de type "' + $('#type').val() +
                 '" ajoutée(s) à la zone ' + zone + '</p>');
