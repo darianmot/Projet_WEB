@@ -1,9 +1,10 @@
 $(document).ready(function (e) {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
+    var lg_table = 30;
 
     $.post('database/zone_view.php', {
             id_zone: 1,
-            lg_table: 10
+            lg_table: lg_table
         },
         function (data) {
             $('#view').html(data);
@@ -28,15 +29,16 @@ $(document).ready(function (e) {
         /*On met a jour le visu*/
         $.post('database/zone_view.php', {
                 id_zone: zone,
-                lg_table: 10
+                lg_table: lg_table
             },
             function (data) {
                 $('#view').html(data);
             });
 
+
         $('.place').click(function () {
             var id_place = $(this).attr('id');
-            $.post('database/place_view.php', {id_place: id_place}, function (data) {
+            $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
                 $('#place_info').html(data);
             });
         });
@@ -48,7 +50,7 @@ $(document).ready(function (e) {
     /*Si on clique sur une place, ses infos s'affichent*/
     $('.place').click(function () {
         var id_place = $(this).attr('id');
-        $.post('database/place_view.php', {id_place: id_place}, function (data) {
+        $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
             $('#place_info').html(data);
         });
     });

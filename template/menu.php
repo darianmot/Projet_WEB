@@ -59,6 +59,6 @@ session_start();
                 echo "<li><a href='connexion.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
             }
             ?>
-            <li><a href="gestion.php">Gestion<a/></li>
+            <li><a href="gestion.php">Gestion</a></li>
 </ul>
 </nav>

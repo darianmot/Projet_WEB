@@ -41,8 +41,38 @@ class PlaceManager
         $place = $response->fetch_assoc();
         return $place['id_place'];
     }
+    
+    /*Renvoie un tableau contenant les informations associées à une place*/
+    public function placeView($id_place)
+    {
+        $response = $this->getBdd()->query("SELECT * FROM ienac15_.Stationnement RIGHT JOIN ienac15_.Place
+            ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}'");
 
+        echo '<table>';
+        while ($data = $response->fetch_assoc()) {
+            /*Id de la place*/
+            echo '<tr><td>ID Place : </td><td>' . $data['id_place'] . '</td>';
+
+            /*Statue de la place*/
+            echo '<tr><td>Status : </td><td>';
+            if ($data['etat'] == NULL) {
+                echo 'libre';
+            } else {
+                echo $data['etat'];
+            }
+            echo '</td></tr>';
+
+            /*Véhicule eventuel sur la plaque*/
+            echo '<tr><td>Vehicule :</td><td>' . $data['plaque'] . '</td></tr>';
+
+
+        }
+        echo '</table>';
+    }
 }
+
+
+
 if (isset($_POST['id_form'])) {
     $connection = new Connection();
     $bdd = $connection -> getBdd();
@@ -54,6 +84,14 @@ if (isset($_POST['id_form'])) {
             }
         }
     }
+    elseif ($_POST['id_form'] == 'place_view')
+    {
+       if (isset($_POST['id_place']))
+       {
+           $placeManager->placeView($_POST['id_place']);
+       }
+    }
+        
 }
 ?>
 
