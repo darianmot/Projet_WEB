@@ -33,7 +33,7 @@
 </form>
 
 <script type="text/javascript" src="js/gestion.js"></script>
-<div id="message">
+<div id="msg">
 </div>
 
 

@@ -13,9 +13,12 @@ $(document).ready(function (e) {
         }
         else {
             $.post('database/place_manager.php', donnees);
-            $('#message').html('<p style="color:green;">' + $('#nombre').val() +
+            $('#msg').hide();
+            $('#msg').html('<p style="color:green;">' + $('#nombre').val() +
                 ' place(s) de type "' + $('#type').val() +
                 '" ajoutée(s) à la zone ' + zone + '</p>');
+            $('#msg').show(700);
+
 
         }
 
