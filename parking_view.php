@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <!--salut c'est moi hehe-->
-<html xmlns="http://www.w3.org/1999/html">
+<html>
 <?php include("template/head.php"); ?>
 
 <body>
 
-<?php include("template/header.php"); ?>
 
 <?php include("template/menu.php"); ?>
 
@@ -48,7 +47,7 @@
 
 <!-- Le pied de page -->
 
-<?php include("template/footer.php"); ?>
+<?php //include("template/footer.php"); ?>
 
 </body>
 

@@ -2,9 +2,10 @@ $(document).ready(function (e) {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
     var lg_table = 30;
 
-    $.post('database/zone_view.php', {
+    $.post('database/zone_manager.php', {
             id_zone: 1,
-            lg_table: lg_table
+            lg_table: lg_table,
+            id_form: 'zoneView'
         },
         function (data) {
             $('#view').html(data);
@@ -17,7 +18,7 @@ $(document).ready(function (e) {
         /*On met a jour la database*/
         var $this = $(this);
         var plaque = $('#plaque').val();
-        var zone = $('input[name="zone"]:checked').val()
+        var zone = $('input[name="zone"]:checked').val();
         var donnees = $this.serialize() + "&id_zone=" + zone + "&id_form=newStationnement";
         if (plaque === '') {
             alert("Le numéro de plaque n'est pas renseignée");
@@ -27,9 +28,10 @@ $(document).ready(function (e) {
         }
 
         /*On met a jour le visu*/
-        $.post('database/zone_view.php', {
+        $.post('database/zone_manager.php', {
                 id_zone: zone,
-                lg_table: lg_table
+                lg_table: lg_table,
+                id_form: 'zoneView'
             },
             function (data) {
                 $('#view').html(data);
