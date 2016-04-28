@@ -11,7 +11,7 @@
 <h2>Ajouter des emplacements</h2>
 <form method="POST"  id="newPlace">
 
-    <label for="zone" id="zone">Zone :</label>
+    <label for="zone" id="view_zone">Zone :</label>
     <input type="radio" name="id_zone" value="1" checked="checked"/> <label for="1">1</label>
     <input type="radio" name="id_zone" value="2"/> <label for="2">2</label>
     <input type="radio" name="id_zone" value="3"/> <label for="3">3</label><br/>
@@ -33,7 +33,7 @@
 </form>
 
 <script type="text/javascript" src="js/gestion.js"></script>
-<div id="message">
+<div id="msg">
 </div>
 
 

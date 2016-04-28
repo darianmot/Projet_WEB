@@ -56,4 +56,15 @@ $(document).ready(function (e) {
             $('#place_info').html(data);
         });
     });
+    $('input[name="view_zone"]').change(function () {
+        var zone = $('input[name="view_zone"]:checked').val();
+        $.post('database/zone_manager.php', {
+                id_zone: zone,
+                lg_table: lg_table,
+                id_form: 'zoneView'
+            },
+            function (data) {
+                $('#view').html(data);
+            });
+    });
 });

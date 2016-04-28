@@ -31,15 +31,20 @@
 
 </form>
 
-<h1>Liste des stationnements de la table</h1>
-
+<h1>Visualiser les zones</h1>
+<form method="post">
+    <label for="zone" id="zone">Zone :</label>
+    <input type="radio" name="view_zone" value="1" checked="checked" /> <label for="1">1</label>
+    <input type="radio" name="view_zone" value="2"  /> <label for="2">2</label>
+    <input type="radio" name="view_zone" value="3"  /> <label for="3">3</label>*
+</form>
 <div id="view">
     <p>
         Y'a personne wesh
     </p>
 </div>
 
-<div id="place_info">
+<div id="place_info" class = 'popup'>
     Cliquer sur une place pour afficher les détails
 </div>
 

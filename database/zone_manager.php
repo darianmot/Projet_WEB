@@ -62,7 +62,7 @@ class ZoneManager
     public function tableView($lg_table)
     {
         /*On récupère la liste des types de véhicules (=type de places)*/
-        $response_type = $this->getBdd()->query( "SELECT * FROM `ienac15_`.`TypeVehicule`");
+        $response_type = $this->getBdd()->query("SELECT * FROM `ienac15_`.`TypeVehicule`");
 
         echo '<table cellspacing="30">';
         while ($type = mysqli_fetch_assoc($response_type)) {
@@ -112,29 +112,21 @@ if (isset($_POST['id_form'])) {
     $connection = new Connection();
     $bdd = $connection -> getBdd();
     $zone = new ZoneManager($bdd, $_POST['id_zone']);
-    
-    if ($_POST['id_form'] == 'newStationnement') 
+    switch ($_POST['id_form'])
     {
-        if (isset($_POST['plaque']) and isset($_POST['type'])) 
-        {
-            $zone->addStationnement($_POST['plaque'], $_POST['type']);
-        }
-    } 
-    elseif ($_POST['id_form'] == 'newPlace') 
-    {
-        if (isset($_POST['nombre'])) {
-            for ($i = 1; $i <= $_POST['nombre']; $i++) 
+        case "newStationnement":
+            if (isset($_POST['plaque']) and isset($_POST['type']))
             {
-                $zone->addPlace($_POST['type']);
+                $zone->addStationnement($_POST['plaque'], $_POST['type']);
             }
-        }
-    }
-    elseif ($_POST['id_form'] == 'zoneView')
-    {
-        if (isset($_POST['lg_table']))
-        {
-            $zone->tableView($_POST['lg_table']);
-        }
+            break;
+        case "zoneView":
+
+            if (isset($_POST['lg_table']))
+            {
+                $zone->tableView($_POST['lg_table']);
+            }
+            break;
     }
 }
 
