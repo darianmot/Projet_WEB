@@ -14,41 +14,41 @@
         </div>
 
         </br>
+        
+        </br>
 
         <div class="row">
+
+            <!-- Type de Véhicule -->
             <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="nom" placeholder="Nom"/>
+                <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
+                    <option value="" disabled selected hidden>Type de véhicule</option>
+                    <option>Voiture</option>
+                    <option>Moto</option>
+                </select>
+            </div>
+
+            <!-- Dates-->
+            <div class="col-md-3">
+                <label>Date d'entrée</label><input type="text" class="encart_datepicker" name="entry_date" placeholder="Date d'entrée">
             </div>
 
             <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="prenom" placeholder="Prenom"/>
-            </div>
-
-            <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="immatriculation" placeholder="N° d'immatriculation"/>
+                <label>Date de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date de sortie">
             </div>
         </div>
 
         </br>
 
         <div class="row">
-            <div class="col-md-3">
-                <select class="select_reserv" name="type" size="1">
-                    <option>Voiture</option>
-                    <option>Moto</option>
-                </select>
-            </div>
-
+            <!-- Checkbox véhicule handicapé -->
             <div class="col-md-3">
                 <input type="checkbox" name="handicap" value="1">
                 <label for="Véhicule handicapé ?">Véhicule handicapé ?</label>
             </div>
 
-            <div class="col-md-3">
-                <input type="date" name="date_reservation">
-            </div>
-
-            <div class="col-md-3">
+            <!-- Bouton de validation -->
+            <div class="col-md-pull-4">
                 <button type="submit" class="button_reserv">Réserver maintenant !</button>
             </div>
 
@@ -60,3 +60,4 @@
 
 </form>
 </html>
+

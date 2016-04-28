@@ -60,7 +60,7 @@
 <h3>Récapitulatif de vos informations</h3>
 
 <?php
-
+/*
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $type = $_POST['type'];
@@ -71,7 +71,7 @@ echo "<br/> Véhicule: $type";
 echo "<br/> N° d'immatriculation: $plaque";
 if ($handicap) {
     echo "<br/> -> Place handicapé";
-}
+}*/
 
 ?>
 <br/> <br/>

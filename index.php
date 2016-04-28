@@ -21,12 +21,14 @@
     <?php include("template/slider.php"); ?>
 </div>
 
+</br>
 
 <!--Formulaire de réservation rapide -->
 
 
 <?php include('formulaire_reservation.php') ?>
 
+</br></br>
 <!--La carte-->
 
 <div class="map">
