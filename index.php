@@ -5,30 +5,30 @@
 <?php include("template/head.php"); ?>
 
 <body>
-<?php include("template/header.php"); ?>
-
 <?php include("template/menu.php"); ?>
-<!--En-tete-->
-<div class="entete">
-    <h1>parking aeroport enac</h1>
-</div>
 
 <!-- Le corps -->
+
+<!-- Logo -->
 <div class="titre">
     <img src="./media/images/logo2.png">
 </div>
+
+
 
 <!-- slider -->
 <div class="slider">
     <?php include("template/slider.php"); ?>
 </div>
 
+</br>
 
 <!--Formulaire de réservation rapide -->
 
 
 <?php include('formulaire_reservation.php') ?>
 
+</br></br>
 <!--La carte-->
 
 <div class="map">

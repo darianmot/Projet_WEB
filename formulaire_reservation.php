@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
+<html>
 <?php include("template/head.php"); ?>
 
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-<form method="post" action="" enctype="multipart/form-data">
+
+<form method="post" action="resume_reservation.php" enctype="multipart/form-data">
 
     <div class="container reserv">
         <div class="row">
@@ -12,37 +14,42 @@
         </div>
 
         </br>
+        
+        </br>
 
         <div class="row">
+
+            <!-- Type de Véhicule -->
             <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="nom" placeholder="Nom"/>
+                <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
+                    <option value="" disabled selected hidden>Type de véhicule</option>
+                    <option>Voiture</option>
+                    <option>Moto</option>
+                </select>
+            </div>
+
+            <!-- Dates-->
+            <div class="col-md-3">
+                <label>Date d'entrée</label><input type="text" class="encart_datepicker" name="entry_date" placeholder="Date d'entrée">
             </div>
 
             <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="prenom" placeholder="Prenom"/>
-            </div>
-
-            <div class="col-md-3">
-                <input class="encart_reserv" type="text" name="immatriculation" placeholder="N° d'immatriculation"/>
+                <label>Date de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date de sortie">
             </div>
         </div>
 
         </br>
 
         <div class="row">
+            <!-- Checkbox véhicule handicapé -->
             <div class="col-md-3">
-                <select name="type" size="1">
-                    <option>Voiture</option>
-                    <option>Moto</option>
-                </select>
+                <input type="checkbox" name="handicap" value="1">
+                <label for="Véhicule handicapé ?">Véhicule handicapé ?</label>
             </div>
 
-            <div class="col-md-3">
-                <input type="checkbox" name="handicap" value="1">Véhicule handicapé ?
-            </div>
-
-            <div>
-                <button type="submit" name="button_reserv">Réserver maintenant !</button>
+            <!-- Bouton de validation -->
+            <div class="col-md-pull-4">
+                <button type="submit" class="button_reserv">Réserver maintenant !</button>
             </div>
 
         </div>
@@ -53,3 +60,4 @@
 
 </form>
 </html>
+
