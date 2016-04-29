@@ -6,14 +6,13 @@
     background-color: red;
 }
 
-.place:hover {
+.place a:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
-#place_info {
-    float: right;
-    margin-right: 5%;
+#place_info table {
+    margin: auto;
 }
 
 #view {

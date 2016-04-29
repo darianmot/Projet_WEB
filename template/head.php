@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 
 
-    <script type="text/javascript" src="js/jquery-2.2.3.js"</script>
+    <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/price.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

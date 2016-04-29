@@ -57,6 +57,11 @@ class ZoneManager
       VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
     }
 
+    public function endStationnement($id_stationnement)
+    {
+        $this->getBdd()->query("Update Stationnement SET etat = 'fini' where id_stationnement = {$id_stationnement}");
+    }
+
 
     /*visu*/
     public function tableView($lg_table)
@@ -66,7 +71,7 @@ class ZoneManager
 
         echo '<table cellspacing="30">';
         while ($type = mysqli_fetch_assoc($response_type)) {
-            $i = 0; //Permet de controler les longueur de la ligne courante
+            $i = 0; //Permet de controler la longueur de la ligne courante
 
             /*On crée les différentes tables de places (1 table/type de vehicule)*/
             echo '<tr><td>' . $type['type'] . '</td>
@@ -108,6 +113,13 @@ class ZoneManager
     }
 }
 
+
+
+/*
+  POST instructions
+ */
+
+
 if (isset($_POST['id_form'])) {
     $connection = new Connection();
     $bdd = $connection -> getBdd();
@@ -127,6 +139,11 @@ if (isset($_POST['id_form'])) {
                 $zone->tableView($_POST['lg_table']);
             }
             break;
+        case "endStationnement":
+            if (isset($_POST['id_stationnement']))
+            {
+                $zone->endStationnement($_POST['id_stationnement']);
+            }
     }
 }
 

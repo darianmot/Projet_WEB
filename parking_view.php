@@ -46,8 +46,6 @@
 
 <!-- Fenetre modale pour les infos d'une place -->
 <div id="place_info">
-    <div id="bottom_place_info">
-    </div>
 </div>
 
 

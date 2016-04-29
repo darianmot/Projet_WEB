@@ -2,6 +2,7 @@ $(document).ready(function () {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
     var lg_table = 30;
 
+    /*Affiche la zone 1 après le chargement de la page*/
     $.post('database/zone_manager.php', {
             id_zone: 1,
             lg_table: lg_table,
@@ -11,7 +12,7 @@ $(document).ready(function () {
             $('#view').html(data);
         });
 
-    /*En cas d'envoie du formulaire*/
+    /*Ajout d'un stationnement*/
     $('#newStationnement').submit(function (e) {
         e.preventDefault();
 
@@ -37,25 +38,42 @@ $(document).ready(function () {
                 $('#view').html(data);
             });
 
-
-        $('.place').click(function () {
-            var id_place = $(this).attr('id');
-            $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
-                $('#place_info').html(data);
-            });
-        });
-
         /*On reset le form*/
         $('#newStationnement')[0].reset();
     });
 
     /*Si on clique sur une place, ses infos s'affichent*/
-    $('.place').click(function () {
+    $(document).on('click', '.place', function () {
         var id_place = $(this).attr('id');
+        var isOccupee = $(this).hasClass('occupee');
         $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
             $('#place_info').html(data);
+            if (isOccupee)
+            {
+                $('#place_info').append("<button type='submit' value="+id_place+" id='end_stat_button'>Fin</button>");
+            }
         });
     });
+
+    /*Supprime un stationnement si appuie sur le bon bouton*/
+    $(document).on('click','#end_stat_button', function () {
+        var id_stationnement = $('#id_stationnement').text();
+        var zone  = $('input[name="view_zone"]:checked').val();
+        $.post('database/zone_manager.php', {
+            id_stationnement: parseInt(id_stationnement),
+            id_form: 'endStationnement'
+        });
+        $.fancybox.close();
+        $.post('database/zone_manager.php', {
+                id_zone: zone,
+                lg_table: lg_table,
+                id_form: 'zoneView'
+            },
+            function (data) {
+                $('#view').html(data);
+            });
+    });
+
 
     /*Affichage de la zone selectionnée*/
     $('input[name="view_zone"]').change(function () {
@@ -68,17 +86,11 @@ $(document).ready(function () {
             function (data) {
                 $('#view').html(data);
             });
-        $('.place').click(function () {
-            var id_place = $(this).attr('id');
-            $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
-                $('#place_info').html(data);
-            });
-        });
     });
 
     /*fancybox*/
     $('.fancybox').fancybox({
-        arrows: false, //enleve les flèches de navigations
+        arrows: false, //enleve les flèches de navigation
         openEffect: 'elastic',
         keys: {
             next : [null],
