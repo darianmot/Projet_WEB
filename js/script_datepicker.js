@@ -4,7 +4,7 @@
 
 
 $(function ($) {
-    $('.encart_datepicker').datepicker({
+    $('.encart_datepicker').datetimepicker({
         dateFormat : 'dd-mm-yy',
         minDate: 0,
         showAnim : "slideDown"
