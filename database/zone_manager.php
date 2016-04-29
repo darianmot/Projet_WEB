@@ -99,7 +99,7 @@ class ZoneManager
                 }
 
                 /*On crée alors effectivement la case 'td' d'id valant id_plaque*/
-                echo "<td id = {$place['id_place']}  class='{$class}'>{$place['id_place']} <td>";
+                echo " <td id = {$place['id_place']}  class='{$class}'><a class='fancybox' rel='group' href='#place_info'>{$place['id_place']}</a> </td>";
                 $i++;
             }
             echo '</tr></table></tr>';

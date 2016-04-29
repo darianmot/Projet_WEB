@@ -20,3 +20,8 @@
     float: left;
     margin-left: 50px;
 }
+
+a:hover
+{
+    font-style: oblique;
+}

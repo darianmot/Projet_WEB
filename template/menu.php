@@ -3,9 +3,6 @@
 session_start();
 // creation des variables de session
 ?>
-<head>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-</head>
 
 <nav>
         <ul>

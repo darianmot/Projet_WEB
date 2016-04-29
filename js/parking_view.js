@@ -1,4 +1,4 @@
-$(document).ready(function (e) {
+$(document).ready(function () {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
     var lg_table = 30;
 
@@ -56,6 +56,8 @@ $(document).ready(function (e) {
             $('#place_info').html(data);
         });
     });
+
+    /*Affichage de la zone selectionnée*/
     $('input[name="view_zone"]').change(function () {
         var zone = $('input[name="view_zone"]:checked').val();
         $.post('database/zone_manager.php', {
@@ -66,5 +68,26 @@ $(document).ready(function (e) {
             function (data) {
                 $('#view').html(data);
             });
+        $('.place').click(function () {
+            var id_place = $(this).attr('id');
+            $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
+                $('#place_info').html(data);
+            });
+        });
     });
+
+    /*fancybox*/
+    $('.fancybox').fancybox({
+        arrows: false, //enleve les flèches de navigations
+        openEffect: 'elastic',
+        keys: {
+            next : [null],
+            prev : [null],
+            close: [27], // escape key
+            play: [null], // space - start/stop slideshow
+            toggle: [70]  // letter "f" - toggle fullscreen
+        },
+        scrolling : 'no'
+    }
+);
 });

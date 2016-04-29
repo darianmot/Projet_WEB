@@ -48,10 +48,9 @@
     Cliquer sur une place pour afficher les détails
 </div>
 
-<script type="text/javascript" src="js/parking_view.js"></script>
+
 
 <!-- Le pied de page -->
-
 <?php //include("template/footer.php"); ?>
 
 </body>
