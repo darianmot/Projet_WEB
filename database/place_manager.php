@@ -32,9 +32,10 @@ class PlaceManager
     /*Retourne une place libre selon le type et la zone selectionnée*/
     public function getFreePlace($id_zone, $type_vehicule)
     {
-        $response = $this->getBdd()->query("SELECT MIN(Place.id_place) AS id_place FROM Stationnement
-                    RIGHT JOIN Place ON Stationnement.id_place = Place.id_pLace
-                    WHERE ((Stationnement.etat NOT IN ('occupee','reservee') or Stationnement.id_place IS NULL) 
+        $response = $this->getBdd()->query("SELECT MIN(Place.id_place) AS id_place FROM 
+            (SELECT * FROM (SELECT * FROM Stationnement ORDER BY date_fin DESC) AS _ GROUP BY id_place) AS DernierStationnement
+                    RIGHT JOIN Place ON DernierStationnement.id_place = Place.id_pLace
+                    WHERE ((DernierStationnement.etat NOT IN ('occupee','reservee') or DernierStationnement.id_place IS NULL) 
                             AND Place.type_vehicule = '$type_vehicule' 
                             AND Place.id_zone = {$id_zone});");
 
@@ -46,16 +47,20 @@ class PlaceManager
     public function placeView($id_place)
     {
         $response = $this->getBdd()->query("SELECT * FROM ienac15_.Stationnement RIGHT JOIN ienac15_.Place
-            ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}'");
-
-        echo '<table>';
+            ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}' 
+            AND date_debut = (SELECT MAX(date_debut) FROM Stationnement WHERE id_place='{$id_place}')");
+        
         while ($data = $response->fetch_assoc()) {
+            /*Numero de stationnement*/
+            echo '<h3>Numero de stationnement :  <div id="id_stationnement">'.$data['id_stationnement'].'</div></h3>';
+            echo '<table>';
+            
             /*Id de la place*/
             echo '<tr><td>ID Place : </td><td>' . $data['id_place'] . '</td>';
 
             /*Statue de la place*/
             echo '<tr><td>Status : </td><td>';
-            if ($data['etat'] == NULL) {
+            if ($data['etat'] == NULL or $data['etat'] == 'fini') {
                 echo 'libre';
             } else {
                 echo $data['etat'];
@@ -63,7 +68,7 @@ class PlaceManager
             echo '</td></tr>';
 
             /*Véhicule eventuel sur la plaque*/
-            echo '<tr><td>Vehicule :</td><td>' . $data['plaque'] . '</td></tr>';
+            echo '<tr><td>Dernier vehicule :</td><td>' . $data['plaque'] . '</td></tr>';
 
 
         }

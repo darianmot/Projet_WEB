@@ -36,7 +36,7 @@
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="view_zone" value="1" checked="checked" /> <label for="1">1</label>
     <input type="radio" name="view_zone" value="2"  /> <label for="2">2</label>
-    <input type="radio" name="view_zone" value="3"  /> <label for="3">3</label>*
+    <input type="radio" name="view_zone" value="3"  /> <label for="3">3</label>
 </form>
 <div id="view">
     <p>
@@ -44,14 +44,12 @@
     </p>
 </div>
 
-<div id="place_info" class = 'popup'>
-    Cliquer sur une place pour afficher les détails
+<!-- Fenetre modale pour les infos d'une place -->
+<div id="place_info">
 </div>
 
-<script type="text/javascript" src="js/parking_view.js"></script>
 
 <!-- Le pied de page -->
-
 <?php //include("template/footer.php"); ?>
 
 </body>
