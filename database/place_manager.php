@@ -48,11 +48,12 @@ class PlaceManager
     {
         $response = $this->getBdd()->query("SELECT * FROM ienac15_.Stationnement RIGHT JOIN ienac15_.Place
             ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}' 
-            AND date_debut = (SELECT MAX(date_debut) FROM Stationnement WHERE id_place='{$id_place}')");
+            AND (date_debut = (SELECT MAX(date_debut) FROM Stationnement WHERE id_place='{$id_place}') OR
+             Stationnement.id_place IS NULL)");
         
         while ($data = $response->fetch_assoc()) {
             /*Numero de stationnement*/
-            echo '<h3>Numero de stationnement :  <div id="id_stationnement">'.$data['id_stationnement'].'</div></h3>';
+            //echo '<h3>Numero de stationnement :  <div id="id_stationnement">'.$data['id_stationnement'].'</div></h3>
             echo '<table>';
             
             /*Id de la place*/
