@@ -60,7 +60,7 @@ $(document).ready(function () {
         var id_stationnement = $('#id_stationnement').text();
         var zone  = $('input[name="view_zone"]:checked').val();
         $.post('database/zone_manager.php', {
-            id_stationnement: parseInt(id_stationnement),
+            id_stationnement: id_stationnement,
             id_form: 'endStationnement'
         });
         $.fancybox.close();
@@ -91,7 +91,7 @@ $(document).ready(function () {
     /*fancybox*/
     $('.fancybox').fancybox({
         arrows: false, //enleve les flèches de navigation
-        openEffect: 'elastic',
+        openEffect: 'fade',
         keys: {
             next : [null],
             prev : [null],

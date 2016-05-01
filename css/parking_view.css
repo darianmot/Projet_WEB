@@ -24,3 +24,8 @@ a:hover
 {
     font-style: oblique;
 }
+.fancybox
+{
+    width: 100%;
+    height: 100%;
+}

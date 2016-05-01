@@ -59,7 +59,7 @@ class ZoneManager
 
     public function endStationnement($id_stationnement)
     {
-        $this->getBdd()->query("Update Stationnement SET etat = 'fini' where id_stationnement = {$id_stationnement}");
+        $this->getBdd()->query("Update Stationnement SET etat = 'fini' WHERE id_stationnement = {$id_stationnement}");
     }
 
 

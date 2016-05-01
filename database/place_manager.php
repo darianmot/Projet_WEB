@@ -52,8 +52,10 @@ class PlaceManager
              Stationnement.id_place IS NULL)");
         
         while ($data = $response->fetch_assoc()) {
-            /*Numero de stationnement*/
-            //echo '<h3>Numero de stationnement :  <div id="id_stationnement">'.$data['id_stationnement'].'</div></h3>
+            /*Numero de stationnement eventuel*/
+            if ($data['etat']=='occupee') {
+                echo '<h3>Numero de stationnement :  <div id="id_stationnement">' . $data['id_stationnement'] . '</div></h3>';
+            }
             echo '<table>';
             
             /*Id de la place*/
