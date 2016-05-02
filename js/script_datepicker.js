@@ -1,8 +1,3 @@
-/**
- * Created by atime on 28/04/16.
- */
-
-
 $(function ($) {
     var datepickers;
     datepickers = $('.encart_datepicker').datepicker({

@@ -42,7 +42,7 @@ session_start();
             if ($_SESSION['identifiant']!='')
             {
                 echo(" <li id=offres> Bienvenue {$_SESSION['identifiant']}
-                <ul id=menu2>
+                <ul id='menu2'>
     
                         <li id = 'voiture'><span class='fa-stack fa-lg'>
                             <i class='fa fa-user fa-stack-1x fa-inverse'></i>
