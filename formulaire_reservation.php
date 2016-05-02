@@ -34,8 +34,9 @@
             </div>
 
             <div class="col-md-3">
-                <label>Date de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date de sortie">
+                <label>Horaire d'entrée</label><input type="text" class="encart_timepicker" name="entry_time" placeholder="Horaire d'entrée">
             </div>
+
         </div>
 
         </br>
@@ -47,12 +48,26 @@
                 <label for="Véhicule handicapé ?">Véhicule handicapé ?</label>
             </div>
 
-            <!-- Bouton de validation -->
-            <div class="col-md-pull-4">
-                <button type="submit" class="button_reserv">Réserver maintenant !</button>
+            <div class="col-md-3">
+                <label>Date de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date de sortie">
             </div>
 
+
+            <div class="col-md-3">
+                <label>Horaire de sortie</label><input type="text" class="encart_timepicker" name="exit_time" placeholder="Horaire de sortie">
+            </div>
+            
         </div>
+
+        </br>
+
+        <div class="row">
+            <!-- Bouton de validation -->
+            <div class="col-md-pull-2">
+                <button type="submit" class="button_reserv">Réserver maintenant !</button>
+            </div>
+        </div>
+
 
     </div>
 

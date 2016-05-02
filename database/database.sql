@@ -1,4 +1,4 @@
-
+DROP DATABASE IF EXISTS ienac15_;
 CREATE DATABASE ienac15_;
 USE ienac15_;
 
@@ -107,8 +107,8 @@ CREATE TABLE Facture
 
 
 
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('1', '100');
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('2', '200');
-INSERT INTO `ienac15_`.`Zone` (`id_zone`, `capacite`) VALUES ('3', '300');
+INSERT INTO `ienac15_`.`Zone` VALUES ('1', '100');
+INSERT INTO `ienac15_`.`Zone` VALUES ('2', '200');
+INSERT INTO `ienac15_`.`Zone` VALUES ('3', '300');
 INSERT INTO `ienac15_`.`TypeVehicule` VALUES ('voiture'),('moto'),('handicape');
 INSERT INTO `ienac15_`.`Utilisateur` VALUES('admin','admin','admin','admin','admin')

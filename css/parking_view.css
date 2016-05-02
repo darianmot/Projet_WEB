@@ -6,17 +6,26 @@
     background-color: red;
 }
 
-.place:hover {
+.place a:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
-#place_info {
-    float: right;
-    margin-right: 5%;
+#place_info table {
+    margin: auto;
 }
 
 #view {
     float: left;
     margin-left: 50px;
+}
+
+a:hover
+{
+    font-style: oblique;
+}
+.fancybox
+{
+    width: 100%;
+    height: 100%;
 }
