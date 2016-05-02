@@ -32,6 +32,7 @@
 </form>
 
 <h1>Visualiser les zones</h1>
+<p>Cliquez sur une place pour obtenir des informations</p>
 <form method="post">
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="view_zone" value="1" checked="checked" /> <label for="1">1</label>
