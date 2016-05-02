@@ -20,17 +20,10 @@
 <?php
 
 $entry_date = $_POST['entry_date'];
-$entry_time = $_POST['entry_time'];
 $exit_date = $_POST['exit_date'];
-$exit_time = $_POST['exit_time'];
 $type = $_POST['type'];
-$handicap = $_POST['handicap'];
-echo "<br/> Entrée le $entry_date à $entry_time ";
-echo "Sortie le $exit_date à $exit_time";
-if ($handicap) {
-    echo "<br/> -> Vous avez demandé une place handicapé";
-}
-
+echo "<br/> Entrée le $entry_date ";
+echo "Sortie le $exit_date";
 ?>
 
 

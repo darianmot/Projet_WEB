@@ -14,8 +14,7 @@
         </div>
 
         </br>
-        
-        </br>
+
 
         <div class="row">
 
@@ -25,39 +24,32 @@
                     <option value="" disabled selected hidden>Type de véhicule</option>
                     <option>Voiture</option>
                     <option>Moto</option>
+                    <option>Handicapé</option>
                 </select>
             </div>
 
             <!-- Dates-->
             <div class="col-md-3">
-                <label>Date d'entrée</label><input type="text" class="encart_datepicker" name="entry_date" placeholder="Date d'entrée">
+                <label>Date et horaire d'entrée</label><input type="text" class="encart_datepicker" name="entry_date" placeholder="Date et horaire d'entrée" id="entry_date">
             </div>
 
-            <div class="col-md-3">
+            <!--<div class="col-md-3">
                 <label>Horaire d'entrée</label><input type="text" class="encart_timepicker" name="entry_time" placeholder="Horaire d'entrée">
+            </div>-->
+            <div class="col-md-3">
+                <label>Date et horaire de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date et horaire de sortie" id="exit_date">
             </div>
-
         </div>
 
         </br>
-
-        <div class="row">
-            <!-- Checkbox véhicule handicapé -->
-            <div class="col-md-3">
-                <input type="checkbox" name="handicap" value="1">
-                <label for="Véhicule handicapé ?">Véhicule handicapé ?</label>
-            </div>
-
-            <div class="col-md-3">
-                <label>Date de sortie</label><input type="text" class="encart_datepicker" name="exit_date" placeholder="Date de sortie">
-            </div>
+        
+          
 
 
-            <div class="col-md-3">
+            <!--<div class="col-md-3">
                 <label>Horaire de sortie</label><input type="text" class="encart_timepicker" name="exit_time" placeholder="Horaire de sortie">
-            </div>
-            
-        </div>
+            </div>-->
+        
 
  <!--       <script>
             $('.encart_datepicker[name="exit_date"]').datepicker('disable');
