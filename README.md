@@ -1,3 +1,4 @@
 # Projet_WEB
 
-Pour modifier le diagrammede classe : https://creately.com/diagram/imujlkjf1/hIb3UB8MuAzD5v8jvJDLgvr7zuM%3D
+Il est possible de se connecter au site via les identifiants (id:admin et mdp:admin) MAIS aucune fonctionnalitée n'a encore été
+rattachée aux sessions.

@@ -1,7 +1,3 @@
-/**
- * Created by atime on 27/04/16.
- */
-
 $(document).ready(function () {
     $("#button_price").click(function () {
 
