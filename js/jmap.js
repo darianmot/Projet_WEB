@@ -2,7 +2,7 @@ var map;
 var initialize;
 
 initialize = function(){
-  var latLng = new google.maps.LatLng(43.56515599999999, 1.4792810000000145); // Correspond au coordonnees du parking
+  var latLng = new google.maps.LatLng(37.235, -115.811111); // Correspond au coordonnees du parking
   var myOptions = {
     zoom      : 14, // Zoom par défaut
     center    : latLng, // Coordonnées de départ de la carte de type latLng 

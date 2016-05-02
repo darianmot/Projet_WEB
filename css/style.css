@@ -50,7 +50,6 @@ body
 
 .titre
 {
-    top: -11%;
     position: relative;
     background-color:#777;
 }
@@ -58,9 +57,6 @@ body
 
 .titre img{
     width: 20%;
-    margin-bottom: 50px;
-    margin-top: 50px;
-
 }
 
 .img_nav {
