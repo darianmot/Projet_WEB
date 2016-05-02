@@ -20,7 +20,8 @@ $(function ($) {
     var timepickers;
     timepickers = $('.encart_timepicker').timepicker({
         timeInput: true,
-        showAnim: "slideDown",
+        showAnim: "slideDown"
+/*
         onSelect: function (time) {
             var entry_date= $('.encart_datepicker[name="entry_date"]').val();
             var exit_date = $('.encart_datepicker[name="exit_date"]').val();
@@ -30,7 +31,7 @@ $(function ($) {
             console.log('Time:' + time);
 
 
-            if (exit_date =='' || entry_date =='' || entry_date == exit_date){
+            if (entry_date == exit_date){
                 console.log('same date !!!!!!!!!!!');
 
                 var option = this.name == "entry_time" ? "minTime" : "maxTime";
@@ -38,6 +39,7 @@ $(function ($) {
             }
 
         }
+*/
 
     })
 });

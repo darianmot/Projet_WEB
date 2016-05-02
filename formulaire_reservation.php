@@ -59,6 +59,20 @@
             
         </div>
 
+ <!--       <script>
+            $('.encart_datepicker[name="exit_date"]').datepicker('disable');
+            $('.encart_timepicker[name="exit_time"]').timepicker('disable');
+
+
+            if ($('.encart_datepicker[name="entry_date"]').val() !=''){
+                console.log('hidden !!!!!!!!!!!!!!!!!!');
+                $('.encart_datepicker[name="exit_date"]').datepicker('enable');
+                $('.encart_timepicker[name="exit_time"]').timepicker('enable')
+            }
+        </script>-->
+
+
+
         </br>
 
         <div class="row">
