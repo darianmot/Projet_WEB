@@ -34,15 +34,14 @@ session_start();
 
                 </ul>
             </li>
-            <li><i class="fa fa-bar-chart" aria-hidden="true"></i> Parking direct</li>
-            <li><a href="parking_view.php"><i class="fa fa-map" aria-hidden="true"></i>Plan des parkings</a></li>
+            <li><a href="parking_view.php"><i class="fa fa-bar-chart" aria-hidden="true"></i></i>Plan des parkings</a></li>
             <li><a href="#map"><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>S'inscrire</li>
             <?php
-            if ($_SESSION['identifiant']!='')
+            if (isset($_SESSION['identifiant']))
             {
                 echo(" <li id=offres> Bienvenue {$_SESSION['identifiant']}
-                <ul id=menu2>
+                <ul id='menu2'>
     
                         <li id = 'voiture'><span class='fa-stack fa-lg'>
                             <i class='fa fa-user fa-stack-1x fa-inverse'></i>
