@@ -59,15 +59,19 @@ class ZoneManager
 
     public function endStationnement($id_stationnement)
     {
+        /*On change l'état du stationnement*/
         $this->getBdd()->query("Update Stationnement SET etat = 'fini' WHERE id_stationnement = {$id_stationnement}");
+
+        /*On génère la facture*/
     }
 
 
     /*visu*/
     public function tableView($lg_table)
+    /*Crée un tableau représentant la table*/
     {
         /*On récupère la liste des types de véhicules (=type de places)*/
-        $response_type = $this->getBdd()->query("SELECT * FROM `ienac15_`.`TypeVehicule`");
+        $response_type = $this->getBdd()->query("SELECT * FROM `TypeVehicule`");
 
         echo '<table cellspacing="30">';
         while ($type = mysqli_fetch_assoc($response_type)) {
@@ -78,7 +82,7 @@ class ZoneManager
               <td><table><tr>';
 
             /*On récupère l'ensemble des places associées à la zone choisie et au type de place choisi*/
-            $current_places = $this->getBdd()->query("SELECT * FROM `ienac15_`.`Place` WHERE Place.id_zone = '{$this->id_zone}' AND Place.type_vehicule = '{$type['type']}'");
+            $current_places = $this->getBdd()->query("SELECT * FROM `Place` WHERE Place.id_zone = '{$this->id_zone}' AND Place.type_vehicule = '{$type['type']}'");
 
 
             /*On crée une case dans le tableau pour chaque place*/
@@ -92,7 +96,7 @@ class ZoneManager
 
                 /*On regarde si la place est occupee ou non*/
                 $place_status = $this->getBdd()->query("SELECT EXISTS (
-                                SELECT id_place FROM `ienac15_`.`Stationnement` 
+                                SELECT id_place FROM `Stationnement` 
                                 WHERE etat IN ('occupee') AND id_place = {$place['id_place']})
                             AS status;");
                 $status = $place_status->fetch_assoc();
@@ -116,7 +120,8 @@ class ZoneManager
 
 
 /*
-  POST instructions
+  POST instructions :
+  On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
 
@@ -133,7 +138,6 @@ if (isset($_POST['id_form'])) {
             }
             break;
         case "zoneView":
-
             if (isset($_POST['lg_table']))
             {
                 $zone->tableView($_POST['lg_table']);

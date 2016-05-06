@@ -123,6 +123,7 @@ h4 {
     border-width: 3px;
     border-radius: 8px;
     box-shadow: grey 10px 8px 4px;
+    z-index: 9999;
 }
 
 .button_reserv {

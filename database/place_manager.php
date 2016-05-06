@@ -46,7 +46,7 @@ class PlaceManager
     /*Renvoie un tableau contenant les informations associées à une place*/
     public function placeView($id_place)
     {
-        $response = $this->getBdd()->query("SELECT * FROM ienac15_.Stationnement RIGHT JOIN ienac15_.Place
+        $response = $this->getBdd()->query("SELECT * FROM Stationnement RIGHT JOIN Place
             ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}' 
             AND (date_debut = (SELECT MAX(date_debut) FROM Stationnement WHERE id_place='{$id_place}') OR
              Stationnement.id_place IS NULL)");

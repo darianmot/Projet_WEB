@@ -7,7 +7,7 @@ class Connection
     /*Construteur*/
     public function __construct()
     {
-        $this->setBdd(new mysqli('localhost', 'root', 'mysql', 'ienac15_'));
+        $this->setBdd(new mysqli('localhost', 'root', 'mysql', 'ienac15_motamed'));
     }
 
     /*Getter*/
