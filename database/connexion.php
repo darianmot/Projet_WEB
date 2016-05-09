@@ -1,14 +1,16 @@
 <?php
 // demarrage de la session
+include "bdd_connection.php";
 session_start();
 // creation des variables de session
 //connexion à la table mysql ienac 15 attention il faut pour que ca marche que vos codes soient root et mysql
-$bdd = new PDO('mysql:host=localhost;dbname=ienac15_;charset=utf8','root','mysql');
+$connection = new Connection();
+$bdd = $connection->getBdd();
 //donnee brutes
 $reponse = $bdd->query("SELECT id_utilisateur,password  FROM Utilisateur WHERE id_utilisateur='{$_POST['identifiant']}'");
 
 //premiere ligne
-$donnees=$reponse->fetch();
+$donnees=$reponse->fetch_assoc();
 //verification des donnees
 
 if (isset($_POST['password'])AND isset($_POST['identifiant']))
