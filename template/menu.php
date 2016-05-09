@@ -5,7 +5,7 @@ session_start();
 ?>
 
 <nav>
-        <ul>
+        <ul id="menu_p">
             <img class="img_nav" src="./media/images/logo2.png">
             <li>
                 <a href='index.php'>
@@ -52,7 +52,7 @@ session_start();
             }
             else
             {
-                echo "<li><a href='connexion.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
+                echo "<li id='onglet_connexion'><a href='connexion_page.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
             }
             ?>
             <li><a href="gestion.php">Gestion</a></li>
