@@ -18,7 +18,7 @@ $(document).ready(function () {
             {alert('identifiant ou mot de passe incorrectes');
                 $('#identifiant').val('');
                 $('#password').val('');}
-                $('#onglet_connexion').val('');
+                $('#onglet_connexion').text('');
             },
             error: function(retour)
             {alert('script non trouvé');}
