@@ -8,7 +8,6 @@ $connection = new Connection();
 $bdd = $connection->getBdd();
 //donnee brutes
 $reponse = $bdd->query("SELECT id_utilisateur,password  FROM Utilisateur WHERE id_utilisateur='{$_POST['identifiant']}'");
-
 //premiere ligne
 $donnees=$reponse->fetch_assoc();
 //verification des donnees
