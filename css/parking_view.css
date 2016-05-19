@@ -5,6 +5,9 @@
 .occupee {
     background-color: red;
 }
+.reservee {
+    background-color: orange;
+}
 
 .place a:hover {
     opacity: 0.5;

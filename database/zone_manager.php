@@ -1,6 +1,15 @@
 <?php
 
 include "place_manager.php";
+$CODE_LENGTH = 8;
+
+function resevation_code($length)
+{
+    $chaine = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $chaine_shuffled= str_shuffle($chaine);
+    $code = substr($chaine_shuffled, strlen($chaine_shuffled) - $length);
+    return $code;
+}
 
 class ZoneManager
 {
@@ -52,23 +61,38 @@ class ZoneManager
         $date = date("Y-m-d H:i:s");
         $this->addVehicule($plaque, $type_vehicule);
         $placeManager = new PlaceManager($this->getBdd());
-        $place = $placeManager->getFreePlace($this->id_zone, $type_vehicule);
+        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
         $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
       VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
     }
 
+
+
     public function endStationnement($id_stationnement)
     {
         /*On change l'état du stationnement*/
-        $this->getBdd()->query("Update Stationnement SET etat = 'fini' WHERE id_stationnement = {$id_stationnement}");
+        $this->getBdd()->query("UPDATE Stationnement SET etat = 'fini' WHERE id_stationnement = {$id_stationnement}");
 
         /*On génère la facture*/
     }
 
-
+    public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
+    {
+        try {
+            $this->addVehicule($plaque, $type_vehicule);
+            $placeManager = new PlaceManager($this->getBdd());
+            $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
+          VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
+        }
+        catch (Exception $e)
+        {
+            echo 'erreur : ', $e;
+        }
+    }
     /*visu*/
     public function tableView($lg_table)
-    /*Crée un tableau représentant la table*/
+    /*Crée un tableau représentant la table (void function)*/
     {
         /*On récupère la liste des types de véhicules (=type de places)*/
         $response_type = $this->getBdd()->query("SELECT * FROM `TypeVehicule`");
@@ -94,22 +118,26 @@ class ZoneManager
                     echo '</tr><tr>';
                 }
 
-                /*On regarde si la place est occupee ou non*/
-                $place_status = $this->getBdd()->query("SELECT EXISTS (
-                                SELECT id_place FROM `Stationnement` 
-                                WHERE etat IN ('occupee') AND id_place = {$place['id_place']})
-                            AS status;");
-                $status = $place_status->fetch_assoc();
-                if ($status['status'] == 1) //On lui affecte alors la classe adaptée
+                /*On regarde si la place est occupee, reservée ou libre*/
+                $place_status = $this->getBdd()->query("SELECT etat FROM `Stationnement` 
+                                WHERE etat IN ('occupee', 'reservee') AND id_place = '{$place['id_place']}';");
+                $etat = $place_status->fetch_assoc();
+                $class = 'place libre';
+                switch ($etat['etat']) //On lui affecte alors la classe adaptée
                 {
-                    $class = "place occupee";
-                } else {
-                    $class = "place libre";
+                    case 'occupee':
+                        $class = "place occupee";
+                        break;
+                    case 'reservee':
+                        $class = "place reservee";
+                        break;
                 }
+            
 
                 /*On crée alors effectivement la case 'td' d'id valant id_plaque*/
                 echo " <td id = {$place['id_place']}  class='{$class}'><a class='fancybox' rel='group' href='#place_info'>{$place['id_place']}</a> </td>";
                 $i++;
+
             }
             echo '</tr></table></tr>';
         }
@@ -124,6 +152,10 @@ class ZoneManager
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
+$connection = new Connection();
+$bdd = $connection -> getBdd();
+$zone = new ZoneManager($bdd, 1);
+$zone->tableView(15);
 
 if (isset($_POST['id_form'])) {
     $connection = new Connection();
@@ -147,6 +179,11 @@ if (isset($_POST['id_form'])) {
             if (isset($_POST['id_stationnement']))
             {
                 $zone->endStationnement($_POST['id_stationnement']);
+            }
+        case "newReservation":
+            if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']) and isset($_POST['type_vehicule']))
+            {
+                $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
             }
     }
 }
