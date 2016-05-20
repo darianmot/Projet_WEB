@@ -7,6 +7,12 @@ section{
 .title_article{
     font-size: large;
     text-align: left;
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+
+article{
+    margin-bottom: 2%;
 }
 
 .cvcontainer {
@@ -25,22 +31,37 @@ section{
     /*justify-content: space-around;*/
 }
 
+.cvcontainer .name{
+    font-weight: bold;
+}
 .header{
     text-align: left;
+    margin-bottom: 5%;
 }
+
 
 .presentation{
     text-align: left;
+    margin-bottom: 5%;
 }
 
 .picture {
     float: right;
     width: 30%;
-    margin-top: -20%;
-
+    margin-top: -150px;
 }
 
+.cvtable{
+    border: none;
+}
 
-td{
+.cvtable td{
     text-align: left;
+    border: none;
+    /*height: 50px;*/
+    vertical-align: top;
+}
+
+.td1{
+    width: 100px;
 }
