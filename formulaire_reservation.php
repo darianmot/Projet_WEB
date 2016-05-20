@@ -9,7 +9,7 @@
     <div class="container reserv">
         <div class="row">
             <div class="col-md-6">
-                <h3>Réservez votre place ici !</h3>
+                <h3>Réservez votre place ici </h3>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         <div class="row">
             <!-- Bouton de validation -->
             <div class="col-md-pull-2">
-                <button type="submit" class="button_reserv">Réserver maintenant !</button>
+                <button type="submit" class="button_reserv">Réserver maintenant </button>
             </div>
         </div>
 
