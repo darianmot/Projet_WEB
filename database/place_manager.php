@@ -91,8 +91,10 @@ if (isset($_POST['id_form'])) {
     $bdd = $connection -> getBdd();
     $placeManager = new PlaceManager($bdd);
     if ($_POST['id_form'] == 'newPlace') {
-        if (isset($_POST['nombre']) and isset($_POST['id_zone'])) {
-            for ($i = 1; $i <= $_POST['nombre']; $i++) {
+        if (isset($_POST['nombre']) and isset($_POST['id_zone'])) 
+        {
+            for ($i = 1; $i <= $_POST['nombre']; $i++) 
+            {
                 $placeManager->addPlace($_POST['id_zone'], $_POST['type']);
             }
         }

@@ -31,15 +31,21 @@ $(document).ready(function () {
                 url: " database/zone_manager.php",
                 dataType: 'json',
                 data: donnees,
-                success: function(resp)
+                success: function(retour)
                 {
-                    if (resp.error == 'true');
+                    if (retour.error == 'true');
                     {
-                        alert(resp.msg);
+                        $.fancybox({content: retour.msg})
+                        $(".fancybox-inner").attr("tabindex",1).focus();
+                        // alert(retour.msg);
                     }
                 },
                 error: function(retour)
-                {alert('script non trouvé');}
+                {
+                    if (retour.status == 200) {
+                        console.log('warning due à la non synchronisation des requetes ajax')
+                    }
+                }
             });
         }
 
@@ -53,8 +59,8 @@ $(document).ready(function () {
                 $('#view').html(data);
             });
 
-        /*On reset le form*/
-        $('#newStationnement')[0].reset();
+        /*On reset le champ de la plaque*/
+        $('#plaque').val('')
     });
 
     /*Si on clique sur une place, ses infos s'affichent*/
@@ -70,7 +76,7 @@ $(document).ready(function () {
         });
     });
 
-    /*Supprime un stationnement si appuie sur le bouton FIN*/
+    /*Supprime un stationnement si appuie sur le bouton FIN de la fenetre modale*/
     $(document).on('click','#end_stat_button', function () {
         var id_stationnement = $('#id_stationnement').text();
         var zone  = $('input[name="view_zone"]:checked').val();
@@ -103,7 +109,7 @@ $(document).ready(function () {
             });
     });
 
-    /*fancybox*/
+    /*fancybox (fenetre modale)*/
     $('.fancybox').fancybox({
         arrows: false, //enleve les flèches de navigation
         openEffect: 'fade',

@@ -158,7 +158,7 @@ if (isset($_POST['id_form'])) {
                 }
                 catch (Exception $e)
                 {
-                    if ($e->getMessage() == 'full')
+                    if ($e->getMessage() == 'full') //Si la zone est pleine pour le type choisi
                     {
                         echo json_encode(array('error' => true,
                             'msg' => "Impossible d'ajouter un véhicule de type {$_POST['type']} car il n'y a plus de places dans la zone {$_POST['id_zone']}." ));

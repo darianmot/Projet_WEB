@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--salut c'est moi hehe-->
 <html>
 <?php include("template/head.php"); ?>
 
@@ -41,14 +40,15 @@
 </form>
 <div id="view">
     <p>
-        Y'a personne wesh
+       Zone sans emplacement
     </p>
 </div>
 
 <!-- Fenetre modale pour les infos d'une place -->
-<div id="place_info">
-</div>
+<div id="place_info"></div>
 
+<!--Messages d'erreur-->
+<div id="error_window"> </div>
 
 <!-- Le pied de page -->
 <?php //include("template/footer.php"); ?>
