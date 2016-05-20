@@ -40,7 +40,12 @@ class PlaceManager
                             AND Place.id_zone = {$id_zone});");
 
         $place = $response->fetch_assoc();
-        return $place['id_place'];
+        if (isset($place['id_place'])) {
+            return $place['id_place'];
+        }
+        else {
+            return 'none';
+        }
     }
     
     /*Renvoie un tableau contenant les informations associées à une place*/

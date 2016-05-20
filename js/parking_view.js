@@ -25,7 +25,22 @@ $(document).ready(function () {
             alert("Le numéro de plaque n'est pas renseignée");
         }
         else {
-            $.post('database/zone_manager.php', donnees);
+            // $.post('database/zone_manager.php', donnees);
+            $.ajax({
+                type: "POST",
+                url: " database/zone_manager.php",
+                dataType: 'json',
+                data: donnees,
+                success: function(resp)
+                {
+                    if (resp.error == 'true');
+                    {
+                        alert(resp.msg);
+                    }
+                },
+                error: function(retour)
+                {alert('script non trouvé');}
+            });
         }
 
         /*On met a jour le visu*/
@@ -55,7 +70,7 @@ $(document).ready(function () {
         });
     });
 
-    /*Supprime un stationnement si appuie sur le bon bouton*/
+    /*Supprime un stationnement si appuie sur le bouton FIN*/
     $(document).on('click','#end_stat_button', function () {
         var id_stationnement = $('#id_stationnement').text();
         var zone  = $('input[name="view_zone"]:checked').val();

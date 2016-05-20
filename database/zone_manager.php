@@ -1,15 +1,7 @@
 <?php
 
 include "place_manager.php";
-$CODE_LENGTH = 8;
 
-function resevation_code($length)
-{
-    $chaine = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    $chaine_shuffled= str_shuffle($chaine);
-    $code = substr($chaine_shuffled, strlen($chaine_shuffled) - $length);
-    return $code;
-}
 
 class ZoneManager
 {
@@ -62,6 +54,10 @@ class ZoneManager
         $this->addVehicule($plaque, $type_vehicule);
         $placeManager = new PlaceManager($this->getBdd());
         $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+        if ($place == 'none')
+        {
+            throw new Exception('full');
+        }
         $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
       VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
     }
@@ -78,17 +74,11 @@ class ZoneManager
 
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
-        try {
-            $this->addVehicule($plaque, $type_vehicule);
-            $placeManager = new PlaceManager($this->getBdd());
-            $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
-            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-          VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
-        }
-        catch (Exception $e)
-        {
-            echo 'erreur : ', $e;
-        }
+        $this->addVehicule($plaque, $type_vehicule);
+        $placeManager = new PlaceManager($this->getBdd());
+        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+        $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
+      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
     }
     /*visu*/
     public function tableView($lg_table)
@@ -152,10 +142,6 @@ class ZoneManager
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
-$connection = new Connection();
-$bdd = $connection -> getBdd();
-$zone = new ZoneManager($bdd, 1);
-$zone->tableView(15);
 
 if (isset($_POST['id_form'])) {
     $connection = new Connection();
@@ -166,7 +152,22 @@ if (isset($_POST['id_form'])) {
         case "newStationnement":
             if (isset($_POST['plaque']) and isset($_POST['type']))
             {
-                $zone->addStationnement($_POST['plaque'], $_POST['type']);
+                try
+                {
+                    $zone->addStationnement($_POST['plaque'], $_POST['type']);
+                }
+                catch (Exception $e)
+                {
+                    if ($e->getMessage() == 'full')
+                    {
+                        echo json_encode(array('error' => true,
+                            'msg' => "Impossible d'ajouter un véhicule de type {$_POST['type']} car il n'y a plus de places dans la zone {$_POST['id_zone']}." ));
+                    }
+                    else
+                    {
+                        echo 'Erreur : ', $e->getMessage();
+                    }
+                }
             }
             break;
         case "zoneView":
@@ -180,11 +181,13 @@ if (isset($_POST['id_form'])) {
             {
                 $zone->endStationnement($_POST['id_stationnement']);
             }
+            break;
         case "newReservation":
             if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']) and isset($_POST['type_vehicule']))
             {
                 $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
             }
+            break;
     }
 }
 
