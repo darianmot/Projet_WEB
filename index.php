@@ -18,7 +18,6 @@
 
 
 
-
 <!-- slider -->
 <div class="slider">
     <?php include("template/slider.php"); ?>

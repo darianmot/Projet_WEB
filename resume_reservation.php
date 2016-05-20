@@ -19,11 +19,39 @@
 
 <?php
 
+function dateDiff($date1, $date2){
+    $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
+    $retour = array();
+
+    $tmp = $diff;
+    $retour['second'] = $tmp % 60;
+
+    $tmp = floor( ($tmp - $retour['second']) /60 );
+    $retour['minute'] = $tmp % 60;
+
+    $tmp = floor( ($tmp - $retour['minute'])/60 );
+    $retour['hour'] = $tmp % 24;
+
+    $tmp = floor( ($tmp - $retour['hour'])  /24 );
+    $retour['day'] = $tmp;
+
+    return $retour;
+}
+
+
+
+
+
 $entry_date = $_POST['entry_date'];
 $exit_date = $_POST['exit_date'];
 $type = $_POST['type'];
-echo "<br/> Entrée le $entry_date ";
-echo "Sortie le $exit_date";
+echo "<br/> Entrée le ";
+echo $entry_date ;
+echo "Sortie le ";
+echo $exit_date;
+$duree = strtotime($exit_date)-strtotime($entry_date);
+echo "Durée: ";
+print_r($duree)
 ?>
 
 

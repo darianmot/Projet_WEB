@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $("#button_price").click(function () {
 
 
@@ -8,18 +9,10 @@ $(document).ready(function () {
         var coef_zone = ($('input[name="zone_price"]:checked').val() /10) + 0.9;
 
 
-        var entry_date = new Date ($('input[name="entry_date"]').datepicker('getDate'));
-        var exit_date =  new Date ($('input[name="exit_date"]').datepicker('getDate'));
-        var entry_hour=  new Date ($('input[name="entry_hour"]').timepicker('getTime'));
-        var exit_hour=  new Date ($('input[name="exit_hour"]').timepicker('getTime'));
-        
+        var number_day = duree.day;
+        var number_hours = duree.hour;
+        var number_min = duree.min;
 
-
-
-
-        var number_day = $('input[name="duree_jours"]').val();
-        var number_hours = $('input[name="duree_hours"]').val();
-        var number_min = $('input[name="duree_min"]').val();
 
         if (isNaN(coef_zone)  ) {
             alert("Veuillez sélectionner une zone puis relancer l'estimation")
