@@ -36,7 +36,6 @@ session_start();
             </li>
             <li <?php if ($nav_en_cours == 'Plan des parkings') {echo ' id="en-cours"';} ?>><a href="parking_view.php"><i class="fa fa-bar-chart" aria-hidden="true"></i>Plan des parkings</a></li>
             <li><a href='access.php'><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
-            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>S'inscrire</li>
             <?php
             if (isset($_SESSION['identifiant']))
             {
@@ -52,7 +51,9 @@ session_start();
             }
             else
             {
-                echo "<li><a href='connexion.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
+                echo "<li><a href='connexion_page.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
+                echo "<li> <i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i><a href='inscrire_page.php'>S'inscrire</a></li>";
+
             }
             ?>
             <li><a href="gestion.php">Gestion</a></li>
