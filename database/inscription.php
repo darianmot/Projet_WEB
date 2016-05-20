@@ -9,7 +9,7 @@ echo($donnees['id_utilisateur']);
 if (($donnees['id_utilisateur'])=='')
 
 {
-    echo("Votre inscrition a bien été prise en compte, vous pouvez des à present vous identifier dans longlet connexion!");
+    echo("Votre inscrition a bien été prise en compte, vous pouvez dès à present vous connecter");
     $req=$bdd->query("INSERT INTO Utilisateur(`id_utilisateur`,`password`,`nom`,`prenom`,`mail`) 
     VALUES 
     ('{$_POST['pseudonyme']}','{$_POST['password']}','{$_POST['nom']}','{$_POST['prenom']}','{$_POST['mail']}')");
@@ -19,6 +19,6 @@ if (($donnees['id_utilisateur'])=='')
 else
 
 {
-    echo("ce pseudonyme existe déjà, veuillez en taper un autre");
+    echo("Identifiant déjà utilisé");
 }
 ?>

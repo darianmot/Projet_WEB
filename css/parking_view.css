@@ -1,3 +1,5 @@
+
+/*Les places*/
 .libre {
     background-color: lightgreen;
 }
@@ -25,10 +27,17 @@
 
 a:hover
 {
-    font-style: oblique;
+    font-style: normal;
 }
+
+/*La fenetre modale*/
 .fancybox
 {
     width: 100%;
     height: 100%;
+}
+
+.error
+{
+    color: red;
 }

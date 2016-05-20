@@ -3,7 +3,6 @@
 include "bdd_connection.php";
 session_start();
 // creation des variables de session
-//connexion à la table mysql ienac 15 attention il faut pour que ca marche que vos codes soient root et mysql
 $connection = new Connection();
 $bdd = $connection->getBdd();
 //donnee brutes
