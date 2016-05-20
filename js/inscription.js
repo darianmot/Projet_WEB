@@ -10,25 +10,23 @@ $(document).ready(function () {
             data: $('#inscription_form').serialize(),
             success: function(msg)
 
-            {if (msg=='Votre inscrition a bien été prise en compte, vous pouvez des à present vous identifier dans longlet connexion!')
-            { alert(msg);
-
-            $('#bloc_inscrire').remove();
-            $('#sinscrire').text('Vous êtes inscris');
-
-            }
-
-            else
-
             {
+                if (msg=='Votre inscrition a bien été prise en compte, vous pouvez des à present vous identifier dans longlet connexion!')
+                { 
+                    alert(msg);
+                    $('#bloc_inscrire').remove();
+                    $('#sinscrire').text('Vous êtes inscris');
+                }
+                else
+                {
                 alert(msg)};
                 $('#nom_pseudonyme').text('');
-
             },
+            
             error: function(retour)
             {alert('script non trouvé');}
         });
-        /*On reset le form*/
+        
     });
 
 });

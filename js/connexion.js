@@ -1,9 +1,7 @@
 $(document).ready(function () {
     $('#identifier').click(function (e) {
         e.preventDefault();
-        //alert($('#connexion_form').serialize());
         $.ajax({
-            
             type: "POST",
             url: " database/connexion.php",
             dataType : 'html',

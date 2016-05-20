@@ -1,5 +1,6 @@
 <?php
 include "bdd_connection.php";
+
 // creation des variables de session
 session_start();
 
