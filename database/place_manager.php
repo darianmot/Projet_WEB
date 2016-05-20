@@ -59,7 +59,7 @@ class PlaceManager
         while ($data = $response->fetch_assoc()) {
             /*Numero de stationnement eventuel*/
             if ($data['etat']=='occupee') {
-                echo '<h3>Numero de stationnement :  <div id="id_stationnement">' . $data['id_stationnement'] . '</div></h3>';
+                echo '<h3 style="width: 500px; text-align: center">Stationnement <div id="id_stationnement">' . $data['id_stationnement'] . '</div></h3>';
             }
             echo '<table>';
             

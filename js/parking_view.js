@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
     var lg_table = 30;
+    var plaque_pattern = new RegExp('^[a-zA-Z]{2}-?[0-9]{3}-?[a-zA-Z]{2}$|^[0-9]{3}-?[a-zA-Z]{3}-?[0-9]{2}$');
 
     /*Affiche la zone 1 après le chargement de la page*/
     $.post('database/zone_manager.php', {
@@ -21,8 +22,11 @@ $(document).ready(function () {
         var plaque = $('#plaque').val();
         var zone = $('input[name="zone"]:checked').val();
         var donnees = $this.serialize() + "&id_zone=" + zone + "&id_form=newStationnement";
-        if (plaque === '') {
-            alert("Le numéro de plaque n'est pas renseignée");
+        if (!plaque_pattern.test(plaque)) {
+            var help_plaque= "<p style='width: 600px'>Les plaques françaises sont de la forme <b>AA 000 AA </b> ou <b>000 AAA 00</b>.</p>";
+            var error = "<h2 class = 'error'>Erreur</h2>"+help_plaque;
+            $.fancybox({content: error});
+            $(".fancybox-inner").attr("tabindex",1).focus();
         }
         else {
             // $.post('database/zone_manager.php', donnees);
@@ -35,9 +39,9 @@ $(document).ready(function () {
                 {
                     if (retour.error == 'true');
                     {
-                        $.fancybox({content: retour.msg})
-                        $(".fancybox-inner").attr("tabindex",1).focus();
-                        // alert(retour.msg);
+                        var error = "<h2 class = 'error'>Erreur</h2>"+retour.msg;
+                        $.fancybox({content: error});
+                        $(".fancybox-inner").attr("tabindex",1).focus(); //donne le focus à la fenetre modale
                     }
                 },
                 error: function(retour)
