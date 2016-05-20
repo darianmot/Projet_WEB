@@ -1,0 +1,46 @@
+section{
+    color: #000;
+    margin-left: 80%;
+    padding: 5%;
+}
+
+.title_article{
+    font-size: large;
+    text-align: left;
+}
+
+.cvcontainer {
+    background: lightgrey;
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+    border-width: 3px;
+    border-radius: 8px;
+    box-shadow: grey 10px 8px 4px;
+    z-index: 9999;
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+}
+
+.header{
+    text-align: left;
+}
+
+.presentation{
+    text-align: left;
+}
+
+.picture {
+    float: right;
+    width: 30%;
+    margin-top: -20%;
+
+}
+
+
+td{
+    text-align: left;
+}

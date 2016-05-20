@@ -304,6 +304,7 @@ nav {
 }
 
 
+
 /*mise en forme du menu*/
 nav  ul  li
 {
@@ -385,6 +386,12 @@ nav  ul ul li
     /*padding-left: 1em;*/
 
 /*}*/
+
+
+#nav #en-cours a {
+    background-color: #91BD09;
+    color: #fff;
+}
 
 
 
