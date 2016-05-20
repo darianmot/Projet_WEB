@@ -36,7 +36,7 @@ session_start();
             </li>
             <li><a href="parking_view.php"><i class="fa fa-bar-chart" aria-hidden="true"></i></i>Plan des parkings</a></li>
             <li><a href="#map"><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
-            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>S'inscrire</li>
+            <li> <i class="fa fa-user-plus" aria-hidden="true"></i><a href="inscrire_page.php">S'inscrire</a></li>
             <?php
             if (isset($_SESSION['identifiant']))
             {

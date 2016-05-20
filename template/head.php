@@ -26,5 +26,5 @@
     <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
 
     <script type="text/javascript" src="js/connexion.js"></script>
-
+    <script type="text/javascript" src="js/inscription.js"></script>
 </head>
