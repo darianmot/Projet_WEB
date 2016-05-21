@@ -29,15 +29,17 @@ class PlaceManager
         VALUES (NULL, {$id_zone}, '{$type_vehicule}');");
     }
 
-    /*Retourne une place libre selon le type et la zone selectionnée*/
+    /*Retourne une place libre pour un véhicule donné selon le type et la zone selectionnée (et gère les eventuelles reservations)*/
     public function getFreePlace($id_zone, $type_vehicule)
     {
+        $date = date("Y-m-d H:i:s");
         $response = $this->getBdd()->query("SELECT MIN(Place.id_place) AS id_place FROM 
-            (SELECT * FROM (SELECT * FROM Stationnement ORDER BY date_fin DESC) AS _ GROUP BY id_place) AS DernierStationnement
-                    RIGHT JOIN Place ON DernierStationnement.id_place = Place.id_pLace
-                    WHERE ((DernierStationnement.etat NOT IN ('occupee','reservee') or DernierStationnement.id_place IS NULL) 
+            (SELECT * FROM (SELECT * FROM Stationnement ORDER BY date_debut DESC) AS _ GROUP BY id_place) AS DernierStationnement
+             RIGHT JOIN Place ON DernierStationnement.id_place = Place.id_place
+                    WHERE ((((DernierStationnement.etat='fini') OR (DernierStationnement.etat = 'reservee' AND DernierStationnement.date_fin <= '{$date}'))
+                      OR DernierStationnement.id_place IS NULL)
                             AND Place.type_vehicule = '$type_vehicule' 
-                            AND Place.id_zone = {$id_zone});");
+                            AND Place.id_zone = {$id_zone})");
 
         $place = $response->fetch_assoc();
         if (isset($place['id_place'])) {

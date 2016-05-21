@@ -30,6 +30,17 @@ a:hover
     font-style: normal;
 }
 
+/*bouton random*/
+#random
+{
+    margin-left: 15px;
+}
+
+#random:hover
+{
+    cursor: pointer;
+}
+
 /*La fenetre modale*/
 .fancybox
 {

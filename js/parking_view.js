@@ -1,3 +1,21 @@
+/*Génère une chaine alétoire de longueur length parmis l'alphabet chars*/
+function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+}
+
+/*Génère une plaque (récente) aléatoire*/
+function randomPlaque()
+{
+    var begin = randomString(2, 'ABCDEFGHIJKLMNOPKRSTUVWXYZ');
+    var middle = randomString(3, '0123456789');
+    var end  = randomString(2, 'ABCDEFGHIJKLMNOPKRSTUVWXYZ');
+    return begin+middle+end;
+}
+
+
+/*Partie dynamique*/
 $(document).ready(function () {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
     var lg_table = 30;
@@ -63,8 +81,8 @@ $(document).ready(function () {
                 $('#view').html(data);
             });
 
-        /*On reset le champ de la plaque*/
-        $('#plaque').val('')
+        /*On donne surligne la plaque après la selection*/
+        $('#plaque').select()
     });
 
     /*Si on clique sur une place, ses infos s'affichent*/
@@ -125,6 +143,11 @@ $(document).ready(function () {
             toggle: [70]  // letter "f" - toggle fullscreen
         },
         scrolling : 'no'
-    }
-);
+        }
+        );
+
+    /*Génèration une plaque aléatoire lorsqu'on clique sur l'icone random*/
+    $('#random').click(function () {
+        $('#plaque').val(randomPlaque());
+    });
 });

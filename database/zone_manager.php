@@ -40,7 +40,9 @@ class ZoneManager
     }
     
 
-    /*Stationnements*/
+    /*** STATIONNEMENT ***/
+
+    /*Ajoute ou met à jour un véhicule dans la base*/
     private function addVehicule($plaque, $type_vehicule)
     {
         /*On vérifie d'abord que le véhicule n'est pas déja garé*/
@@ -55,19 +57,25 @@ class ZoneManager
 
     }
 
+    /*Ajout d'un stationnement*/
     public function addStationnement($plaque, $type_vehicule)
     {
         $date = date("Y-m-d H:i:s");
         try {
-            $this->addVehicule($plaque, $type_vehicule);
-            $placeManager = new PlaceManager($this->getBdd());
-            $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
-//            if ($place == 'none')
-//            {
-//                throw new Exception('full');
-//            }
+            $reservation_place = $this->hasReservation($date, $plaque);
+            if ($reservation_place == null)
+            {
+                $this->addVehicule($plaque, $type_vehicule);
+                $placeManager = new PlaceManager($this->getBdd());
+                $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+
+            }
+            else
+            {
+                $place = $reservation_place;
+            }
             $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-          VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
+                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
         }
         catch (Exception $e)
         {
@@ -76,7 +84,7 @@ class ZoneManager
     }
 
 
-
+    /*Fin d'un stationnement*/
     public function endStationnement($id_stationnement)
     {
         /*On change l'état du stationnement*/
@@ -85,6 +93,8 @@ class ZoneManager
         /*On génère la facture*/
     }
 
+
+    /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
         $this->addVehicule($plaque, $type_vehicule);
@@ -93,10 +103,28 @@ class ZoneManager
         $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
       VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
     }
-    /*visu*/
+
+    /*Renvoie la place liée à une réservation si le véhicule en a une, et null sinon*/
+    public function hasReservation($date, $plaque)
+    {
+        $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (('{$date}' BETWEEN date_debut AND date_fin )
+            AND plaque = '{$plaque}' AND etat = 'reservee' )");
+        $reponse = $req->fetch_assoc();
+        if (isset($reponse['id_place']))
+        {
+            return $reponse['id_place'];
+        }
+        else{
+            return null;
+        }
+    }
+
+
+    /*** VISU ***/
     public function tableView($lg_table)
     /*Crée un tableau représentant la table (void function)*/
     {
+        $date = date("Y-m-d H:i:s");
         /*On récupère la liste des types de véhicules (=type de places)*/
         $response_type = $this->getBdd()->query("SELECT * FROM `TypeVehicule`");
 
@@ -123,7 +151,7 @@ class ZoneManager
 
                 /*On regarde si la place est occupee, reservée ou libre*/
                 $place_status = $this->getBdd()->query("SELECT etat FROM `Stationnement` 
-                                WHERE etat IN ('occupee', 'reservee') AND id_place = '{$place['id_place']}';");
+                                WHERE (etat IN ('occupee')  OR (etat = 'reservee' AND date_fin >= '{$date}'))AND id_place = '{$place['id_place']}';");
                 $etat = $place_status->fetch_assoc();
                 $class = 'place libre';
                 switch ($etat['etat']) //On lui affecte alors la classe adaptée

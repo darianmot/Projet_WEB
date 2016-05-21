@@ -12,7 +12,8 @@
 <form method="post" id="newStationnement">
     
     <label for="plaque">Plaque :</label>
-    <input type="text" name="plaque" id="plaque" /><br/>
+    <input type="text" name="plaque" id="plaque" /><i title="Générer une plaque aléatoirement" class="fa fa-random" aria-hidden="true" id="random"></i>
+    <br/>
 
     <label for="type">Type de véhicule :</label>
     <?php
