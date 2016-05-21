@@ -44,7 +44,7 @@ class PlaceManager
             return $place['id_place'];
         }
         else {
-            return 'none';
+            throw new Exception('full');
         }
     }
     
