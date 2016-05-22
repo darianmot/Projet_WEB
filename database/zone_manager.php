@@ -94,6 +94,7 @@ class ZoneManager
     }
 
 
+
     /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
@@ -117,6 +118,19 @@ class ZoneManager
         else{
             return null;
         }
+    }
+
+
+    /*** TARIFS ***/
+
+    /*Renvoie le prix en fonction de l'heure associée à la zone*/
+    public function getPrice()
+    {
+        $req = $this->getBdd()->query("SELECT Tarif.prix as prix
+                                      FROM Tarif JOIN `Zone` ON Tarif.id_tarif = `Zone`.id_tarif 
+                                      WHERE `Zone`.id_zone = {$this->getIdZone()}");
+        $tarif = $req->fetch_assoc();
+        return $tarif['prix'];
     }
 
 
@@ -166,7 +180,8 @@ class ZoneManager
             
 
                 /*On crée alors effectivement la case 'td' d'id valant id_plaque*/
-                echo " <td id = {$place['id_place']}  class='{$class}'><a class='fancybox' rel='group' href='#place_info'>{$place['id_place']}</a> </td>";
+                echo " <a class='fancybox' rel='group' href='#place_info'><td id = {$place['id_place']}  class='{$class}'>{$place['id_place']}</td></a> ";
+
                 $i++;
 
             }
@@ -182,6 +197,7 @@ class ZoneManager
   POST instructions :
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
+
 
 
 if (isset($_POST['id_form'])) {
@@ -237,6 +253,9 @@ if (isset($_POST['id_form'])) {
             {
                 $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
             }
+            break;
+        case 'getPrice':
+            echo $zone->getPrice();
             break;
     }
 }

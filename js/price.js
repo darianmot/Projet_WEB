@@ -1,4 +1,33 @@
+
+/*Fonction qui calcule le prix de la zone choisie en fonction de l'heure*/
+function prix(id_zone, heures)
+{
+    $.ajax({
+        type: "POST",
+        url: " database/zone_manager.php",
+        data: "id_form=getPrice" + '&id_zone='+ id_zone,
+        success: function(retour)
+        {
+            var h = heures;
+            var prix = eval(retour);
+            alert('Prix total:' + prix); // Changer le alert ce qu'il faut en faire
+        },
+        error: function(retour)
+        {
+            if (retour.status == 200) {
+                console.log('warning due à la non synchronisation des requetes ajax')
+            }
+        }
+    });
+}
+
+
 $(document).ready(function () {
+    var id_zone = 1;
+    var heures = 5; //A remplacer par ce qui va bien
+    $('#price').click(function() {
+        prix(id_zone, heures);
+    });
     
     $("#button_price").click(function () {
 
