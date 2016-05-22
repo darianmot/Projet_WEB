@@ -22,7 +22,7 @@ $(document).ready(function () {
             },
 
             error: function(retour)
-            {alert('script non trouvé');}
+            {alert('script non trouvé.');}
         });
 
     });
