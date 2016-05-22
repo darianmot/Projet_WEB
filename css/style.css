@@ -121,6 +121,8 @@ h4 {
     width: 76.5%;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 0.7;
     border-width: 3px;
     border-radius: 8px;
@@ -140,7 +142,7 @@ h4 {
 }
 
 .button_reserv:hover{
-    background: #02b3ff;
+    background: orange;
 }
 
 .button_reserv:active{
@@ -204,15 +206,12 @@ h4 {
 .select_reserv{
     width: 280px;
     background: aliceblue;
-    font-size: 2em;
+    font-size: 1em;
     border-width: 3px;
     border-radius: 8px;
     margin-right: 10px;
     font-weight: 100;
 }
-
-
-
 
 
 
@@ -295,12 +294,13 @@ nav {
     position: relative;
     top: 0;
     width: 100%;
-    height: 10%;
+    height: 12%;
     background: #0280b5;
     color: #ffffff;
-    font-family: 'Open Sans';
-    z-index: 99;
+    /*z-index: 99;*/
     opacity: 70;
+    margin-top: auto;
+    text-align: center;
 }
 
 
@@ -310,9 +310,9 @@ nav  ul  li
 {
     margin-left: 2%;
     margin-right: 0%;
+    margin-top: 2%;
     display: inline-block;
     cursor:pointer;
-    left: -20%;
 }
 
 /*style police*/
@@ -320,7 +320,9 @@ nav ul  li  a
 {
     border: 0;
     text-decoration: none;
+    text-transform: uppercase;
     font-weight: 400;
+    font-family: "Calibri";
     color: #ffffff;
 }
 
@@ -333,12 +335,7 @@ nav ul li:hover
 
 nav ul  li  a:hover
 {
-    color: #d0d1d0;
-}
-
-.fa:hover
-{
-    color: #d0d1d0;
+    color: #ffffff;
 }
 
 /*2e niveau*/
@@ -363,7 +360,7 @@ nav  ul ul
     z-index: 1000;
     min-width: 10em;
     padding: 0;
-    margin: -10px;
+    margin: 0px;
     border-radius: 4px;
     background: #333433;
 }
@@ -379,13 +376,13 @@ nav  ul ul li
     color: #d0d1d0;
 }
 
-/*nav  ul ul li  a*/
-/*{*/
-    /*font-size:1em;*/
-    /*text-transform: none!important;*/
-    /*padding-left: 1em;*/
+nav  ul ul li  a
+{
+    font-size:1em;
+    text-transform: none!important;
+    padding-left: 1em;
 
-/*}*/
+}
 
 
 #nav #en-cours a {

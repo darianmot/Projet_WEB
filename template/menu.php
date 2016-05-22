@@ -15,25 +15,6 @@ session_start();
                 </a>
             </li>
             <li <?php if ($nav_en_cours == 'cv.php') {echo ' id="en-cours"';} ?>><a href="cv.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Nos offres</a></li>
-<!--                <ul id="menu2">-->
-<!---->
-<!--                    <li id = "voiture"><span class="fa-stack fa-lg">-->
-<!--                        <i class="fa fa-car fa-stack-1x fa-inverse"></i>-->
-<!--                    </span>Voitures-->
-<!--                    </li>-->
-<!---->
-<!--                    <li><span class="fa-stack fa-lg">-->
-<!--                        <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>-->
-<!--                    </span>Moto-->
-<!--                    </li>-->
-<!---->
-<!--                    <li><span class="fa-stack fa-lg">-->
-<!--                        <i class="fa fa-taxi fa-stack-1x fa-inverse"></i>-->
-<!--                    </span>Location-->
-<!--                    </li>-->
-<!---->
-<!--                </ul>-->
-            </li>
             <li <?php if ($nav_en_cours == 'Plan des parkings') {echo ' id="en-cours"';} ?>><a href="parking_view.php"><i class="fa fa-bar-chart" aria-hidden="true"></i>Plan des parkings</a></li>
             <li><a href='access.php'><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
             <?php
