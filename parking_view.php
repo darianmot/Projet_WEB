@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <?php include("template/head.php"); ?>
+<?php include("template/menu.php"); ?>
+
 
 <body>
 
-
-<?php include("template/menu.php"); ?>
 
 <!-- Le corps -->
 

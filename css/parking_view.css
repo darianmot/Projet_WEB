@@ -2,13 +2,25 @@
 /*Les places*/
 .libre {
     background-color: lightgreen;
+    color: #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
 }
 
 .occupee {
     background-color: red;
+    color: #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
 }
 .reservee {
     background-color: orange;
+    color: #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-top: 2px solid #FFFFFF;
 }
 
 .place a:hover {
@@ -52,3 +64,23 @@ a:hover
 {
     color: red;
 }
+
+table{
+    background-color: #2b2b2b;
+    opacity: 0.95;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-color: inherit;
+    /*border: 10px solid white;*/
+    margin-bottom: 40px;
+}
+
+th, td {
+    border: 10px solid #2b2b2b;
+    font-family: Calibri;
+    font-weight: bold;
+    color: #FFFFFF;
+    /*border-left: 2px solid #FFFFFF;*/
+    /*border-right: 2px solid #FFFFFF;*/
+}
+

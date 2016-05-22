@@ -4,11 +4,6 @@
 
 <?php include("template/head.php"); ?>
 
-<!-- header -->
-<div class="titre">
-    <img src="./media/images/logo2.png">
-</div>
-
 
 <body>
 <?php include("template/menu.php"); ?>

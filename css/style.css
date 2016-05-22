@@ -266,40 +266,86 @@ contenu
 footer
 ********************************************************************************/
 
-footer
-{
-    height: 30px;
-	text-align: center;
-    background-color: black;
-    bottom: 0;
-    margin-top: 50px;
-    width: 100%;
+/*footer*/
+/*{*/
+    /*height: 30px;*/
+	/*text-align: center;*/
+    /*background-color: black;*/
+    /*bottom: 0;*/
+    /*margin-top: 50px;*/
+    /*width: 100%;*/
+/*}*/
+
+/*.footer_left section {*/
+    /*text-align: left;*/
+    /*margin: 25px;*/
+    /*font-size: 0.7em;*/
+    /*display: inline;*/
+
+/*}*/
+
+footer, .push {
+    height: 0em;
+    clear: both;
 }
 
-.footer_left section {
-    text-align: left;
-    margin: 25px;
-    font-size: 0.7em;
-    display: inline;
+footer {
+    position: relative;
+    display: block;
+    bottom: 0;
+    left: 0;
+    clear: both;
+    opacity:0.8;
+    background: #F2F3F5;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    color: #000000;
+    height: 40px;
+    margin-top: 10%;
+    border-top: 1px solid #FFFFFF;
+}
 
+footer  ul{
+    display: block;
+    margin: 0 auto auto;
+    padding: 0;
+    width: 960px;
+}
+
+footer  ul li{
+    list-style-type: none;
+    float: left;
+}
+
+footer  ul li ul{
+    display: inline-block;
+    list-style-type: none;
+    width: 200px;
+}
+
+footer ul ul li {
+    color: black;
+    float: none;
+    font-size: 0.75em;
+    margin: 15px 0;
+    width: auto;
 }
 
 /********************************************************************************
 menu
 ********************************************************************************/
 nav {
-    /*Pour faire suivre le menu quand on deroule la page*/
-    text-align: right;
     text-transform: uppercase;
     position: relative;
-    top: 0;
+    top: -2%;
     width: 100%;
-    height: 12%;
+    height: 10%;
     background: #0280b5;
     color: #ffffff;
     /*z-index: 99;*/
     opacity: 70;
-    margin-top: auto;
+    margin: auto;
     text-align: center;
 }
 
@@ -308,9 +354,9 @@ nav {
 /*mise en forme du menu*/
 nav  ul  li
 {
-    margin-left: 2%;
+    margin-left: 2.2%;
     margin-right: 0%;
-    margin-top: 2%;
+    margin-top: 1.5%;
     display: inline-block;
     cursor:pointer;
 }

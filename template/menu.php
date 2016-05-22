@@ -5,6 +5,10 @@ session_start();
 ?>
 <?php $nav_en_cours=""; ?>
 
+<div class="titre">
+    <img src="./media/images/logo2.png">
+</div>
+
 <nav>
         <ul>
             <li>
