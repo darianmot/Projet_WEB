@@ -180,7 +180,8 @@ class ZoneManager
             
 
                 /*On crée alors effectivement la case 'td' d'id valant id_plaque*/
-                echo " <td id = {$place['id_place']}  class='{$class}'><a class='fancybox' rel='group' href='#place_info'>{$place['id_place']}</a> </td>";
+                echo " <a class='fancybox' rel='group' href='#place_info'><td id = {$place['id_place']}  class='{$class}'>{$place['id_place']}</td></a> ";
+
                 $i++;
 
             }
@@ -255,6 +256,7 @@ if (isset($_POST['id_form'])) {
             break;
         case 'getPrice':
             echo $zone->getPrice();
+            break;
     }
 }
 

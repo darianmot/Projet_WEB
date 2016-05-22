@@ -90,12 +90,14 @@ $(document).ready(function () {
     $(document).on('click', '.place', function () {
         var id_place = $(this).attr('id');
         var isOccupee = $(this).hasClass('occupee');
+        console.log(id_place+isOccupee);
         $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
-            $('#place_info').html(data);
+            var info = data;
             if (isOccupee)
             {
-                $('#place_info').append("<button type='submit' value="+id_place+" id='end_stat_button'>Mettre fin au stationnement</button>");
+                info += "<button type='submit' value="+id_place+" id='end_stat_button'>Mettre fin au stationnement</button>";
             }
+            $.fancybox({content: info});
         });
     });
 

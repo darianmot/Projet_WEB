@@ -63,7 +63,7 @@ class PlaceManager
             if ($data['etat']=='occupee') {
                 echo '<h3 style="width: 500px; text-align: center">Stationnement <div id="id_stationnement">' . $data['id_stationnement'] . '</div></h3>';
             }
-            echo '<table>';
+            echo '<table class = "info_box">';
             
             /*Id de la place*/
             echo '<tr><td>ID Place : </td><td>' . $data['id_place'] . '</td>';
