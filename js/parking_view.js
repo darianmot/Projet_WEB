@@ -37,9 +37,10 @@ $(document).ready(function () {
 
         /*On met a jour la database*/
         var $this = $(this);
-        var plaque = $('#plaque').val();
+        var plaque = $('#plaque').val().replace(/ /g,"").toUpperCase();
         var zone = $('input[name="zone"]:checked').val();
-        var donnees = $this.serialize() + "&id_zone=" + zone + "&id_form=newStationnement";
+        var type = $('#type').val();
+        var donnees = "plaque=" + plaque + "&type=" + type + "&id_zone=" + zone + "&id_form=newStationnement";
         if (!plaque_pattern.test(plaque)) {
             var help_plaque= "<p style='width: 600px'>Les plaques françaises sont de la forme <b>AA 000 AA </b> ou <b>000 AAA 00</b>.</p>";
             var error = "<h2 class = 'error'>Erreur</h2>"+help_plaque;
