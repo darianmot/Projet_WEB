@@ -2,14 +2,15 @@
     <meta charset="utf-8" />
     <title>Car Park</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cv.css"/>
-    <link rel="stylesheet" type="text/css" href="css/parking_view.css"/>
-    <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
     <link rel="stylesheet" type="text/css" href="css/ui_css/jquery-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/ui_css/jquery-ui.structure.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/ui_css/jquery-ui.theme.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/ui_css/timepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cv.css"/>
+    <link rel="stylesheet" type="text/css" href="css/parking_view.css"/>
+    <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
+
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
     

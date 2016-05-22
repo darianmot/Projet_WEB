@@ -1,13 +1,20 @@
-DROP DATABASE IF EXISTS ienac15_;
-CREATE DATABASE ienac15_;
-USE ienac15_;
+DROP DATABASE IF EXISTS IENAC15_aeroport_C;
+CREATE DATABASE IENAC15_aeroport_C;
+USE IENAC15_aeroport_C;
 
+CREATE TABLE Tarif
+(
+  id_tarif INT,
+  prix char(50),
+  PRIMARY KEY (id_tarif)
+)ENGINE=INNODB;
 
 CREATE TABLE Zone
 (
   id_zone INT,
-  tarif INT,
-  PRIMARY KEY (id_zone)
+  id_tarif INT,
+  PRIMARY KEY (id_zone),
+  FOREIGN KEY (id_tarif) REFERENCES Tarif(id_tarif)
 )ENGINE=INNODB;
 
 
@@ -36,17 +43,6 @@ CREATE TABLE Admin
   id_utilisateur CHAR(20) NOT NULL,
   PRIMARY KEY(id_utilisateur),
   FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
-)ENGINE=INNODB;
-
-
-CREATE TABLE Gestion
-(
-  id_gestion INT AUTO_INCREMENT,
-  id_admin CHAR(20),
-  id_zone INT,
-  PRIMARY KEY(id_gestion),
-  FOREIGN KEY (id_admin) REFERENCES Admin(id_utilisateur),
-  FOREIGN KEY (id_zone) REFERENCES Zone(id_zone)
 )ENGINE=INNODB;
 
 
@@ -106,9 +102,11 @@ CREATE TABLE Facture
 
 
 
-
-INSERT INTO `ienac15_`.`Zone` VALUES ('1', '100');
-INSERT INTO `ienac15_`.`Zone` VALUES ('2', '200');
-INSERT INTO `ienac15_`.`Zone` VALUES ('3', '300');
-INSERT INTO `ienac15_`.`TypeVehicule` VALUES ('voiture'),('moto'),('handicape');
-INSERT INTO `ienac15_`.`Utilisateur` VALUES('admin','admin','admin','admin','admin')
+INSERT INTO `Tarif` VALUES ('1', '1*h');
+INSERT INTO `Tarif` VALUES ('2', '1*h');
+INSERT INTO `Tarif` VALUES ('3', '1*h');
+INSERT INTO `Zone` VALUES ('1', '1');
+INSERT INTO `Zone` VALUES ('2', '2');
+INSERT INTO `Zone` VALUES ('3', '3');
+INSERT INTO `TypeVehicule` VALUES ('voiture'),('moto'),('handicape');
+INSERT INTO `Utilisateur` VALUES('admin','admin','admin','admin','admin')

@@ -63,9 +63,9 @@ class ZoneManager
         $date = date("Y-m-d H:i:s");
         try {
             $reservation_place = $this->hasReservation($date, $plaque);
+            $this->addVehicule($plaque, $type_vehicule);
             if ($reservation_place == null)
             {
-                $this->addVehicule($plaque, $type_vehicule);
                 $placeManager = new PlaceManager($this->getBdd());
                 $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
 
@@ -75,7 +75,7 @@ class ZoneManager
                 $place = $reservation_place;
             }
             $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', DATE_ADD('{$date}', INTERVAL 1 DAY), 'occupee', NULL);");
+                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee', NULL);");
         }
         catch (Exception $e)
         {
@@ -92,6 +92,7 @@ class ZoneManager
 
         /*On génère la facture*/
     }
+
 
 
     /*Création d'une reservation*/
@@ -117,6 +118,19 @@ class ZoneManager
         else{
             return null;
         }
+    }
+
+
+    /*** TARIFS ***/
+
+    /*Renvoie le prix en fonction de l'heure associée à la zone*/
+    public function getPrice()
+    {
+        $req = $this->getBdd()->query("SELECT Tarif.prix as prix
+                                      FROM Tarif JOIN `Zone` ON Tarif.id_tarif = `Zone`.id_tarif 
+                                      WHERE `Zone`.id_zone = {$this->getIdZone()}");
+        $tarif = $req->fetch_assoc();
+        return $tarif['prix'];
     }
 
 
@@ -151,7 +165,7 @@ class ZoneManager
 
                 /*On regarde si la place est occupee, reservée ou libre*/
                 $place_status = $this->getBdd()->query("SELECT etat FROM `Stationnement` 
-                                WHERE (etat IN ('occupee')  OR (etat = 'reservee' AND date_fin >= '{$date}'))AND id_place = '{$place['id_place']}';");
+                                WHERE (etat IN ('occupee')  OR (etat = 'reservee' AND date_fin >= '{$date}'))AND id_place = '{$place['id_place']}' ORDER BY date_debut DESC;");
                 $etat = $place_status->fetch_assoc();
                 $class = 'place libre';
                 switch ($etat['etat']) //On lui affecte alors la classe adaptée
@@ -184,8 +198,13 @@ class ZoneManager
  */
 
 
+
 if (isset($_POST['id_form'])) {
-    $connection = new Connection();
+    try {$connection = new Connection();} 
+    catch (Exception $e)
+    {
+        echo 'erreur connexion BDD';
+    }
     $bdd = $connection -> getBdd();
     $zone = new ZoneManager($bdd, $_POST['id_zone']);
     switch ($_POST['id_form'])
@@ -234,6 +253,8 @@ if (isset($_POST['id_form'])) {
                 $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
             }
             break;
+        case 'getPrice':
+            echo $zone->getPrice();
     }
 }
 

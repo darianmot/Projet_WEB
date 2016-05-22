@@ -90,25 +90,23 @@ class PlaceManager
 
 if (isset($_POST['id_form'])) {
     $connection = new Connection();
-    $bdd = $connection -> getBdd();
+    $bdd = $connection->getBdd();
     $placeManager = new PlaceManager($bdd);
-    if ($_POST['id_form'] == 'newPlace') {
-        if (isset($_POST['nombre']) and isset($_POST['id_zone'])) 
-        {
-            for ($i = 1; $i <= $_POST['nombre']; $i++) 
-            {
-                $placeManager->addPlace($_POST['id_zone'], $_POST['type']);
+    switch ($_POST['id_form']) {
+        case 'newPlace':
+            if (isset($_POST['nombre']) and isset($_POST['id_zone'])) {
+                for ($i = 1; $i <= $_POST['nombre']; $i++) {
+                    $placeManager->addPlace($_POST['id_zone'], $_POST['type']);
+                }
             }
-        }
+            break;
+        case 'place_view':
+            if (isset($_POST['id_place']))
+            {
+                $placeManager->placeView($_POST['id_place']);
+            }
+            break;
     }
-    elseif ($_POST['id_form'] == 'place_view')
-    {
-       if (isset($_POST['id_place']))
-       {
-           $placeManager->placeView($_POST['id_place']);
-       }
-    }
-        
 }
 ?>
 
