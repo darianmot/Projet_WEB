@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('#modifier').click(function (e) {
         e.preventDefault();
-        //alert($('#connexion_form').serialize());
         $.ajax({
 
             type: "POST",
@@ -11,14 +10,14 @@ $(document).ready(function () {
             success: function(msg)
 
             {
-                if (msg=='Votre inscrition a bien été prise en compte, vous pouvez dès à present vous connecter')
+                if (msg=='Les modifications ont bien été prises en compte')
                 {
-                    alert("Les modifications ont bien été prises en compte");
+                    alert(msg);
                     ;
                 }
                 else
                 {
-                    alert("l'identifiant utilisé existe déjà")};
+                    alert(msg)};
                 ;
             },
 
