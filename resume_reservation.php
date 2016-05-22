@@ -20,7 +20,7 @@
 <?php
 
 function dateDiff($date1, $date2){
-    $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
+    $diff = abs(strtotime($date1) - strtotime($date2)); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
     $retour = array();
 
     $tmp = $diff;
@@ -49,15 +49,20 @@ echo "<br/> Entrée le ";
 echo $entry_date ;
 echo "Sortie le ";
 echo $exit_date;
-$duree = strtotime($exit_date)-strtotime($entry_date);
+$duree = dateDiff($entry_date,$exit_date);
+$duree_day = $duree["day"];
+$duree_hour = $duree["hour"];
+$duree_minute = $duree["minute"];
 echo "Durée: ";
-print_r($duree)
+echo $duree_day;
+echo $duree_hour;
+echo $duree_minute;
 ?>
 
 
 </br>
 
-</form>
+
 <div id="zone_select" >
     <h3>Sélectionnez la zone parking</h3>
     <label for="zone" id="zone">Zone :</label>
@@ -85,7 +90,7 @@ print_r($duree)
 
 
 <br/> <br/>
-<button type="submit" class="button_reserv">Finaliser la commande !</button>
+<button type="submit" class="button_reserv">Continuer</button>
 
 <?php include ("template/footer.php");?>
 </body>
