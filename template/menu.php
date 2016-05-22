@@ -25,7 +25,7 @@ session_start();
     
                         <li id = 'voiture'><span class='fa-stack fa-lg'>
                             <i class='fa fa-user fa-stack-1x fa-inverse'></i>
-                        </span>Votre Compte
+                        </span><a href='mon_compte.php'>Votre Compte</a> 
                         <li><a href='deconnexion.php'>Deconnexion</a></li>
                     </ul>
                 </li>");
