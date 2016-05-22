@@ -22,7 +22,7 @@ $(document).ready(function () {
             var price = coef_zone * (number_day*price_of_day + number_hours *  price_of_hour + number_min *  price_of_minute);
             price = price.toFixed(2);
             $('#disp_price').empty();
-            $('#disp_price').prepend('<h2> Total TTC: </h2>'+ '<h4>' +  price + '€ '+ '</h4>');
+            $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  price + '€ '+ '</h4>');
         }
 
 

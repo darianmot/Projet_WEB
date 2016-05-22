@@ -94,7 +94,7 @@ $(document).ready(function () {
             $('#place_info').html(data);
             if (isOccupee)
             {
-                $('#place_info').append("<button type='submit' value="+id_place+" id='end_stat_button'>Fin</button>");
+                $('#place_info').append("<button type='submit' value="+id_place+" id='end_stat_button'>Mettre fin au stationnement</button>");
             }
         });
     });
