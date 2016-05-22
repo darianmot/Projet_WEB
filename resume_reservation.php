@@ -83,7 +83,7 @@ echo $duree_minute;
 
 <div>
     <h3>Sélectionnez une place de parking</h3>
-    A compléter (Darius HEEEEEEEEELP :p)
+    <button type="button" id = 'price'>test prix </button>
 
 
 </div>

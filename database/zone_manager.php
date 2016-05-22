@@ -94,6 +94,7 @@ class ZoneManager
     }
 
 
+
     /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
@@ -117,6 +118,19 @@ class ZoneManager
         else{
             return null;
         }
+    }
+
+
+    /*** TARIFS ***/
+
+    /*Renvoie le prix en fonction de l'heure associée à la zone*/
+    public function getPrice()
+    {
+        $req = $this->getBdd()->query("SELECT Tarif.prix as prix
+                                      FROM Tarif JOIN `Zone` ON Tarif.id_tarif = `Zone`.id_tarif 
+                                      WHERE `Zone`.id_zone = {$this->getIdZone()}");
+        $tarif = $req->fetch_assoc();
+        return $tarif['prix'];
     }
 
 
@@ -184,6 +198,7 @@ class ZoneManager
  */
 
 
+
 if (isset($_POST['id_form'])) {
     try {$connection = new Connection();} 
     catch (Exception $e)
@@ -238,6 +253,8 @@ if (isset($_POST['id_form'])) {
                 $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
             }
             break;
+        case 'getPrice':
+            echo $zone->getPrice();
     }
 }
 
