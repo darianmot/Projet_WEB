@@ -458,6 +458,42 @@ nav  ul ul li  a
 }
 
 .connexion_table td{
+     border: 10px solid lightgrey;
+     font-family: Calibri;
+     font-weight: bold;
+     font-size: 20px;
+     color: #2b2b2b;
+ }
+
+.connexion_button{
+    width: 200px;
+    height: 60px;
+    left:0 ;
+    font-size: 1.6em;
+    background: linear-gradient(aliceblue, lightblue);
+    text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+    border-width: 3px;
+    border-radius: 8px;
+
+}
+
+/*identification_page*/
+
+.identification_table{
+    background-color: lightgrey;
+    opacity: 0.7;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    border-color: inherit;
+    /*border: 10px solid white;*/
+    box-shadow: grey 5px 5px 4px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 60%;
+}
+
+.identification_tablen_table td{
     border: 10px solid lightgrey;
     font-family: Calibri;
     font-weight: bold;
@@ -465,7 +501,7 @@ nav  ul ul li  a
     color: #2b2b2b;
 }
 
-.connexion_button{
+.identification_button{
     width: 200px;
     height: 60px;
     left:0 ;
