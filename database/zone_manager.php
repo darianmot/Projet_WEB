@@ -142,13 +142,13 @@ class ZoneManager
         /*On récupère la liste des types de véhicules (=type de places)*/
         $response_type = $this->getBdd()->query("SELECT * FROM `TypeVehicule`");
 
-        echo '<table cellspacing="30">';
+        echo '<table class="visu_zone" cellspacing="30">';
         while ($type = mysqli_fetch_assoc($response_type)) {
             $i = 0; //Permet de controler la longueur de la ligne courante
 
             /*On crée les différentes tables de places (1 table/type de vehicule)*/
             echo '<tr><td>' . $type['type'] . '</td>
-              <td><table><tr>';
+              <td><table class="visu_zone"><tr>';
 
             /*On récupère l'ensemble des places associées à la zone choisie et au type de place choisi*/
             $current_places = $this->getBdd()->query("SELECT * FROM `Place` WHERE Place.id_zone = '{$this->id_zone}' AND Place.type_vehicule = '{$type['type']}'");
