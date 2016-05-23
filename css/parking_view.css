@@ -82,15 +82,15 @@ a:hover
     color: red;
 }
 
-table{
+/*table{
     background-color: #2b2b2b;
     opacity: 0.95;
     border-collapse: separate;
     border-spacing: 0px;
     border-color: inherit;
-    /*border: 10px solid white;*/
+    !*border: 10px solid white;*!
     margin-bottom: 40px;
-}
+}*/
 
 th, td {
     border: 10px solid #2b2b2b;

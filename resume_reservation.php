@@ -17,48 +17,7 @@
 
 <h3>Votre réservation</h3>
 
-<?php
-
-function dateDiff($date1, $date2){
-    $diff = abs(strtotime($date1) - strtotime($date2)); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
-    $retour = array();
-
-    $tmp = $diff;
-    $retour['second'] = $tmp % 60;
-
-    $tmp = floor( ($tmp - $retour['second']) /60 );
-    $retour['minute'] = $tmp % 60;
-
-    $tmp = floor( ($tmp - $retour['minute'])/60 );
-    $retour['hour'] = $tmp % 24;
-
-    $tmp = floor( ($tmp - $retour['hour'])  /24 );
-    $retour['day'] = $tmp;
-
-    return $retour;
-}
-
-
-
-
-
-$entry_date = $_POST['entry_date'];
-$exit_date = $_POST['exit_date'];
-$type = $_POST['type'];
-echo "<br/> Entrée le ";
-echo $entry_date ;
-echo "Sortie le ";
-echo $exit_date;
-$duree = dateDiff($entry_date,$exit_date);
-$duree_day = $duree["day"];
-$duree_hour = $duree["hour"];
-$duree_minute = $duree["minute"];
-echo "Durée: ";
-echo $duree_day;
-echo $duree_hour;
-echo $duree_minute;
-?>
-
+<?php include("date_price_calculator.php") ?>
 
 </br>
 

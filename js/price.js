@@ -10,7 +10,7 @@ function prix(id_zone, heures)
         {
             var h = heures;
             var prix = eval(retour);
-            alert('Prix total:' + prix); // Changer le alert ce qu'il faut en faire
+            return prix
         },
         error: function(retour)
         {
@@ -23,39 +23,29 @@ function prix(id_zone, heures)
 
 
 $(document).ready(function () {
-    var id_zone = 1;
-    var heures = 5; //A remplacer par ce qui va bien
-    $('#price').click(function() {
-        prix(id_zone, heures);
-    });
     
     $("#button_price").click(function () {
 
+        $.ajax({
+            type: "GET",
+            url: "date_price_calculator.php",
+            data: "duree_hour=" + "&duree_hour",
+            success: function (duree_hour) {
+                var id_zone = $('input[name="zone_price"]:checked').val();
+                alert(duree_hour);
+                if (isNaN(id_zone)  ) {
+                    alert("Veuillez sélectionner une zone puis relancer l'estimation")
+                }
 
-        var price_of_day = 15;
-        var price_of_hour = 2;
-        var price_of_minute = 0.2;
-        var coef_zone = ($('input[name="zone_price"]:checked').val() /10) + 0.9;
+                else {
+                    var price = prix(id_zone, duree_hour);
+                    price = price.toFixed(2);
+                    $('#disp_price').empty();
+                    $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  price + '€ '+ '</h4>');
+                }
+            }
 
-        var number_day = $("#duree_day").val();
-        var number_hours = $("#duree_hour").val();
-        var number_min = $("#duree_minute").val();
-        console.log(number_day,number_hours, number_min);
-        alert(number_hours);
-
-
-        if (isNaN(coef_zone)  ) {
-            alert("Veuillez sélectionner une zone puis relancer l'estimation")
-        }
-
-        else {
-            var price = coef_zone * (number_day*price_of_day + number_hours *  price_of_hour + number_min *  price_of_minute);
-            price = price.toFixed(2);
-            $('#disp_price').empty();
-            $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  price + '€ '+ '</h4>');
-        }
-
-
+        })
     })
 
 });
