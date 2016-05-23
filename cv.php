@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("template/head.php"); ?>
+    
 <?php include("template/menu.php"); ?>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>-->
 <!--<script type="text/javascript">-->
@@ -17,6 +17,9 @@
 
 
 <html>
+<header>
+    <?php include("template/head.php"); ?>
+</header>
 <body>
     <nav class="cvnav">
         <ul>

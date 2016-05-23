@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<header>
 <?php include("template/head.php") ?>
+</header>
 <?php include("template/menu.php")?>
 <body>
 <h1 id="sinscrire" >S'inscrire</h1>

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 
 <html>
+<header>
 <?php include("template/head.php");?>
-
+</header>
 <body>
 <?php include("template/menu.php");?>
 
-<!-- Logo -->
-<div class="titre">
-    <img src="./media/images/logo2.png">
-</div>
 
 <!-- Début résumé -->
 
@@ -17,7 +14,19 @@
 
 <h3>Votre réservation</h3>
 
-<?php include("date_price_calculator.php") ?>
+<?php
+
+$entry_date = $_POST['entry_date'];
+$exit_date = $_POST['exit_date'];
+$type = $_POST['type'];
+$prix = $_POST['price_input'];
+echo "<br/> Entrée le ";
+echo "$entry_date " ;
+echo "Sortie le ";
+echo "$exit_date ";
+
+echo "</br> Prix: $prix €"
+?>
 
 </br>
 

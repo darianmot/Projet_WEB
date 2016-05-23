@@ -1,11 +1,9 @@
 <!--La carte-->
-
-<?php include("template/head.php"); ?>
-<?php include("template/menu.php"); ?>
-
-
 <html>
-
+<header>
+    <?php include("template/head.php"); ?>
+</header>
+<?php include("template/menu.php"); ?>
     <body>
 
         <div class="map">
