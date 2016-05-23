@@ -19,4 +19,5 @@
             </tbody>
         </table>
     </article>
+    <img src="./media/images/porco_rosso.jpg" class="tarifs_img">
 </section>

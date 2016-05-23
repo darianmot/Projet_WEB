@@ -561,3 +561,7 @@ nav  ul ul li  a
     color: white;
     border: 1px solid white;
 }
+
+.tarifs_img{
+    width: 80%;
+}
