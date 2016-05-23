@@ -8,17 +8,20 @@ $(document).ready(function () {
             data: $('#connexion_form').serialize(),
             success: function(msg)
             {
-                if (msg !='echec') 
+
+                if (msg !='echec')
                 {
-                    $('#menu_p').append(msg);
                     $('#bloc_connexion').remove();
                     $('#connexion').text('Vous etes connecté');
-                    ;
+                    $('#connexion_menu').remove();
+                    $('#inscription_menu').remove();
+                    $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li>")
+
                 }
             
                 else
             
-                {
+                {   
                     alert('identifiant ou mot de passe incorrectes');
                     $('#identifiant').val('');
                     $('#password').val('');

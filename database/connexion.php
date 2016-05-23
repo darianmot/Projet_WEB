@@ -14,10 +14,10 @@ $donnees=$reponse->fetch_assoc();
 if (isset($_POST['password'])AND isset($_POST['identifiant']))
 {
     if (($donnees['password'])==$_POST['password'])
-    {
+    {   
         $_SESSION['identifiant']=$_POST['identifiant'];
         $_SESSION['password']=$_POST['password'];
-        echo(json_encode(array($_SESSION['identifiant']=>1)));
+        echo ('sucess');
     }
     else
     {
@@ -26,6 +26,6 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
 }
 else
 {
-    echo('vide');
+echo ('echec');
 }
 ?>
