@@ -1,7 +1,7 @@
 $(function ($) {
     var datepickers;
     datepickers = $('.encart_datepicker').datetimepicker({
-        dateFormat: 'dd-mm-yy',
+        dateFormat: 'yy/mm/dd',
         minDate: 0,
         showAnim: "slideDown",
         showButtonPanel: true,

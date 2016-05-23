@@ -63,10 +63,21 @@
             }
         </script>-->
 
+        <div class="row">
+            <div id="zone_select" >
+                <h3>Sélectionnez la zone parking</h3>
+                <label for="zone" id="zone">Zone :</label>
+                <input name="zone_price" type="radio"  value="1"  /> <label for="1">1</label>
+                <input name="zone_price" type="radio"  value="2"  /> <label for="2">2</label>
+                <input name="zone_price" type="radio"  value="3"  /> <label for="3">3</label><br/>
 
+            </div>
+        </div>
+        
+        <div class="row" id="disp_price">
 
-        </br>
-
+            <!-- Complétage par script price.js -->
+        </div>
         <div class="row">
             <!-- Bouton de validation -->
             <div class="col-md-pull-2">

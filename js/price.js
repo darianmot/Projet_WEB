@@ -1,7 +1,6 @@
 
 /*Fonction qui calcule le prix de la zone choisie en fonction de l'heure*/
-function prix(id_zone, heures)
-{
+function prix(id_zone, heures) {
     $.ajax({
         type: "POST",
         url: " database/zone_manager.php",
@@ -10,7 +9,8 @@ function prix(id_zone, heures)
         {
             var h = heures;
             var prix = eval(retour);
-            return prix
+            $('#disp_price').empty();
+            $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix + '€ '+ '</h4>');
         },
         error: function(retour)
         {
@@ -19,33 +19,38 @@ function prix(id_zone, heures)
             }
         }
     });
+    return prix
+}
+
+
+function dateDiff(date1, date2){
+    var diff = {};                         // Initialisation du retour
+    var tmp = date2 - date1;
+
+    tmp = Math.floor(tmp/1000);             // Nombre de secondes entre les 2 dates
+    diff.sec = tmp % 60;                    // Extraction du nombre de secondes
+
+    tmp = Math.floor((tmp-diff.sec)/60);    // Nombre de minutes (partie entière)
+    diff.min = tmp % 60;                    // Extraction du nombre de minutes
+
+    tmp = Math.floor((tmp-diff.min)/60);    // Nombre d'heures (entières)
+    diff.hour = tmp % 24;                   // Extraction du nombre d'heures
+
+    tmp = Math.floor((tmp-diff.hour)/24);   // Nombre de jours restants
+    diff.day = tmp;
+
+    return diff;
 }
 
 
 $(document).ready(function () {
     
-    $("#button_price").click(function () {
-
-        $.ajax({
-            type: "GET",
-            url: "date_price_calculator.php",
-            data: "duree_hour=" + "&duree_hour",
-            success: function (duree_hour) {
-                var id_zone = $('input[name="zone_price"]:checked').val();
-                alert(duree_hour);
-                if (isNaN(id_zone)  ) {
-                    alert("Veuillez sélectionner une zone puis relancer l'estimation")
-                }
-
-                else {
-                    var price = prix(id_zone, duree_hour);
-                    price = price.toFixed(2);
-                    $('#disp_price').empty();
-                    $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  price + '€ '+ '</h4>');
-                }
-            }
-
+    $('input[name="zone_price"]').change(function () {
+        var entry_date = new Date($('input[name = "entry_date"]').val()+':00');
+        var exit_date = new Date($('input[name = "exit_date"]').val()+':00');
+        var id_zone = $('input[name="zone_price"]:checked').val();
+        var duree = dateDiff(entry_date, exit_date);
+        var duree_in_hours = (duree.day * 24 + duree.hour + (duree.min / 60)).toFixed(2); /* A modifier, le prix horaire est peut etre insuffisant */
+        prix(id_zone, duree_in_hours);
         })
-    })
-
 });

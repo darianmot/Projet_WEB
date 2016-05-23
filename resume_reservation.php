@@ -21,31 +21,8 @@
 
 </br>
 
-
-<div id="zone_select" >
-    <h3>Sélectionnez la zone parking</h3>
-    <label for="zone" id="zone">Zone :</label>
-    <input name="zone_price" type="radio"  value="1"  /> <label for="1">1</label>
-    <input name="zone_price" type="radio"  value="2"  /> <label for="2">2</label>
-    <input name="zone_price" type="radio"  value="3"  /> <label for="3">3</label><br/>
-
-    <br/>
-
-    <div id="disp_price">
-        
-            <!-- Complétage par script price.js -->
-    </div>
-        <button type="submit" id="button_price" class="button_price">Estimer mon prix !</button>
-
-
 </div>
 
-<div>
-    <h3>Sélectionnez une place de parking</h3>
-    <button type="button" id = 'price'>test prix </button>
-
-
-</div>
 
 
 <br/> <br/>
