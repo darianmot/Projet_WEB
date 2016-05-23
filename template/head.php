@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/ui_css/jquery-ui.theme.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/ui_css/timepicker.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/button.css"/>
     <link rel="stylesheet" type="text/css" href="css/cv.css"/>
     <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
 
