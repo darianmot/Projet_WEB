@@ -4,7 +4,7 @@ var initialize;
 initialize = function(){
   var latLng = new google.maps.LatLng(37.235, -115.811111); // Correspond au coordonnees du parking
   var myOptions = {
-    zoom      : 14, // Zoom par défaut
+    zoom      : 7, // Zoom par défaut
     center    : latLng, // Coordonnées de départ de la carte de type latLng 
     mapTypeId : google.maps.MapTypeId.TERRAIN, // Type de carte, différentes valeurs possible HYBRID, ROADMAP, SATELLITE, TERRAIN
     maxZoom   : 20

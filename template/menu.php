@@ -6,7 +6,9 @@ session_start();
 <?php $nav_en_cours=""; ?>
 
 <div class="titre">
-    <img src="./media/images/logo2.png">
+    <a href='index.php'>
+        <img src="./media/images/logo2.png">
+    </a>
 </div>
 
 <nav>
