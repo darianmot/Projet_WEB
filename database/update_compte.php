@@ -12,7 +12,7 @@ if (($_POST['pseudonyme'])==$_SESSION['identifiant'] )
     $bdd->query("UPDATE Utilisateur SET password='{$_POST['password']}',nom='{$_POST['nom']}' ,prenom='{$_POST['prenom']}',mail='{$_POST['mail']}' 
     WHERE id_utilisateur='{$_POST['pseudonyme']}' ");
 
-    echo("Les modifications ont bien été prises en compte");
+    echo("Les modifications ont bien été prises en compte.");
 
     $_SESSION['identifiant']=$_POST['pseudonyme'];
 
