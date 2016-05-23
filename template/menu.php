@@ -62,6 +62,5 @@ session_start();
 
             }
             ?>
-            <li><a href="gestion.php">Gestion</a></li>
 </ul>
 </nav>

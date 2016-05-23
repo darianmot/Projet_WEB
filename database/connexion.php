@@ -26,6 +26,6 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
 }
 else
 {
-
+echo ('echec');
 }
 ?>
