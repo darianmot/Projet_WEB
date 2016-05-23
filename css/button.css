@@ -1,3 +1,64 @@
+.button_reserv {
+    width: 300px;
+    height: 60px;
+    left:0 ;
+    font-size: 1.6em;
+    background: linear-gradient(aliceblue, lightblue);
+    text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+    border-width: 3px;
+    border-radius: 8px;
+}
+
+.button_reserv:hover{
+    background: orange;
+}
+
+.button_reserv:active{
+    background: aliceblue;
+}
+
+.button_price {
+    width: 300px;
+    height: 60px;
+    left: 0;
+    font-size: 1.6em;
+    background: linear-gradient(orange, orangered);
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border-width: 3px;
+    border-radius: 8px;
+    color: white;
+}
+
+.button_price:hover {
+    background: forestgreen;
+
+}
+
+
+.button_reserv:active {
+    background: orange;
+}
+
+
+
+.identification_button{
+    width: 200px;
+    height: 60px;
+    left:0 ;
+    font-size: 1.6em;
+    background: linear-gradient(aliceblue, lightblue);
+    text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+    border-width: 3px;
+    border-radius: 8px;
+
+}
+
+.bouton
+{
+    margin-top: 600px;
+}
+
+
 .button
 {
     background: #ffffff;
