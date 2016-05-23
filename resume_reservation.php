@@ -20,9 +20,9 @@ $entry_date = $_POST['entry_date'];
 $exit_date = $_POST['exit_date'];
 $type = $_POST['type'];
 $prix = $_POST['price_input'];
-echo "<br/> Entrée le ";
+echo "Entrée le ";
 echo "$entry_date " ;
-echo "Sortie le ";
+echo "</br>Sortie le ";
 echo "$exit_date ";
 
 echo "</br> Prix: $prix €"
@@ -31,8 +31,6 @@ echo "</br> Prix: $prix €"
 </br>
 
 </div>
-
-
 
 <br/> <br/>
 <button type="submit" class="button_reserv">Continuer</button>
