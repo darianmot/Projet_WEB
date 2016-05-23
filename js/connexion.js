@@ -21,7 +21,7 @@ $(document).ready(function () {
             
                 else
             
-                {   alert(msg);
+                {   
                     alert('identifiant ou mot de passe incorrectes');
                     $('#identifiant').val('');
                     $('#password').val('');
