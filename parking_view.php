@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
 <?php include("template/head.php"); ?>
+<link rel="stylesheet" type="text/css" href="css/parking_view.css"/>
+<script type="text/javascript" src="js/parking_view.js"></script>
+</head>
 <?php include("template/menu.php"); ?>
 
 
