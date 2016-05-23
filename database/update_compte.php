@@ -1,19 +1,34 @@
 <?php
 include "bdd_connection.php";
+session_start();
 $connection = new Connection();
 $bdd = $connection->getBdd();
+$reponse=$bdd->query("SELECT id_utilisateur FROM Utilisateur WHERE id_utilisateur='{$_POST['pseudonyme']}'");
+$donnees=$reponse->fetch_assoc();
+echo ("{$donnees['id_utilisateur']}");
 
-
-if (($_POST['pseudonyme'])!='')
+if (($_POST['pseudonyme'])==$_SESSION['identifiant'] )
 {
-    //echo("Votre inscrition a bien été prise en compte, vous pouvez dès à present vous connecter");
-    //$req=$bdd->query(" UPDATE Utilisateur(`id_utilisateur`,`password`,`nom`,`prenom`,`mail`) 
-    //SET ({$_POST['pseudonyme']}','{$_POST['password']}','{$_POST['nom']}','{$_POST['prenom']}','{$_POST['mail']}' 
-    //WHERE  id_utilisateur='{$_SESSION['identifiant']}'");
-    //$_SESSION['identifiant']=$_POST['pseudonyme'];
+    $bdd->query("UPDATE Utilisateur SET password='{$_POST['password']}',nom='{$_POST['nom']}' ,prenom='{$_POST['prenom']}',mail='{$_POST['mail']}' 
+    WHERE id_utilisateur='{$_POST['pseudonyme']}' ");
+
+    echo("Les modifications ont bien été prises en compte");
+
+    $_SESSION['identifiant']=$_POST['pseudonyme'];
+
 }
 else
 {
-    echo('Identifiant est déjà utilisé');
+    if ($donnees['id_utilisateur']=="")
+    {
+        $bdd->query("UPDATE Utilisateur SET id_utilisateur='{$_POST['pseudonyme']}',password='{$_POST['password']}',nom='{$_POST['nom']}' ,prenom='{$_POST['prenom']}',mail='{$_POST['mail']}' 
+        WHERE id_utilisateur='{$_SESSION['identifiant']}' ");
+        echo("Les modifications ont bien été prises en compte");
+        $_SESSION['identifiant']=$_POST['pseudonyme'];
+    }
+    else
+    {
+        echo('Identifiant déjà utilisé');
+    };
 }
 ?>

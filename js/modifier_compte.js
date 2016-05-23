@@ -10,9 +10,9 @@ $(document).ready(function () {
             success: function(msg)
 
             {
-                if (msg=='Les modifications ont bien été prises en compte')
+                if (msg=='')
                 {
-                    alert(msg);
+                    alert('Les modifications ont bien été prises en compte');
                     ;
                 }
                 else
