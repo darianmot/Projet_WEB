@@ -34,6 +34,7 @@ body
 	color:#777;
 	line-height: 1.65em;
 	font-size: 16px;
+
 	text-align: center;
     align-content: center;
     margin:0;
@@ -41,7 +42,6 @@ body
     background-attachment: fixed;
     height: 100%;
     padding-bottom: 0;
-
 }
 
 /*header*/
