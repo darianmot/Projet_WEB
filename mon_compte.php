@@ -12,7 +12,7 @@
     $bdd = $connection->getBdd();
     $reponse = $bdd->query("SELECT id_utilisateur,password,nom,prenom,mail  FROM Utilisateur WHERE id_utilisateur='{$_SESSION['identifiant']}'");
     $donnees=$reponse->fetch_assoc();
-    echo("      <table>
+    echo("      <table class='connexion_table'>
                     <form  method=\"post\" id=\"modifier_form\">
                     <tr><td><b>Identifiant</b></td><td><input type=\"text\" name=\"pseudonyme\" id=\"pseudonyme\" value='{$donnees['id_utilisateur']}'></td></tr>
                     <tr><td><b>Password</b></td><td><input type=\"password\" name=\"password\" id=\"password\" value='{$donnees['password']}' required></td></tr>
@@ -21,8 +21,8 @@
                     <tr><td><b>mail</b></td><td><input type=\"text\" name=\"mail\" id=\"mail_compte\" value='{$donnees['mail']}'></td></tr>
                     </form>
                 </table>
-                <button type = \"button\"  id=\"modifier\" > Modifier </button>
-                <button type='button' id='annuler' ><a href='index.php' >annuler</a></button>
+                <button type = \"button\"  id=\"modifier\" class='connexion_button' > Modifier </button>
+                <button type='button' id='annuler' class='connexion_button'><a href='index.php' >Annuler</a></button>
 ")
 
     ?>
