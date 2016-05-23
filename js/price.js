@@ -11,6 +11,7 @@ function prix(id_zone, heures) {
             var prix = eval(retour);
             $('#disp_price').empty();
             $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix + '€ '+ '</h4>');
+            $('input[name="price_input"]').val(prix)
         },
         error: function(retour)
         {
@@ -45,7 +46,7 @@ function dateDiff(date1, date2){
 
 $(document).ready(function () {
     
-    $('input[name="zone_price"]').change(function () {
+    $('input[name="zone_price"]').click(function () {
         var entry_date = new Date($('input[name = "entry_date"]').val()+':00');
         var exit_date = new Date($('input[name = "exit_date"]').val()+':00');
         var id_zone = $('input[name="zone_price"]:checked').val();

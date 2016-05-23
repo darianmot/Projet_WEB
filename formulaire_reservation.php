@@ -4,8 +4,11 @@
 <?php include("template/head.php"); ?>
 
 
-<form method="post" action="resume_reservation.php" enctype="multipart/form-data">
+<form method="post" id = "form_reservation" action="resume_reservation.php" enctype="multipart/form-data">
 
+
+    <input type="hidden" name="price_input" value="0" />
+    
     <div class="container reserv">
         <div class="row">
             <div class="col-md-6">
@@ -14,7 +17,7 @@
         </div>
 
         </br>
-
+        
 
         <div class="row">
 
@@ -43,25 +46,6 @@
 
         </br>
         
-          
-
-
-            <!--<div class="col-md-3">
-                <label>Horaire de sortie</label><input type="text" class="encart_timepicker" name="exit_time" placeholder="Horaire de sortie">
-            </div>-->
-        
-
- <!--       <script>
-            $('.encart_datepicker[name="exit_date"]').datepicker('disable');
-            $('.encart_timepicker[name="exit_time"]').timepicker('disable');
-
-
-            if ($('.encart_datepicker[name="entry_date"]').val() !=''){
-                console.log('hidden !!!!!!!!!!!!!!!!!!');
-                $('.encart_datepicker[name="exit_date"]').datepicker('enable');
-                $('.encart_timepicker[name="exit_time"]').timepicker('enable')
-            }
-        </script>-->
 
         <div class="row">
             <div id="zone_select" >
