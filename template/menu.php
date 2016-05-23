@@ -26,14 +26,35 @@ session_start();
             <?php
             if (isset($_SESSION['identifiant']))
             {
-                echo("<li id='mon_compte_menu'> <li id = 'voiture'>
+
+                if ($_SESSION['identifiant']=='admin')
+
+                {
+                    echo("<li id='mon_compte_menu'> <li id = 'image_compte'>
                        <span class='fa-stack fa-lg'>
                        <i class='fa fa-user fa-stack-1x fa-inverse'></i>
                        </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
                        <li><a href='deconnexion.php'>Deconnexion</a></li>
-                       </li>
+                       <li><a href='gestion.php'>Gestion</a></li>
                        ");
+
+                }
+                else
+
+                {
+
+                    echo("<li id='mon_compte_menu'> <li id = 'image_compte'>
+                       <span class='fa-stack fa-lg'>
+                       <i class='fa fa-user fa-stack-1x fa-inverse'></i>
+                       </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
+                       <li><a href='deconnexion.php'>Deconnexion</a></li>
+                       
+                       ");
+
+                }
+
             }
+
             else
             {
                 echo "<li id='connexion_menu'><a href='connexion_page.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>

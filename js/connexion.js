@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function ($_POST) {
     $('#identifier').click(function (e) {
         e.preventDefault();
         $.ajax({
@@ -7,13 +7,13 @@ $(document).ready(function () {
             dataType : 'html',
             data: $('#connexion_form').serialize(),
             success: function(msg)
+
             {
                 if (msg !='echec') 
                 {
-                    $('#menu_p').append(msg);
                     $('#bloc_connexion').remove();
                     $('#connexion').text('Vous etes connecté');
-                    ;
+                    
                 }
             
                 else

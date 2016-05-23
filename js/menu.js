@@ -3,25 +3,24 @@ $(document).ready(function () {
     $('#identifier').click(function (e) {
         e.preventDefault();
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: " database/connexion.php",
-            dataType : 'json',
+            data:"identifiant="+identifiant,
             success: function(msg)
-            { var donnes = $.getJSON(msg);}
+
 
             {
-                if (1==1)
+                if (msg!='echec')
                 {
                     $('#connexion_menu').remove();
                     $('#inscription_menu').remove();
-                    alert(donnes.1);
-                    //$('#menu_nav').append();
+                    $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li>")
 
                 }
 
                 else
 
-                {alert(msg)
+                {
                 }
             },
             error: function(retour)
