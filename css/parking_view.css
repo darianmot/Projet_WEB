@@ -92,7 +92,7 @@ table{
     margin-bottom: 40px;
 }
 
-th, td {
+th, td  {
     border: 10px solid #2b2b2b;
     font-family: Calibri;
     font-weight: bold;
