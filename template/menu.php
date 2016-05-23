@@ -11,8 +11,8 @@ session_start();
     </a>
 </div>
 
-<nav>
-        <ul>
+<nav > 
+        <ul id="menu_nav">
             <li>
                 <a href='index.php'>
                     <span class="fa-stack fa-lg">
@@ -26,20 +26,18 @@ session_start();
             <?php
             if (isset($_SESSION['identifiant']))
             {
-                echo(" <li id=offres> Bienvenue {$_SESSION['identifiant']}
-              
-    
-                        <li id = 'voiture'><span class='fa-stack fa-lg'>
-                            <i class='fa fa-user fa-stack-1x fa-inverse'></i>
-                        </span><a href='mon_compte.php'>Votre Compte</a> 
-                        <li><a href='deconnexion.php'>Deconnexion</a></li>
-                    
-                </li>");
+                echo("<li id='mon_compte_menu'> <li id = 'voiture'>
+                       <span class='fa-stack fa-lg'>
+                       <i class='fa fa-user fa-stack-1x fa-inverse'></i>
+                       </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
+                       <li><a href='deconnexion.php'>Deconnexion</a></li>
+                       </li>
+                       ");
             }
             else
             {
-                echo "<li><a href='connexion_page.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>";
-                echo "<li> <i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i><a href='inscrire_page.php'>S'inscrire</a></li>";
+                echo "<li id='connexion_menu'><a href='connexion_page.php'><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i>Connexion</a></li>
+                  <li id='inscription_menu'><i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i><a href='inscrire_page.php'>S'inscrire</a></li>";
 
             }
             ?>

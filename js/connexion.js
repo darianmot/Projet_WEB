@@ -13,6 +13,7 @@ $(document).ready(function () {
                     $('#menu_p').append(msg);
                     $('#bloc_connexion').remove();
                     $('#connexion').text('Vous etes connecté');
+                    ;
                 }
             
                 else
