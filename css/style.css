@@ -516,3 +516,52 @@ nav  ul ul li  a
     border-width: 3px;
     border-radius: 8px;
 }
+
+/*tarifs*/
+
+.tarifs_container {
+    background: lightgrey;
+    width: 76.5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+    border-width: 3px;
+    border-radius: 8px;
+    box-shadow: grey 10px 8px 4px;
+    z-index: 9999;
+}
+
+.tarifs_container {
+    font-family: Calibri;
+    color: #111111;
+}
+
+.tarifs_title{
+    font-family: Calibri;
+    position: relative;
+    text-transform: uppercase;
+    color: #0280b5;
+    font-size: 2em;
+    margin: auto;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.tarifs_table{
+    margin: auto;
+    width: 90%;
+    height: 100px;
+    background-color: grey;
+    opacity: 0.7;
+}
+
+.tarifs_table td,tr{
+    color: white;
+    border: 1px solid white;
+}
+
+.tarifs_img{
+    width: 80%;
+}
