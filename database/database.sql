@@ -93,8 +93,8 @@ CREATE TABLE Stationnement
 CREATE TABLE Facture
 (
   id_facture CHAR(20) NOT NULL,
+  type_facture CHAR(20),
   prix INT,
-  penalite INT,
   id_stationnement INT,
   PRIMARY KEY (id_facture),
   FOREIGN KEY (id_stationnement) REFERENCES Stationnement(id_stationnement)
