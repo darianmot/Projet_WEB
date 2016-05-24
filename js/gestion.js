@@ -24,7 +24,7 @@ $(document).ready(function (e) {
 
 
         //On reset le form
-        $('#newPlace')[0].reset();
+        $('#nombre').val(0);
 
     });
 });

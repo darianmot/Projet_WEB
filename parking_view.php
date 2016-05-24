@@ -12,7 +12,7 @@
 
 
 <!-- Le corps -->
-
+<h1>Ajouter un véhicule</h1>
 <form method="post" id="newStationnement">
     
     <label for="plaque">Plaque :</label>
@@ -25,6 +25,7 @@
     $type_manager = new TypeManager();
     $type_manager->typeList();
     ?>
+    <br/>
 
     <label for="zone" id="zone">Zone :</label>
     <input type="radio" name="zone" value="1" checked="checked" /> <label for="1">1</label>

@@ -72,13 +72,19 @@ class PlaceManager
             echo '<tr><td>Status : </td><td>';
             if ($data['etat'] == NULL or $data['etat'] == 'fini') {
                 echo 'libre';
+
             } else {
                 echo $data['etat'];
+
+                /*Véhicule eventuel sur la plaque*/
+                echo '<tr><td>Vehicule :</td><td>' . $data['plaque'] . '</td></tr>';
+
+                /*Début du stationnement*/
+                echo '<tr><td>Début :</td><td ><divid = "date_debut">' .$data['date_debut'] .'</div></td></tr>';
             }
             echo '</td></tr>';
 
-            /*Véhicule eventuel sur la plaque*/
-            echo '<tr><td>Dernier vehicule :</td><td>' . $data['plaque'] . '</td></tr>';
+
 
 
         }

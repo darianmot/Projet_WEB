@@ -1,6 +1,7 @@
 
 /*Fonction qui calcule le prix de la zone choisie en fonction de l'heure*/
 function prix(id_zone, heures) {
+    var prix_total = 0;
     $.ajax({
         type: "POST",
         url: " database/zone_manager.php",
@@ -8,9 +9,9 @@ function prix(id_zone, heures) {
         success: function(retour)
         {
             var h = heures;
-            var prix = eval(retour);
+            prix_total = eval(retour);
             $('#disp_price').empty();
-            $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix + '€ '+ '</h4>');
+            $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix_total + '€ '+ '</h4>');
             $('input[name="price_input"]').val(prix)
         },
         error: function(retour)
@@ -20,7 +21,7 @@ function prix(id_zone, heures) {
             }
         }
     });
-    return prix
+    return prix_total
 }
 
 

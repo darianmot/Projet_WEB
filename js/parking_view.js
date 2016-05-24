@@ -90,7 +90,7 @@ $(document).ready(function () {
     $(document).on('click', '.place', function () {
         var id_place = $(this).attr('id');
         var isOccupee = $(this).hasClass('occupee');
-        console.log(id_place+isOccupee);
+        
         $.post('database/place_manager.php', {id_place: id_place, id_form: 'place_view'}, function (data) {
             var info = data;
             if (isOccupee)
@@ -104,14 +104,30 @@ $(document).ready(function () {
     /*Supprime un stationnement si appuie sur le bouton FIN de la fenetre modale*/
     $(document).on('click','#end_stat_button', function () {
         var id_stationnement = $('#id_stationnement').text();
-        var zone  = $('input[name="view_zone"]:checked').val();
+        var id_zone  = $('input[name="view_zone"]:checked').val();
+        var prix_total;
+        $.post('database/zone_manager.php',
+            {id_stationnement: id_stationnement,
+            id_form: 'totalHours'},
+            function (data){
+                console.log(data)
+                if (data == -1) { //Cas ou un véhicule part avant la fin de sa réservation
+                    prix_total = 0
+                }
+                else {
+                    prix_total = prix(id_zone, data);
+                }
+                
+                console.log(prix_total);
+            });
         $.post('database/zone_manager.php', {
             id_stationnement: id_stationnement,
-            id_form: 'endStationnement'
+            id_form: 'endStationnement',
+            prix: prix_total
         });
         $.fancybox.close();
         $.post('database/zone_manager.php', {
-                id_zone: zone,
+                id_zone: id_zone,
                 lg_table: lg_table,
                 id_form: 'zoneView'
             },

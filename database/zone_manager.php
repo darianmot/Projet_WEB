@@ -62,9 +62,9 @@ class ZoneManager
     {
         $date = date("Y-m-d H:i:s");
         try {
-            $reservation_place = $this->hasReservation($date, $plaque);
+            $reservation = $this->hasReservation($date, $plaque);
             $this->addVehicule($plaque, $type_vehicule);
-            if ($reservation_place == null)
+            if ($reservation == null)
             {
                 $placeManager = new PlaceManager($this->getBdd());
                 $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
@@ -72,7 +72,7 @@ class ZoneManager
             }
             else
             {
-                $place = $reservation_place;
+                $place = $reservation['id_place'];
             }
             $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
                     VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee', NULL);");
@@ -84,13 +84,52 @@ class ZoneManager
     }
 
 
-    /*Fin d'un stationnement*/
-    public function endStationnement($id_stationnement)
+    /*Renvoie le nombre d'heure à payer d'un stationnement effectif et null s'il n'a rien à payer, utile pour le calcul de prix coté client*/
+    public function totalHours($id_stationnement)
     {
-        /*On change l'état du stationnement*/
-        $this->getBdd()->query("UPDATE Stationnement SET etat = 'fini' WHERE id_stationnement = {$id_stationnement}");
+        $date_fin = new DateTime();
+        $req = $this->getBdd()->query("SELECT * FROM Stationnement WHERE id_stationnement={$id_stationnement}");
+        $stationnement_array = $req->fetch_assoc();
+        /*On regarde si le véhicule a une réservation, pour ajuster la date du début de stationnement non payé*/
+        $plaque = $stationnement_array['plaque'];
+        $reservation = $this->hasReservation($date_fin->format("Y-m-d H:i:s"), $plaque);
+        if ($reservation == null)
+        {
+            $date_debut = new DateTime($stationnement_array['date_debut']);
+        }
+        else
+        {
+            $date_debut = new DateTime($reservation['date_fin']);
+            
+        }
+        if ($date_fin < $date_debut) //Si un véhicule sort avant la fin de sa réservation, il ne paye rien
+        {
+            return -1; //Pour différencier à un véhicule qui restera moins de 1h
+        }
+        $interval = $date_debut->diff($date_fin);
+        $hour_days = 0;
+        $hours = 0;
+        if($interval->format('%a') > 0){
+            $hour_days = $interval->format('%a')*24;
+        }
+        if($interval->format('%h') > 0){
+            $hours = $interval->format('%h');
+        }
 
+        return $hour_days + $hours;
+
+    }
+
+    /*Fin d'un stationnement*/
+    public function endStationnement($id_stationnement, $prix = 0)
+    {
         /*On génère la facture*/
+        $this->getBdd()->query("INSERT INTO Facture VALUE (NULL,'parking', {$prix}, {$id_stationnement})");
+
+        /*On change l'état du stationnement*/
+        $date_fin = date("Y-m-d H:i:s");
+        $this->getBdd()->query("UPDATE Stationnement SET etat = 'fini', date_fin='{$date_fin}' WHERE id_stationnement = {$id_stationnement}");
+
     }
 
 
@@ -105,15 +144,15 @@ class ZoneManager
       VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
     }
 
-    /*Renvoie la place liée à une réservation si le véhicule en a une, et null sinon*/
+    /*Renvoie les informations liée à une réservation si le véhicule en a une, et null sinon*/
     public function hasReservation($date, $plaque)
     {
-        $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (('{$date}' BETWEEN date_debut AND date_fin )
+        $req = $this->getBdd()->query("SELECT * FROM Stationnement WHERE (('{$date}' BETWEEN date_debut AND date_fin )
             AND plaque = '{$plaque}' AND etat = 'reservee' )");
         $reponse = $req->fetch_assoc();
         if (isset($reponse['id_place']))
         {
-            return $reponse['id_place'];
+            return $reponse;
         }
         else{
             return null;
@@ -133,6 +172,7 @@ class ZoneManager
         return $tarif['prix'];
     }
 
+    /*Renvoie le prix effectif que devra payer un stationnement dans la zone pour une durée hours*/
 
     /*** VISU ***/
     public function tableView($lg_table)
@@ -199,7 +239,6 @@ class ZoneManager
  */
 
 
-
 if (isset($_POST['id_form'])) {
     try {$connection = new Connection();} 
     catch (Exception $e)
@@ -243,9 +282,9 @@ if (isset($_POST['id_form'])) {
             }
             break;
         case "endStationnement":
-            if (isset($_POST['id_stationnement']))
+            if (isset($_POST['id_stationnement']) and isset($_POST['prix']))
             {
-                $zone->endStationnement($_POST['id_stationnement']);
+                $zone->endStationnement($_POST['id_stationnement'], $_POST['prix']);
             }
             break;
         case "newReservation":
@@ -256,6 +295,12 @@ if (isset($_POST['id_form'])) {
             break;
         case 'getPrice':
             echo $zone->getPrice();
+            break;
+        case 'totalHours':
+            if (isset($_POST['id_stationnement']))
+            {
+                echo $zone->totalHours($_POST['id_stationnement']);
+            }
             break;
     }
 }

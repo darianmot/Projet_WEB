@@ -17,6 +17,7 @@
 
     <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/price.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/script_datepicker.js"></script>
