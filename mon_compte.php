@@ -8,6 +8,24 @@
 
 
 
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 bulle_compte ">
+            <a href="compte_personal_data.php"> Mes Infos</a>
+        </div>
+
+        <div class="col-md-6 bulle_compte ">
+            <a href=""> Réserver</a>
+        </div>
+
+
+
+    </div>
+</div>
+
+
 
 
 

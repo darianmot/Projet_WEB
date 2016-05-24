@@ -21,6 +21,7 @@ table {
     border-collapse:collapse;
 
 }
+
 td {
     border-width:1px;
     border-style:solid;
@@ -218,6 +219,35 @@ h4 {
     margin-left: 22px;
 }
 
+
+.bulle_compte{
+    vertical-align: middle;
+    width: 150px;
+    height: 100px;
+    opacity: 0.7;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: deepskyblue;
+    box-shadow: grey 10px 8px 4px;
+    background: linear-gradient(lightgrey, lightgreen);
+    border-width: 3px;
+    border-radius: 8px;
+    left: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.bulle_compte:hover {
+    background: orange;
+}
+
+
+
+.bulle_compte a{
+    text-decoration: none;
+}
 
 
 .map {
