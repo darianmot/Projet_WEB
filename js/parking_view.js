@@ -110,15 +110,12 @@ $(document).ready(function () {
             {id_stationnement: id_stationnement,
             id_form: 'totalHours'},
             function (data){
-                console.log(data)
                 if (data == -1) { //Cas ou un véhicule part avant la fin de sa réservation
                     prix_total = 0
                 }
                 else {
                     prix_total = prix(id_zone, data);
                 }
-                
-                console.log(prix_total);
             });
         $.post('database/zone_manager.php', {
             id_stationnement: id_stationnement,

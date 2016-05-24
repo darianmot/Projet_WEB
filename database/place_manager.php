@@ -53,10 +53,17 @@ class PlaceManager
     /*Renvoie un tableau contenant les informations associées à une place*/
     public function placeView($id_place)
     {
-        $response = $this->getBdd()->query("SELECT * FROM Stationnement RIGHT JOIN Place
-            ON Stationnement.id_place = Place.id_place WHERE Place.id_place='{$id_place}' 
-            AND (date_debut = (SELECT MAX(date_debut) FROM Stationnement WHERE id_place='{$id_place}') OR
-             Stationnement.id_place IS NULL)");
+        $date = date("Y-m-d H:i:s");
+        /*On récupère soit la réservation en cours, soit le dernier stationnement effectif (soit une place libre)*/
+        $response = $this->getBdd()->query("SELECT * 
+            FROM Stationnement RIGHT JOIN Place
+            ON Stationnement.id_place = Place.id_place 
+            WHERE Place.id_place='{$id_place}' 
+                AND ((date_debut = (SELECT MAX(date_debut) 
+                                  FROM Stationnement 
+                                  WHERE id_place='{$id_place}' 
+                                        AND (etat = 'occupee' OR (etat = 'reservee' AND date_fin >= '{$date}'))))                     
+                OR Stationnement.id_place IS NULL)");
         
         while ($data = $response->fetch_assoc()) {
             /*Numero de stationnement eventuel*/
