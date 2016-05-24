@@ -15,19 +15,14 @@
     $bdd = $connection->getBdd();
     $reponse = $bdd->query("SELECT id_utilisateur,password,nom,prenom,mail  FROM Utilisateur WHERE id_utilisateur='{$_SESSION['identifiant']}'");
     $donnees=$reponse->fetch_assoc();
-    echo("      <table>
-                    <form  method=\"post\" id=\"modifier_form\">
-                    <tr><td><b>Identifiant</b></td><td><input type=\"text\" name=\"pseudonyme\" id=\"pseudonyme\" value='{$donnees['id_utilisateur']}'></td></tr>
-                    <tr><td><b>Password</b></td><td><input type=\"password\" name=\"password\" id=\"password\" value='{$donnees['password']}' required></td></tr>
-                    <tr><td><b>nom</b></td><td><input type=\"text\" name=\"nom\" id=\"nom_compte\" value='{$donnees['nom']}' ></td></tr>
-                    <tr><td><b>prenom</b></td><td><input type=\"text\" name=\"prenom\" id=\"prenom_compte\" value='{$donnees['prenom']}' ></td></tr>
-                    <tr><td><b>mail</b></td><td><input type=\"text\" name=\"mail\" id=\"mail_compte\" value='{$donnees['mail']}'></td></tr>
-                    </form>
-                </table>
-                <button type='button'  class='button_reserv' > Modifier </button>
-                <a href='mon_compte.php' ><button type='button' class='button_reserv' >annuler</button></a>
-")
-
+    $donnees_envoyes = json_encode(array(
+        "variable" => 1,
+        "nom" => $donnees['nom'],
+        "prenom"=>$donnees['prenom'],
+        "mail"=>$donnees['mail'],
+        "id_utilisateur"=>$donnees['id_utilisateur'],
+    ));
+    echo($donnees_envoyes);
     ?>
 
 </div>
