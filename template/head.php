@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/button.css"/>
     <link rel="stylesheet" type="text/css" href="css/cv.css"/>
     <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/price.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/script_datepicker.js"></script>
     <script type="text/javascript" src="js/timepicker.js"></script>
     <script type="text/javascript" src="js/cvscroll.js"></script>

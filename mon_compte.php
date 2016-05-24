@@ -12,14 +12,17 @@
 
     <div class="row">
 
-        <div class="col-md-6 bulle_compte ">
-            <a href="compte_personal_data.php"> Mes Infos</a>
-        </div>
+        <a href="compte_personal_data.php">
+            <div class="col-md-3 bulle_compte ">
+                Mes Infos
+            </div>
+        </a>
 
-        <div class="col-md-6 bulle_compte ">
-            <a href=""> Réserver</a>
-        </div>
-
+        <a href="">
+            <div class="col-md-3 bulle_compte ">
+                 Réserver
+            </div>
+        </a>
 
 
     </div>
