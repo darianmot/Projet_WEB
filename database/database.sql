@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS IENAC15_aeroport_C;
 CREATE DATABASE IENAC15_aeroport_C;
 USE IENAC15_aeroport_C;
 
@@ -36,11 +35,12 @@ CREATE TABLE Utilisateur
   nom CHAR(20),
   prenom CHAR(20),
   mail CHAR(50),
+  solde INT,
   PRIMARY KEY (id_utilisateur)
 )ENGINE=INNODB;
 
-INSERT INTO `Utilisateur` (`id_utilisateur`, `password`, `nom`, `prenom`, `mail`) VALUES
-('admin', 'admin', 'admin', 'admin', 'admin');
+INSERT INTO `Utilisateur` (`id_utilisateur`, `password`, `nom`, `prenom`, `mail`,`solde`) VALUES
+('admin', 'admin', 'admin', 'admin', 'admin',3514);
 
 CREATE TABLE ClientWeb
 (
@@ -256,5 +256,3 @@ CREATE TABLE Facture
   PRIMARY KEY (id_facture),
   FOREIGN KEY (id_stationnement) REFERENCES Stationnement(id_stationnement)
 )ENGINE=INNODB;
-
-

@@ -17,6 +17,7 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
     {   
         $_SESSION['identifiant']=$_POST['identifiant'];
         $_SESSION['password']=$_POST['password'];
+        
         if ($_SESSION['identifiant']== 'admin')
         {
             echo ('admin');
