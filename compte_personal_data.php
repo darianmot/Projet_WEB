@@ -24,8 +24,8 @@
                     <tr><td><b>mail</b></td><td><input type=\"text\" name=\"mail\" id=\"mail_compte\" value='{$donnees['mail']}'></td></tr>
                     </form>
                 </table>
-                <button type = \"button\"  id=\"modifier\" > Modifier </button>
-                <button type='button' id='annuler' ><a href='index.php' >annuler</a></button>
+                <button type='button'  class='button_reserv' > Modifier </button>
+                <a href='mon_compte.php' ><button type='button' class='button_reserv' >annuler</button></a>
 ")
 
     ?>

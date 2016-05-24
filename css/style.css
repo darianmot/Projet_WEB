@@ -221,26 +221,28 @@ h4 {
 
 
 .bulle_compte{
+    position: absolute;
     vertical-align: middle;
+    align-self: center;
     width: 150px;
     height: 100px;
     opacity: 0.7;
     font-size: 1.5em;
     font-weight: bold;
-    color: deepskyblue;
+    color: darkblue;
     box-shadow: grey 10px 8px 4px;
-    background: linear-gradient(lightgrey, lightgreen);
+    background: linear-gradient(lightgrey, lightseagreen);
     border-width: 3px;
     border-radius: 8px;
     left: 150px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .bulle_compte:hover {
-    background: orange;
+    background: linear-gradient(lightyellow, orange);
 }
 
 
@@ -292,7 +294,6 @@ img
 
 .ui-datepicker {
     position: absolute;
-    margin-top: 530px;
 }
 
 /********************************************************************************

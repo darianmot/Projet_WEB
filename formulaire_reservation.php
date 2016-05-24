@@ -5,6 +5,9 @@
 <?php include("template/head.php"); ?>
 </header>
 
+<?php include("template/menu.php")?>
+</br>
+
 <form method="post" id = "form_reservation" action="resume_reservation.php" enctype="multipart/form-data">
 
 
@@ -69,10 +72,20 @@
                 <button type="submit" class="button_reserv">Réserver maintenant </button>
             </div>
         </div>
-
-
     </div>
-    
+
+    <h1>Vos Réservations en toute sérénité</h1>
+    <div>
+        Faites confiance en l'expertise Car'Park !
+        </br>Réservez votre place de parking 24h/24 7j/7 grâce à votre espace client.
+        </br>Sélectionnez les informations requises et cliquez sur "Réserver maintenant".
+    </div>
+
+    </br>
+    </br>
+
+
+
 
 
 </form>
