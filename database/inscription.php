@@ -5,7 +5,7 @@ $connection = new Connection();
 $bdd = $connection->getBdd();
 
 $reponse=$bdd->query("SELECT id_utilisateur FROM Utilisateur WHERE id_utilisateur='{$_POST['pseudonyme']}'");
-$donnees=$reponse->fetch_assoc();
+$donnees=$reponse->fetch(PDO::FETCH_ASSOC);
 
 if (($donnees['id_utilisateur'])=='')
 {

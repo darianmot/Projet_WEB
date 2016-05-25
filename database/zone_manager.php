@@ -47,7 +47,7 @@ class ZoneManager
     {
         /*On vérifie d'abord que le véhicule n'est pas déja garé*/
         $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (plaque='{$plaque}' AND etat='occupee')");
-        $current_stationnement = $req->fetch_assoc();
+        $current_stationnement = $req->fetch(PDO::FETCH_ASSOC);
         if (isset($current_stationnement['id_place']))
         {
             throw new Exception('known_car');
@@ -67,7 +67,7 @@ class ZoneManager
             if ($reservation == null)
             {
                 $placeManager = new PlaceManager($this->getBdd());
-                $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+                $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date);
 
             }
             else
@@ -89,7 +89,7 @@ class ZoneManager
     {
         $date_fin = new DateTime();
         $req = $this->getBdd()->query("SELECT * FROM Stationnement WHERE id_stationnement={$id_stationnement}");
-        $stationnement_array = $req->fetch_assoc();
+        $stationnement_array = $req->fetch(PDO::FETCH_ASSOC);
         /*On regarde si le véhicule a une réservation, pour ajuster la date du début de stationnement non payé*/
         $plaque = $stationnement_array['plaque'];
         $reservation = $this->hasReservation($date_fin->format("Y-m-d H:i:s"), $plaque);
@@ -137,9 +137,10 @@ class ZoneManager
     /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
+        $date = date("Y-m-d H:i:s");
         $this->addVehicule($plaque, $type_vehicule);
         $placeManager = new PlaceManager($this->getBdd());
-        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date);
         $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
       VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
     }
@@ -149,7 +150,7 @@ class ZoneManager
     {
         $req = $this->getBdd()->query("SELECT * FROM Stationnement WHERE (('{$date}' BETWEEN date_debut AND date_fin )
             AND plaque = '{$plaque}' AND etat = 'reservee' )");
-        $reponse = $req->fetch_assoc();
+        $reponse = $req->fetch(PDO::FETCH_ASSOC);
         if (isset($reponse['id_place']))
         {
             return $reponse;
@@ -162,13 +163,21 @@ class ZoneManager
 
     /*** TARIFS ***/
 
+    /*Renvoie l'id du tarif associée à la zone*/
+    public function getTarif()
+    {
+        $req = $this->getBdd()->query("SELECT id_tarif FROM `Zone` WHERE id_zone = {$this->getIdZone()}");
+        $id_tarif = $req->fetch(PDO::FETCH_ASSOC)['id_tarif'];
+        return $id_tarif;
+    }
+
     /*Renvoie le prix en fonction de l'heure associée à la zone*/
     public function getPrice()
     {
         $req = $this->getBdd()->query("SELECT Tarif.prix as prix
                                       FROM Tarif JOIN `Zone` ON Tarif.id_tarif = `Zone`.id_tarif 
                                       WHERE `Zone`.id_zone = {$this->getIdZone()}");
-        $tarif = $req->fetch_assoc();
+        $tarif = $req->fetch(PDO::FETCH_ASSOC);
         return $tarif['prix'];
     }
 
@@ -183,7 +192,7 @@ class ZoneManager
         $response_type = $this->getBdd()->query("SELECT * FROM `TypeVehicule`");
 
         echo '<table class="visu_zone" cellspacing="30">';
-        while ($type = mysqli_fetch_assoc($response_type)) {
+        foreach ($response_type->fetchAll(PDO::FETCH_ASSOC) as $type){
             $i = 0; //Permet de controler la longueur de la ligne courante
 
             /*On crée les différentes tables de places (1 table/type de vehicule)*/
@@ -193,20 +202,18 @@ class ZoneManager
             /*On récupère l'ensemble des places associées à la zone choisie et au type de place choisi*/
             $current_places = $this->getBdd()->query("SELECT * FROM `Place` WHERE Place.id_zone = '{$this->id_zone}' AND Place.type_vehicule = '{$type['type']}'");
 
-
             /*On crée une case dans le tableau pour chaque place*/
-            while ($place = $current_places->fetch_assoc()) {
+            while ($place = $current_places->fetch(PDO::FETCH_ASSOC)) {
 
                 /*On crée un nouvelle ligne si la ligne courante du tableau est trop longue*/
                 if ($i % $lg_table == 0)
                 {
                     echo '</tr><tr>';
                 }
-
                 /*On regarde si la place est occupee, reservée ou libre*/
                 $place_status = $this->getBdd()->query("SELECT etat FROM `Stationnement` 
                                 WHERE (etat IN ('occupee')  OR (etat = 'reservee' AND date_fin >= '{$date}'))AND id_place = '{$place['id_place']}' ORDER BY date_debut DESC;");
-                $etat = $place_status->fetch_assoc();
+                $etat = $place_status->fetch(PDO::FETCH_ASSOC);
                 $class = 'place libre';
                 switch ($etat['etat']) //On lui affecte alors la classe adaptée
                 {
@@ -301,6 +308,9 @@ if (isset($_POST['id_form'])) {
             {
                 echo $zone->totalHours($_POST['id_stationnement']);
             }
+            break;
+        case 'getTarif':
+            echo $zone->getTarif();
             break;
     }
 }

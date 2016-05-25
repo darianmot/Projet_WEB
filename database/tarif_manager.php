@@ -26,7 +26,7 @@ class TarifManager
     public function getTarif($id_tarif)
     {
         $req = $this->getBdd()->query("SELECT prix FROM Tarif WHERE id_tarif = {$id_tarif}");
-        $tarif = $req->fetch_assoc();
+        $tarif = $req->fetch(PDO::FETCH_ASSOC);
         return $tarif['prix'];
     }
 

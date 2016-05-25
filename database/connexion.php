@@ -7,9 +7,8 @@ session_start();
 $connection = new Connection();
 $bdd = $connection->getBdd();
 
-$reponse = $bdd->query("SELECT id_utilisateur,password,mail,prenom,nom,solde  FROM Utilisateur WHERE id_utilisateur='{$_POST['identifiant']}'");
-$donnees=$reponse->fetch_assoc();
-
+$reponse = $bdd->query("SELECT id_utilisateur,password, nom, prenom, mail FROM Utilisateur WHERE id_utilisateur='{$_POST['identifiant']}'");
+$donnees=$reponse->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST['password'])AND isset($_POST['identifiant']))
 {
@@ -17,10 +16,11 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
     {   
         $_SESSION['identifiant']=$_POST['identifiant'];
         $_SESSION['password']=$_POST['password'];
-        $_SESSION['nom']=$donnees['nom'];
-        $_SESSION['prenom']=$donnes['prenom'];
-        $_SESSION['mail']=$donnees['mail'];
-        $_SESSION['solde']=$donnees['solde'];
+        $_SESSION['nom'] = $donnees['nom'];
+        $_SESSION['prenom'] = $donnees['prenom'];
+        $_SESSION['mail'] = $donnees['mail'];
+        
+
         if ($_SESSION['identifiant']== 'admin')
         {
             echo ('admin');
