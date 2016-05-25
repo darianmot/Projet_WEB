@@ -9,6 +9,7 @@ $(document).ready(function () {
             success: function(msg)
             {
 
+                alert(msg);
                 if (msg !='echec')
                 {
                     if (msg=='admin') {
@@ -18,7 +19,7 @@ $(document).ready(function () {
                         $('#zone_loader').loader('show');
                         $('#connexion_menu').remove();
                         $('#inscription_menu').remove();
-                        window.setTimeout("window.location.href=('index.php');",3000);
+                        window.setTimeout("window.location.href=('index.php');",500);
 
                     }
                     else
