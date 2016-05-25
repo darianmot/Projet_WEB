@@ -4,6 +4,10 @@ session_start();
 // creation des variables de session
 ?>
 <?php $nav_en_cours=""; ?>
+<?php
+$path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$current = basename ($path);
+?>
 
 <div class="titre">
     <a href='index.php'>
@@ -20,9 +24,9 @@ session_start();
                 </span>
                 </a>
             </li>
-            <li <?php if ($nav_en_cours == 'tarifs.php') {echo ' id="en-cours"';} ?>><a href="tarifs.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Tarifs</a></li>
-            <li <?php if ($nav_en_cours == 'Plan des parkings') {echo ' id="en-cours"';} ?>><a href="parking_view.php"><i class="fa fa-map" aria-hidden="true"></i>Plan des parkings</a></li>
-            <li><a href='access.php'><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
+            <li><a class="<?php if ($current == 'tarifs.php'){ echo 'current';} else{ echo'no_current';}?>" href="tarifs.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Tarifs</a></li>
+            <li><a class="<?php if ($current == 'parking_view.php'){ echo 'current';} else{ echo'no_current';}?>" href="parking_view.php"><i class="fa fa-map" aria-hidden="true"></i>Plan des parkings</a></li>
+            <li><a class="<?php if ($current == 'access.php'){ echo 'current';} else{ echo'no_current';}?>" href='access.php'><i class="fa fa-map-marker" aria-hidden="true"></i>Plan d'accès</a></li>
             <?php
             if (isset($_SESSION['identifiant']))
             {
@@ -34,8 +38,8 @@ session_start();
                        <span class='fa-stack fa-lg'>
                        <i class='fa fa-user fa-stack-1x fa-inverse'></i>
                        </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
-                       <li><a href='deconnexion.php'>Deconnexion</a></li>
-                       <li><a href='gestion.php'>Gestion</a></li>
+                       <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
+                       <li><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i><a href='gestion.php'>Gestion</a></li>
                        ");
 
                 }
@@ -47,7 +51,7 @@ session_start();
                        <span class='fa-stack fa-lg'>
                        <i class='fa fa-user fa-stack-1x fa-inverse'></i>
                        </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
-                       <li><a href='deconnexion.php'>Deconnexion</a></li>
+                       <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
                        
                        ");
 

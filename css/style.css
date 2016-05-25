@@ -12,6 +12,10 @@ html {
     height: 100%;
 }
 
+body{
+    min-width: 750px;
+}
+
 /*Style des tableaux*/
 table {
     position: relative;
@@ -19,8 +23,8 @@ table {
     border-style:solid;
     border-color:darkslategray;
     border-collapse:collapse;
-
 }
+
 
 td {
     border-width:1px;
@@ -409,9 +413,8 @@ nav ul  li  a
 }
 
 /*Changement couleur lien menu avec passage souris*/
-nav ul li:hover
-{
-    color: #d0d1d0;
+nav ul li:hover {
+    /*color: #d0d1d0;*/
     border-bottom: 4px solid #36B9E4;
 }
 
@@ -467,10 +470,19 @@ nav  ul ul li  a
 
 }
 
+.current{
+    border-bottom: 4px solid #36B9E4;
 
-#nav #en-cours a {
-    background-color: #91BD09;
-    color: #fff;
+}
+
+.fa-home:hover{
+    border-bottom: inherit;
+    color: #36B9E4;
+}
+
+li.current-menu-item a {
+    margin-bottom: -1px;
+    border-bottom: 1px solid #000;
 }
 
 /*connexion_page*/
