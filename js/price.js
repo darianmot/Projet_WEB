@@ -1,6 +1,6 @@
 
 /*Fonction qui calcule le prix de la zone choisie en fonction de l'heure*/
-function prix(id_zone, heures) {
+function prix(id_zone, heures, d1, d2) {
     var prix_total = 0;
     $.ajax({
         type: "POST",
@@ -47,7 +47,7 @@ function dateDiff(date1, date2){
 
 $(document).ready(function () {
     
-    $('input[name="zone_price"]').click(function () {
+    $('input[name="zone_price"]').change(function () {
         var entry_date = new Date($('input[name = "entry_date"]').val()+':00');
         var exit_date = new Date($('input[name = "exit_date"]').val()+':00');
         var id_zone = $('input[name="zone_price"]:checked').val();
