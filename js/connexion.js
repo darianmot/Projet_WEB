@@ -32,7 +32,7 @@ $(document).ready(function () {
                         $('#inscription_menu').remove();
                         $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li>");
 
-                        window.setTimeout("window.location.href=('index.php');",5000);
+                        window.setTimeout("window.location.href=('index.php');",3000);
 
                     }
                 }

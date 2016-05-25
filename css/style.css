@@ -421,6 +421,7 @@ nav ul li:hover
 nav ul  li  a:hover
 {
     color: #ffffff;
+    text-decoration: none;
 }
 
 /*2e niveau*/
