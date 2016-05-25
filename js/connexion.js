@@ -13,9 +13,9 @@ $(document).ready(function () {
                 {
                     if (msg=='admin') {
                         $('#bloc_connexion').remove();
-                        $('#connexion').prepend('Vous êtes connecté');
-                        $('#connexion').append(' </br> Vous allez être redirigé...');
-                        $('#connexion').loader('show');
+                        $('#connexion').text('Vous êtes connecté');
+                        $('#zone_loader').append(' </br> Vous allez être redirigé...');
+                        $('#zone_loader').loader('show');
                         $('#connexion_menu').remove();
                         $('#inscription_menu').remove();
                         $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li><li><a href='gestion.php'>Gestion</a></li>")
@@ -26,8 +26,8 @@ $(document).ready(function () {
                     {
                         $('#bloc_connexion').remove();
                         $('#connexion').text('Vous êtes connecté');
-                        $('#connexion').append('</br> Vous allez être redirigé...');
-                        $('#connexion').loader('show');
+                        $('#zone_loader').append('</br> Vous allez être redirigé...');
+                        $('#zone_loader').loader('show');
                         $('#connexion_menu').remove();
                         $('#inscription_menu').remove();
                         $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li>");

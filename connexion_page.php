@@ -16,6 +16,10 @@
         <button type = "button"  id="identifier" class="connexion_button" > s'identifier </button>
     </form>
 </div>
+<div id="zone_loader">
+    
+</div>
+
 <?php include("template/footer.php") ?>
 </body>
 </html>
