@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <html>
-<header>
+<head>
 <?php include("template/head.php"); ?>
-</header>
+    
+</head>
 
 <?php include("template/menu.php")?>
-</br>
+<br/>
 
 <form method="post" id = "form_reservation" action="resume_reservation.php" enctype="multipart/form-data">
 

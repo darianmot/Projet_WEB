@@ -44,11 +44,8 @@ body
     padding-bottom: 0;
 }
 
-/*header*/
-/*{*/
-	/*border-bottom: 2px solid #e5e5e5;*/
-/*}*/
 
+/*Style de text */
 .titre
 {
     position: relative;
@@ -105,8 +102,13 @@ h4 {
 
 }
 
-.slider{
+
+.error
+{
+    color: red;
 }
+
+
 
 
 .col-md-3{
@@ -141,6 +143,7 @@ h4 {
     z-index: 9999;
 }
 
+/*Boutons*/
 .button_reserv {
     width: 300px;
     height: 60px;
@@ -316,24 +319,6 @@ contenu
 /********************************************************************************
 footer
 ********************************************************************************/
-
-/*footer*/
-/*{*/
-    /*height: 30px;*/
-	/*text-align: center;*/
-    /*background-color: black;*/
-    /*bottom: 0;*/
-    /*margin-top: 50px;*/
-    /*width: 100%;*/
-/*}*/
-
-/*.footer_left section {*/
-    /*text-align: left;*/
-    /*margin: 25px;*/
-    /*font-size: 0.7em;*/
-    /*display: inline;*/
-
-/*}*/
 
 footer, .push {
     height: 0em;

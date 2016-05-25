@@ -46,7 +46,7 @@ class PlaceManager
                                                   AND Place.type_vehicule = '{$type_vehicule}'
                                                   AND Place.id_zone = {$id_zone});");
 
-        $place = $response->fetch_assoc();
+        $place = $response->fetch(PDO::FETCH_ASSOC);
         if (isset($place['freeplace'])) {
             return $place['freeplace'];
         }
@@ -71,7 +71,7 @@ class PlaceManager
                                               OR (etat = 'reservee' AND date_fin >= '{$date}')
                                               OR etat = 'fini'))
                 OR Stationnement.id_place IS NULL))");
-        while ($data = $response->fetch_assoc()) {
+        while ($data = $response->fetch(PDO::FETCH_ASSOC)) {
             /*Numero de stationnement eventuel*/
             if ($data['etat']=='occupee') {
                 echo '<h3 style="width: 500px; text-align: center">Stationnement <div id="id_stationnement">' . $data['id_stationnement'] . '</div></h3>';

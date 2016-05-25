@@ -8,7 +8,7 @@ $connection = new Connection();
 $bdd = $connection->getBdd();
 
 $reponse = $bdd->query("SELECT id_utilisateur,password, nom, prenom, mail FROM Utilisateur WHERE id_utilisateur='{$_POST['identifiant']}'");
-$donnees=$reponse->fetch_assoc();
+$donnees=$reponse->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST['password'])AND isset($_POST['identifiant']))
 {

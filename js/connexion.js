@@ -8,6 +8,7 @@ $(document).ready(function () {
             data: $('#connexion_form').serialize(),
             success: function(msg)
             {
+
                 if (msg !='echec')
                 {
                     if (msg=='admin') {
@@ -38,7 +39,9 @@ $(document).ready(function () {
                 else
             
                 {
-                    alert('identifiant ou mot de passe incorrectes');
+                    var echec = '<h1 class="error">Error</h1>';
+                    echec += 'Combinaison identifiant/mot de passe incorrecte';
+                    $.fancybox({content: echec});
                     $('#identifiant').val('');
                     $('#password').val('');
                 }
@@ -48,5 +51,20 @@ $(document).ready(function () {
             {alert('script non trouvé connexion.js');}
         });
     });
-    
+
+    /*fancybox (fenetre modale)*/
+    $('.fancybox').fancybox({
+            arrows: false, //enleve les flèches de navigation
+            openEffect: 'fade',
+            keys: {
+                next : [null],
+                prev : [null],
+                close: [27], // escape key
+                play: [null], // space - start/stop slideshow
+                toggle: [70]  // letter "f" - toggle fullscreen
+            },
+            scrolling : 'no'
+        }
+    );
+
 });
