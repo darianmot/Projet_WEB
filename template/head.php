@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/cv.css"/>
     <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.loader.css"/>
 
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -30,3 +31,4 @@
     <script type="text/javascript" src="js/modifier_compte.js"></script>
     <script type="text/javascript" src="js/connexion.js"></script>
     <script type="text/javascript" src="js/inscription.js"></script>
+    <script type="text/javascript" src="js/jquery.loader.js"></script>

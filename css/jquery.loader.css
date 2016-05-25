@@ -1,0 +1,44 @@
+/* .loader
+-----------------------------------------------------------------------------------------*/
+.loader {
+  height: 40px;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 40px;
+  z-index: 1999;
+}
+.loader .loader-load {
+  background: #000000 url(../media/images/loader.gif) no-repeat 50% 50%;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  -webkit-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  -moz-opacity: 0.8;
+  -ms-opacity: 0.8;
+  -o-opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  z-index: 1000;
+}
+
+.loader.hide {
+  display: none !important;
+}
+
