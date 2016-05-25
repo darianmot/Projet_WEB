@@ -3,7 +3,7 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: " compte_personal_data.php",
+            url: " database/connexion.php",
             dataType : 'html',
             data: $('#connexion_form').serialize(),
             success: function(msg)
@@ -18,7 +18,6 @@ $(document).ready(function () {
                         $('#zone_loader').loader('show');
                         $('#connexion_menu').remove();
                         $('#inscription_menu').remove();
-                        $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li><li><a href='gestion.php'>Gestion</a></li>")
                         window.setTimeout("window.location.href=('index.php');",3000);
 
                     }
@@ -32,7 +31,7 @@ $(document).ready(function () {
                         $('#inscription_menu').remove();
                         $('#menu_nav').append("<li><a href='deconnexion.php'>Deconnexion</a></li> <li><a href='mon_compte.php'>Votre Compte </a></li>");
 
-                        window.setTimeout("window.location.href=('index.php');",3000);
+                        window.setTimeout("window.location.href=('index.php');",500);
 
                     }
                 }
@@ -47,7 +46,7 @@ $(document).ready(function () {
                 $('#onglet_connexion').text('');
             },
             error: function(retour)
-            {alert('script non trouvé');}
+            {alert('script non trouvé connexion.js');}
         });
     });
     

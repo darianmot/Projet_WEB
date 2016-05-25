@@ -9,7 +9,7 @@
 
 
 <div id="bloc_compte">
-    <?php
+    <?php session_start();
     include "database/bdd_connection.php";
     $connection = new Connection();
     $bdd = $connection->getBdd();
