@@ -114,6 +114,18 @@ h4 {
     margin-left: 10px;
 }
 
+.pub {
+    color: black;
+    background: orange;
+    opacity: 0.5;
+    box-shadow: grey 10px 8px 4px;
+    border: dashed;
+    border-radius: 20px;
+    border-width: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 
 .reserv {
     background: lightgrey;

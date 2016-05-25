@@ -23,7 +23,8 @@
 
 </br></br>
 
-<div>
+<div class="pub">
+    </br>
     <h2>Bienvenue sur Car'Park, le leader des solutions parking pour tout véhicule <i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i></h2>
     Faites confiance dans l'expertise de Car'Park et confiez nous votre véhicule pour quelques heures ou quelques jours !
     </br> Car'Park c'est un parking sécurisé et facile d'accès qui vous offre le meilleur service au meilleur prix.
@@ -31,7 +32,6 @@
     Nous avons à coeur de vous fournir le meilleur, c'est pourquoi nous vous remboursons en cas d'insactisfaction*
     <h3> <i class="fa fa-2x fa-eur" aria-hidden="true"></i> Des économies sur toute la ligne !</h3>
     Nous vous garantissons les tarifs les plus bas du marché. Suivez vos dépenses et créditez votre solde en toute sécurité depuis votre espace client.
-
 
 </div>
 
