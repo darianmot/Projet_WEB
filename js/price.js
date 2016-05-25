@@ -1,6 +1,6 @@
 
 /*Fonction qui calcule le prix de la zone choisie en fonction de l'heure*/
-function prix(id_zone, heures, d1, d2) {
+function prix(id_zone, heures) {
     var prix_total = 0;
     $.ajax({
         type: "POST",

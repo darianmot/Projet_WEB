@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.loader.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css"/>
+
 
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -24,6 +26,7 @@
     <script type="text/javascript" src="js/script_datepicker.js"></script>
     <script type="text/javascript" src="js/timepicker.js"></script>
     <script type="text/javascript" src="js/cvscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.jqplot.js"></script>
 
     <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
