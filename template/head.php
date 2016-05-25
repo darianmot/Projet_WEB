@@ -25,7 +25,6 @@
     <script type="text/javascript" src="js/timepicker.js"></script>
     <script type="text/javascript" src="js/cvscroll.js"></script>
 
-    <script type="text/javascript" src="js/mes_donnees.js"></script>
     <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
     <script type="text/javascript" src="js/modifier_compte.js"></script>
