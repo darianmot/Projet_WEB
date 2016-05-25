@@ -8,8 +8,6 @@ $(document).ready(function () {
             data: $('#connexion_form').serialize(),
             success: function(msg)
             {
-
-                alert(msg);
                 if (msg !='echec')
                 {
                     if (msg=='admin') {

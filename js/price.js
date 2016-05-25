@@ -8,11 +8,12 @@ function prix(id_zone, heures) {
         data: "id_form=getPrice" + '&id_zone='+ id_zone,
         success: function(retour)
         {
+
             var h = heures;
             prix_total = eval(retour);
             $('#disp_price').empty();
             $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix_total + '€ '+ '</h4>');
-            $('input[name="price_input"]').val(prix)
+            $('input[name="price_input"]').val(prix_total)
         },
         error: function(retour)
         {
@@ -53,6 +54,8 @@ $(document).ready(function () {
         var id_zone = $('input[name="zone_price"]:checked').val();
         var duree = dateDiff(entry_date, exit_date);
         var duree_in_hours = (duree.day * 24 + duree.hour + (duree.min / 60)).toFixed(2); /* A modifier, le prix horaire est peut etre insuffisant */
+        alert('duree'+duree_in_hours)
         prix(id_zone, duree_in_hours);
+
         })
 });
