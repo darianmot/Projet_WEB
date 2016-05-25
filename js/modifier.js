@@ -18,6 +18,7 @@ $(document).ready(function () {
             error: function (retour) {
                 alert('Script non trouvé')
                 
+                
             }
         });
         

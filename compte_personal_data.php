@@ -14,7 +14,7 @@
     
     $bdd = $connection->getBdd();
     $reponse = $bdd->query("SELECT id_utilisateur,password,nom,prenom,mail  FROM Utilisateur WHERE id_utilisateur='{$_SESSION['identifiant']}'");
-    $donnees=$reponse->fetch_assoc();
+    $donnees=$reponse->fetch(PDO::FETCH_ASSOC);
     $nom = $donnees['nom'];
     $prenom = $donnees['prenom'];
     $mail = $donnees['mail'];
