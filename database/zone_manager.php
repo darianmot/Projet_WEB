@@ -67,7 +67,7 @@ class ZoneManager
             if ($reservation == null)
             {
                 $placeManager = new PlaceManager($this->getBdd());
-                $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+                $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date);
 
             }
             else
@@ -137,9 +137,10 @@ class ZoneManager
     /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
+        $date = date("Y-m-d H:i:s");
         $this->addVehicule($plaque, $type_vehicule);
         $placeManager = new PlaceManager($this->getBdd());
-        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule);
+        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date);
         $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
       VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
     }
