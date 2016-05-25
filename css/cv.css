@@ -30,12 +30,17 @@
     font-weight: 400;
     font-family: "Calibri";
     color: #ffffff;
+    font-size: large;
 }
 
 /*Changement couleur lien menu avec passage souris*/
 .cvnav ul li:hover {
     color: #d0d1d0;
     border-bottom: 4px solid #f5f5f8;
+}
+
+.cvcurrent{
+    border-bottom: 4px solid #36B9E4;
 }
 
 

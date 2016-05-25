@@ -66,6 +66,6 @@ $current = basename ($path);
 
             }
             ?>
-            <li><a href="cv.php"><i class="fa fa-users" aria-hidden="true"></i>Nos CV</a></li>
+            <li><a class="<?php if ($current == 'cv.php'){ echo 'current';} else{ echo'no_current';}?>" href="cv.php"><i class="fa fa-users" aria-hidden="true"></i>Nos CV</a></li>
         </ul>
 </nav>
