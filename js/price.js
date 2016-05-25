@@ -6,16 +6,20 @@ function prix(id_zone, heures) {
         type: "POST",
         url: " database/zone_manager.php",
         data: "id_form=getPrice" + '&id_zone='+ id_zone,
+        async: false,
         success: function(retour)
         {
             var h = heures;
+            console.log('heures : ',h);
             prix_total = eval(retour);
+            console.log('prix :', prix_total);
             $('#disp_price').empty();
             $('#disp_price').prepend('<h2> Total : </h2>'+ '<h4>' +  prix_total + '€ '+ '</h4>');
-            $('input[name="price_input"]').val(prix)
+            $('input[name="price_input"]').val(prix_total)
         },
         error: function(retour)
         {
+            console.log('erreur dans le calcul du prix');
             if (retour.status == 200) {
                 console.log('warning due à la non synchronisation des requetes ajax')
             }
