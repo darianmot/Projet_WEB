@@ -163,6 +163,14 @@ class ZoneManager
 
     /*** TARIFS ***/
 
+    /*Renvoie l'id du tarif associée à la zone*/
+    public function getTarif()
+    {
+        $req = $this->getBdd()->query("SELECT id_tarif FROM `Zone` WHERE id_zone = {$this->getIdZone()}");
+        $id_tarif = $req->fetch(PDO::FETCH_ASSOC)['id_tarif'];
+        return $id_tarif;
+    }
+
     /*Renvoie le prix en fonction de l'heure associée à la zone*/
     public function getPrice()
     {
@@ -300,6 +308,9 @@ if (isset($_POST['id_form'])) {
             {
                 echo $zone->totalHours($_POST['id_stationnement']);
             }
+            break;
+        case 'getTarif':
+            echo $zone->getTarif();
             break;
     }
 }
