@@ -8,7 +8,6 @@ $(document).ready(function () {
             data: $('#personal_data').serialize(),
             success: function (msg)
             {
-                alert(msg)
                 $('#bloc_compte').empty();
                 $('#bloc_compte').append('<h1>Modifications effectuées</h1>');
                 $('#bloc_compte').append('Redirection en cours');
