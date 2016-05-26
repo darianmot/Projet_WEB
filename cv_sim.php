@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--variables-->
-<?php $name="Simon AL-DOURI--RAVOUX "; ?>
+<?php $name=" "; ?>
 <?php $age="20 ans"; ?>
 <?php $adress1="40 avenue Joseph Claussat"; ?>
 <?php $adress2="63400 Chamalières"; ?>

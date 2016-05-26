@@ -22,7 +22,7 @@
     <img src="./media/images/porco_rosso.jpg" class="tarifs_img">
 </section>
 
-<div id="div_report" style="height:600px;width:700px; "></div>
+<div class="tarifs_graph" id="div_report" style="height:600px;width:700px; "></div>
 <script>
     $(document).ready(function () {
         var tarif1 = [];

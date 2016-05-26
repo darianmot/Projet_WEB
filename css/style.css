@@ -604,3 +604,11 @@ li.current-menu-item a {
 .tarifs_img{
     width: 80%;
 }
+
+.tarifs_graph{
+    margin: auto;
+}
+
+.map{
+    margin-top: 50px;
+}

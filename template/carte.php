@@ -9,7 +9,7 @@
 </style>
 <body>
 <div id="container">
-    <div id="map">
+    <div class="map" id="map">
         <p>Veuillez patienter pendant le chargement de la carte...</p>
     </div>
 </div>
