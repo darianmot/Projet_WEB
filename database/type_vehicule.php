@@ -1,5 +1,5 @@
 <?php
-include "bdd_connection.php";
+include_once "bdd_connection.php";
 
 class TypeManager
 {
@@ -25,12 +25,12 @@ class TypeManager
     public function typeList()
     {
         $req = $this->getBdd()->query("SELECT * FROM TypeVehicule");
-        echo '<select name="type" id="type">';
+//        echo '<select name="type" id="type">';
         while($donnees = $req->fetch(PDO::FETCH_ASSOC))
         {
             echo '<option>'.$donnees['type'].'</option>';
         }
-        echo '</select>';
+//        echo '</select>';
     }
 }
 

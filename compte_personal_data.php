@@ -37,10 +37,9 @@
     <h1>Enregistrer un véhicule</h1>
     <form id="form_add_vehicule">
         <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
-            <option value="" disabled selected hidden>Type de véhicule</option>
-            <option>Voiture</option>
-            <option>Moto</option>
-            <option>Handicapé</option>
+            <?php include "database/type_vehicule.php";
+            $type_manager = new TypeManager();
+            $type_manager->typeList()?>
         </select>
 
         <label>Plaque du véhicule</label><input name="plate_add_vehicule" class="encart_reserv">
