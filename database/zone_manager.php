@@ -315,9 +315,7 @@ if (isset($_POST['id_form'])) {
             if (isset($_POST['price'])) 
             {
                 $zone->setPrice($_POST['price']);
-                echo 'succes';
             }
-            echo 'tototo';
             break;
         case 'totalHours':
             if (isset($_POST['id_stationnement']))
