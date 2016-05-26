@@ -11,11 +11,11 @@ $cvcurrent = basename ($path);
 <header>
     <?php include("template/head.php"); ?>
 </header>
-<body>
-    <nav class="cvnav">
+<body id="body_cv">
+    <nav class="cvnav" id="menu_navigation_cv">
         <ul>
             <li>
-                <a href=#cv_anas>Anas</a>
+                <a href=#cv_anas >Anas</a>
             </li>
             <li>
                 <a href=#cv_atime>Atime</a>
@@ -24,22 +24,22 @@ $cvcurrent = basename ($path);
                 <a href=#cv_darian>Darian</a>
             </li>
             <li>
-                <a href=#cv_simon>Simon</a>
+                <a id="cv_simon" >Simon</a>
             </li>
         </ul>
     </nav>
 
 <!--    <div id="cv">-->
-<!--        --><?php //include("cv_sim.php"); ?>
+<!--        --><?php //include("cv_groupe.php"); ?>
 <!--    </div>-->
 <!--    <div id="cv_atime">-->
-<!--        --><?php //include("cv_sim.php"); ?>
+<!--        --><?php //include("cv_groupe.php"); ?>
 <!--    </div>-->
 <!--    <div id="cv_darian">-->
-<!--        --><?php //include("cv_sim.php"); ?>
+<!--        --><?php //include("cv_groupe.php"); ?>
 <!--    </div>-->
 <!--    <div id="cv_simon">-->
-<!--        --><?php //include("cv_sim.php"); ?>
+<!--        --><?php //include("cv_groupe.php"); ?>
 <!--    </div>-->
 
 </body>
@@ -53,19 +53,3 @@ $cvcurrent = basename ($path);
     Wouhouuu ça marche !
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        var t = window.location.hash.split(#);
-
-        if (t[1] == 'cv_anas') {
-            $('#contenu-un').css({'display':'block'});
-            $('#contenu-deux').css({'display':'none'});
-        }
-
-        if (t[1] == 'cv_atime') {
-            $('#contenu-un').css({'display':'none'});
-            $('#contenu-deux').css({'display':'block'});
-        }
-    });
-
-</script>

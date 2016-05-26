@@ -15,7 +15,6 @@
 
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-    
 
 
     <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
@@ -27,7 +26,7 @@
     <script type="text/javascript" src="js/timepicker.js"></script>
     <script type="text/javascript" src="js/cvscroll.js"></script>
     <script type="text/javascript" src="js/jquery.jqplot.js"></script>
-
+    <script type="text/javascript" src="js/cv.js"></script>
     <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
     <script type="text/javascript" src="js/modifier.js"></script>
