@@ -11,7 +11,7 @@ function prix(id_zone, heures) {
         {
 
             var h = heures;
-            console.log('heures : ',h);
+            console.log('heures : ', h);
             prix_total = eval(retour);
             console.log('prix :', prix_total);
             $('#disp_price').empty();
@@ -58,7 +58,7 @@ $(document).ready(function () {
         var id_zone = $('input[name="zone_price"]:checked').val();
         var duree = dateDiff(entry_date, exit_date);
         var duree_in_hours = (duree.day * 24 + duree.hour + (duree.min / 60)).toFixed(2); /* A modifier, le prix horaire est peut etre insuffisant */
-        alert('duree'+duree_in_hours)
+        alert('duree'+duree_in_hours);
         prix(id_zone, duree_in_hours);
 
         })

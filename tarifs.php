@@ -29,10 +29,10 @@
         var tarif2 = [];
         var tarif3 = [];
         for (i = 0; i < 100; i++) {
-            i *= 5;
             tarif1.push([i, prix(1, i)]);
             tarif2.push([i, prix(2, i)]);
             tarif3.push([i, prix(3, i)]);
+            i += 5;
         }
         $.jqplot('div_report', [tarif1, tarif2, tarif3],
             {
@@ -45,7 +45,11 @@
                     renderer: $.jqplot.EnhancedLegendRenderer,
                     show: true
                 },
-                series: [{color: '#5FAB78'}]
+                series: [{color: '#5FAB78'}],
+                highlighter: {
+                    show: true,
+                    sizeAdjust: 7.5
+                }
             });
     });
 </script>

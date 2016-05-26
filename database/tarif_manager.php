@@ -1,6 +1,6 @@
 <?php
 
-include "bdd_connection.php";
+include_once "bdd_connection.php";
 
 class TarifManager
 {
@@ -42,6 +42,7 @@ class TarifManager
 
 
 if (isset($_POST['id_form'])) {
+
     $connection = new Connection();
     $bdd = $connection->getBdd();
     $tarifManager = new TarifManager($bdd);

@@ -1,6 +1,7 @@
 <?php
 
 include "place_manager.php";
+include "tarif_manager.php";
 
 
 class ZoneManager
@@ -180,6 +181,13 @@ class ZoneManager
         $tarif = $req->fetch(PDO::FETCH_ASSOC);
         return $tarif['prix'];
     }
+    
+    /*Modifie la fonction prix de la zone*/
+    public function setPrice($new_price)
+    {
+        $tarif_manager = new TarifManager($this->getBdd());
+        $tarif_manager->setTarif($this->getTarif(), $new_price);
+    }
 
     /*Renvoie le prix effectif que devra payer un stationnement dans la zone pour une durée hours*/
 
@@ -303,13 +311,21 @@ if (isset($_POST['id_form'])) {
         case 'getPrice':
             echo $zone->getPrice();
             break;
+        case 'setPrice':
+            if (isset($_POST['price'])) 
+            {
+                $zone->setPrice($_POST['price']);
+                echo 'succes';
+            }
+            echo 'tototo';
+            break;
         case 'totalHours':
             if (isset($_POST['id_stationnement']))
             {
                 echo $zone->totalHours($_POST['id_stationnement']);
             }
             break;
-        case 'getTarif':
+        case 'getIdTarif':
             echo $zone->getTarif();
             break;
     }
