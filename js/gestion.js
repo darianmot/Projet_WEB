@@ -11,11 +11,10 @@ function plotTarif(){
     var tarif1 = [];
     var tarif2 = [];
     var tarif3 = [];
-    for (h = 0; h < 100; h++) {
+    for (h = 0; h < 100; h+=5) {
         tarif1.push([h, eval($('#tarif1').val())]);
         tarif2.push([h, eval($('#tarif2').val())]);
         tarif3.push([h, eval($('#tarif3').val())]);
-        h += 4;
     }
     $.jqplot('div_graph', [tarif1, tarif2, tarif3],
         {

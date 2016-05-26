@@ -34,18 +34,29 @@
 </form>
 
 <h1>Modifier les tarifs</h1>
-<form method="POST"  id="setTarif">
+<div classs="row">
+    <div class="formulaire container">
+        <div class="col-md-3 col-md-offset-2">
 
-    <label for="tarif1">Tarif Zone 1 :</label>
-        <input type="text" class='tarif' id='tarif1'/><br/>
-    <label for="tarif2">Tarif Zone 2 :</label>
-        <input type="text" class="tarif" id='tarif2'/><br/>
-    <label for="tarif3">Tarif Zone 3 :</label>
-        <input type="text" class="tarif" id='tarif3'/><br/>
-    <input type="button" value="Valider les modifications" id="submit_setTarif"/>
-    
-</form>
-<div class = tarifs_graph id="div_graph" style="height:600px;width:700px;"></div>
+            <form method="POST"  id="setTarif">
+                <label for="tarif1">Tarif Zone 1 :</label>
+                    <input type="text" class='tarif' id='tarif1'/><br/>
+                <label for="tarif2">Tarif Zone 2 :</label>
+                    <input type="text" class="tarif" id='tarif2'/><br/>
+                <label for="tarif3">Tarif Zone 3 :</label>
+                    <input type="text" class="tarif" id='tarif3'/><br/>
+                <input type="button" class="button_reserv" value="Valider les modifications" id="submit_setTarif"/>
+            </form>
+
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class = 'tarifs_graph' id="div_graph" style="height:400px;width:500px"></div>
+        </div>
+
+</div>
+
+
 <script type="text/javascript" src="js/gestion.js"></script>
 <div id="msg">
 </div>
