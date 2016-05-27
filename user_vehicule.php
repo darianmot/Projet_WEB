@@ -1,5 +1,6 @@
+<!DOCTYPE html>
+<html>
 <?php include("template/head.php") ?>
-    </header>
     <body>
 <?php include("template/menu.php")?>
 
@@ -8,14 +9,14 @@
     <h1>Enregistrer un véhicule</h1>
     Complétez les informations requises
     <form id="form_add_vehicule">
-        <label>Type de véhicule</label><select class="select_reserv" name="type_add_vehicule" size="1">
+        <label>Type de véhicule<select class="select_reserv" name="type_add_vehicule" size="1">
             <option value="" disabled selected hidden>Type de véhicule</option>
             <option>Voiture</option>
             <option>Moto</option>
             <option>Handicapé</option>
-        </select>
+        </select></label>
 
-        <label>Plaque du véhicule</label><input name="plate_add_vehicule" class="encart_reserv">
+        <label>Plaque du véhicule <input name="plate_add_vehicule" class="encart_reserv"></label>
         </br>
         <button type="submit" class="button_reserv" id="button_add_vehicule">
 
@@ -38,18 +39,18 @@
     for($i = 0; $i<$number_vehicule; ++$i) {
         $plaque = $_SESSION['user_vehicule'][$i]['plaque'];
         $type = $_SESSION['user_vehicule'][$i]['type_vehicule'];
-        echo "</br>Type: $type Plaque: $plaque";
-    };
+
+        if ($type == "Voiture") {
+            echo "</br><div class=\"bulle_vehicule\"> <i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i></br> $plaque  </div> ";
+        }
+        elseif ($type == "Moto") {
+            echo "</br><div class=\"bulle_vehicule\"> <i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> $plaque </div> ";
+        }
+    }
 
     ?>
 
-
-
 </div>
-
-
-
-
 
 <?php include("template/footer.php") ?>
     </body>
