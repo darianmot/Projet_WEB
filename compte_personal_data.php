@@ -33,25 +33,6 @@
     <button type="submit" class="button_reserv" id="modifier">Modifier mes données</button>
 </div>
 
-<div id="bloc_vehicule">
-    <h1>Enregistrer un véhicule</h1>
-    <form id="form_add_vehicule">
-        <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
-            <option value="" disabled selected hidden>Type de véhicule</option>
-            <option>Voiture</option>
-            <option>Moto</option>
-            <option>Handicapé</option>
-        </select>
-
-        <label>Plaque du véhicule</label><input name="plate_add_vehicule" class="encart_reserv">
-        </br>
-        <button type="submit" class="button_reserv" id="button_add_vehicule">Ajouter mon véhicule</button>
-
-    </form>
-
-
-</div>
-
 
 
 <?php include("template/footer.php") ?>
