@@ -3,7 +3,7 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax
         ({
-            url: " cv_groupes.php",
+            url: " cv_sim.php",
             dataType : 'html',
             success: function(msg)
             {
