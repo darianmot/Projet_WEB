@@ -254,6 +254,7 @@ h4 {
 
 .bulle_vehicule .quit_cross {
     padding-left: 170px;
+    color: red;
 }
 
 .quit_cross {
