@@ -5,6 +5,7 @@
 <?php
 $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $cvcurrent = basename ($path);
+$anas='anas'
 ?>
 
 <html>
@@ -24,7 +25,14 @@ $cvcurrent = basename ($path);
                 <a href=#cv_darian>Darian</a>
             </li>
             <li>
-                <a id="cv_simon" >Simon</a>
+                <a id="cv_simon2" href="cv_simon" >Simon</a>
+
+                <script type='text/javascript'>
+                    $( "#cv_simon2" ).click(function() {
+                        var prix='<?php echo $anas; ?>';
+                        $('#body_cv').append(prix);
+                    });
+                </script>
             </li>
         </ul>
     </nav>

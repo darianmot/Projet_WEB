@@ -28,8 +28,8 @@ echo ("
             $adress1 <br> $adress2 </br>
         </div>
 
-        <div class='contact'>echo
-             $phone <br>$mail </br>
+        <div class='contact'>  
+         $phone <br>$mail </br>
         </div>
 
         <div class='picture'>
