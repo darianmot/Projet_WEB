@@ -41,10 +41,22 @@
         $type = $_SESSION['user_vehicule'][$i]['type_vehicule'];
 
         if ($type == "Voiture") {
-            echo "</br><div class=\"bulle_vehicule\"> <i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i></br> $plaque  </div> ";
+            echo "<div class=\"bulle_vehicule\"> 
+                    <div class='quit_cross'>
+                        <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                    </div> 
+                    <i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i>
+                    $plaque  
+                  </div> ";
         }
         elseif ($type == "Moto") {
-            echo "</br><div class=\"bulle_vehicule\"> <i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> $plaque </div> ";
+            echo "<div class=\"bulle_vehicule\"> 
+                        <div class='quit_cross'>
+                            <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                        </div> 
+                        <i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> 
+                        $plaque 
+                  </div> ";
         }
     }
 
