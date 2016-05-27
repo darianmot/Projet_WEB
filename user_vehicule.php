@@ -42,19 +42,15 @@
 
         if ($type == "Voiture") {
             echo "<div class=\"bulle_vehicule\"> 
-                    <div class='quit_cross'>
-                        <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
-                    </div> 
-                    <i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i>
+                    <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                    </br><i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i>
                     $plaque  
                   </div> ";
         }
         elseif ($type == "Moto") {
             echo "<div class=\"bulle_vehicule\"> 
-                        <div class='quit_cross'>
-                            <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
-                        </div> 
-                        <i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> 
+                        <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                        </br><i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> 
                         $plaque 
                   </div> ";
         }
