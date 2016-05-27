@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('#cv_simon').click(function (e) {
         e.preventDefault();
-        $.ajax({
 
             url: " cv_groupes.php",
             dataType : 'html',
@@ -9,12 +8,6 @@ $(document).ready(function () {
             {
                 $('#body_cv').append(msg);
             }
-
-
-        })
-
-
-
+        
     });
-
 });
