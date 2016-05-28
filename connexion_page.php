@@ -17,8 +17,6 @@
     </form>
 </div>
 <div id="zone_loader">
-    
 </div>
-
 </body>
 </html>
