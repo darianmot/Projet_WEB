@@ -53,6 +53,7 @@ class PlaceManager
         }
     }
     
+    
     /*Renvoie un tableau contenant les informations associées à une place*/
     public function placeView($id_place)
     {

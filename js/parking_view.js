@@ -68,6 +68,9 @@ $(document).ready(function () {
                     if (retour.status == 200) {
                         console.log('warning due à la non synchronisation des requetes ajax')
                     }
+                    else {
+                        console.log(retour)
+                    }
                 }
             });
         }

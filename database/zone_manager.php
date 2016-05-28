@@ -75,8 +75,8 @@ class ZoneManager
             {
                 $place = $reservation['id_place'];
             }
-            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee', NULL);");
+            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
+                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee');");
         }
         catch (Exception $e)
         {
@@ -143,8 +143,8 @@ class ZoneManager
             $this->addVehicule($plaque, $type_vehicule);
             $placeManager = new PlaceManager($this->getBdd());
             $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date_debut);
-            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
+            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
+      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee';");
         }
         catch (Exception $e)
         {
@@ -195,8 +195,7 @@ class ZoneManager
         $tarif_manager = new TarifManager($this->getBdd());
         $tarif_manager->setTarif($this->getTarif(), $new_price);
     }
-
-    /*Renvoie le prix effectif que devra payer un stationnement dans la zone pour une durée hours*/
+    
 
     /*** VISU ***/
     public function tableView($lg_table)
@@ -260,7 +259,6 @@ class ZoneManager
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
-
 if (isset($_POST['id_form'])) {
     try {$connection = new Connection();} 
     catch (Exception $e)
@@ -292,7 +290,8 @@ if (isset($_POST['id_form'])) {
                     }
                     else
                     {
-                        echo 'Erreur : ', $e->getMessage();
+                        echo json_encode(array('error' => true,
+                            'msg' => "<p style='width: 700px'>Erreur ". $e->getMessage() .".</p>"));
                     }
                 }
             }
