@@ -3,14 +3,16 @@
 <?php
 $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $cvcurrent = basename ($path);
+
 ?>
+
+
+
 <?php include("template/head.php"); ?>
 <?php include("template/menu.php"); ?>
 
 <html>
-
 <body id="body_cv">
-
 <nav class="cvnav" id="menu_navigation_cv">
     <ul>
         <li>
@@ -63,11 +65,9 @@ $cvcurrent = basename ($path);
     </article>
 
     <article>
-
         <div class="title_article">
             ETUDES ET FORMATIONS
         </div>
-
         <table class="cvtable">
             <tbody>
             <tr class="tr1"><td class="td1">2015-2016</td><td>Elève ingénieur à l’Ecole Nationale de l’Aviation Civile à Toulouse</td></tr>
@@ -76,15 +76,12 @@ $cvcurrent = basename ($path);
             <tr class="tr1"><td class="td1">2012-2013</td><td>Baccalauréat S section européenne anglais   Mention Très Bien et  félicitations du jury  Lycée Blaise Pascal à Clermont-Ferrand </td></tr>
             </tbody>
         </table>
-
     </article>
 
     <article>
-
         <div class="title_article">
             EXPERIENCES PROFESSIONNELLES
         </div>
-
         <table class="cvtable">
             <tbody>
             <tr class="tr1"><td class="td1">2015-2016</td><td>Contractuel administratif à la Bibliothèque-Documentation de la Direction des
@@ -96,15 +93,12 @@ $cvcurrent = basename ($path);
             <tr class="tr1"><td colspan="2">Compétences apportées : rigueur, autonomie, organisation, initiative</td></tr>
             </tbody>
         </table>
-
     </article>
 
     <article>
-
         <div class="title_article">
             COMPETENCES
         </div>
-
         <table class="cvtable">
             <tbody>
             <tr class="tr1"><td class="td1">Anglais : </td><td> First Certificate of Cambridge niveau B2, préparation du TOEFL</td></tr>
@@ -113,15 +107,12 @@ $cvcurrent = basename ($path);
             <tr class="tr1"><td colspan="2">Premiers Secours Civiques 1</td></tr>
             </tbody>
         </table>
-
     </article>
 
     <article>
-
         <div class="title_article">
             CENTRES D'INTERET
         </div>
-
         <table class="cvtable">
             <tbody>
             <tr class="tr1"><td>Lecture, cinéma, musique, actualité, sciences </td></tr>
@@ -129,9 +120,7 @@ $cvcurrent = basename ($path);
             <tr class="tr1"><td>Aéronautique et automobile </td></tr>
             </tbody>
         </table>
-
     </article>
-
 </section>
 
 <script type="text/javascript">
