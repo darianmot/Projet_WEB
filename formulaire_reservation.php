@@ -28,12 +28,20 @@
 
             <!-- Type de Véhicule -->
             <div class="col-md-3">
-                <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
-                    <option value="" disabled selected hidden>Type de véhicule</option>
+                <label>Mon véhicule</label><select class="select_reserv" name="selection_vehicule" size="1">
+                    <option value="" disabled selected hidden>Mon véhicule</option>
                     <?php
-                    include("database/type_vehicule.php");
-                    $type_manager = new TypeManager();
-                    $type_manager->typeList();?>
+                    session_start();
+                    include("database/get_list_vehicule.php");
+                    $number_vehicule = count($_SESSION['user_vehicule']);
+                    for($i=0 ; $i<$number_vehicule; ++$i){
+                        echo "
+                            <option value='{$_SESSION['user_vehicule'][$i]['plaque']}'>  Type: {$_SESSION['user_vehicule'][$i]['type_vehicule']} Plaque: {$_SESSION['user_vehicule'][$i]['plaque']} </option>
+                        ";
+                    }
+
+
+                    ?>
                 </select>
             </div>
 

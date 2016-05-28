@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css/banniere.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.loader.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css"/>
 
 
     <link rel="icon" type="image/png" href="media/images/favicon_proposal.png" />
@@ -18,7 +17,6 @@
 
     <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/cv.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/price.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
