@@ -39,7 +39,7 @@ $current = basename ($path);
                        <i class='fa fa-user fa-stack-1x fa-inverse'></i>
                        </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
                        <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
-                       <li><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i><a href='gestion.php'>Gestion</a></li>
+                       <li><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i><a class='onglet' href='gestion.php'>Gestion</a></li>
                        ");
 
                 }
@@ -65,7 +65,19 @@ $current = basename ($path);
                   <li id='inscription_menu'><i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i><a href='inscrire_page.php'>S'inscrire</a></li>";
 
             }
+//            souligner onglet actif
+            if ($current == 'gestion.php'){
+                            echo("");
+                        }
             ?>
             <li><a class="<?php if ($current == 'cv.php'){ echo 'current';} else{ echo'no_current';}?>" href="cv.php"><i class="fa fa-users" aria-hidden="true"></i>Nos CV</a></li>
+            <li><a class="<?php if ($current == 'manuel.php'){ echo 'current';} else{ echo'no_current';}?>" href="manuel.php"><i class="fa fa-book" aria-hidden="true"></i>Manuel d'utilisation</a></li>
         </ul>
 </nav>
+
+<!--.onglet{-->
+<!--    --><?php
+//        if ($current == 'gestion.php'){
+//        echo '<div id="'.$toto.'">';}    ?>
+<!---->
+<!--}-->

@@ -471,8 +471,9 @@ nav  ul ul li  a
 
 .current{
     border-bottom: 4px solid #36B9E4;
-
 }
+
+
 
 .fa-home:hover{
     border-bottom: inherit;
@@ -536,9 +537,6 @@ li.current-menu-item a {
     border-radius: 8px;
     box-shadow: grey 10px 8px 4px;
     z-index: 9999;
-}
-
-.tarifs_container {
     font-family: Calibri;
     color: #111111;
 }
@@ -582,4 +580,50 @@ li.current-menu-item a {
 }
 .map{
     margin-top: 50px;
+}
+
+/*manuel*/
+.manuelcontainer {
+    background: lightgrey;
+    width: 86.5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.85;
+    border-width: 3px;
+    border-radius: 8px;
+    box-shadow: grey 10px 8px 4px;
+    z-index: 9999;
+    font-family: Calibri;
+    color: #111111;
+}
+
+.manuel_title{
+    font-family: Calibri;
+    position: relative;
+    text-transform: uppercase;
+    color: #0280b5;
+    font-size: 2em;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.manuel_subtitle{
+    font-family: Calibri;
+    position: relative;
+    text-transform: uppercase;
+    color: #2b2b2b;
+    font-size: 18px;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.manuel_img{
+    width: 80%;
 }

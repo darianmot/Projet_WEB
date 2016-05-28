@@ -8,7 +8,8 @@
 
 <div id="bloc_compte">
     <h1>Modifier mes données personnelles</h1>
-    <?php session_start();
+    <?php
+//    session_start();
     include "database/bdd_connection.php";
     $connection = new Connection();
     

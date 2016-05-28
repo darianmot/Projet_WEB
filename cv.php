@@ -16,7 +16,7 @@ $cvcurrent = basename ($path);
 <nav class="cvnav" id="menu_navigation_cv">
     <ul>
         <li>
-            <a id='cv_anas'href=#cv_anas >Anas</a>
+            <a id='cv_anas' href=#cv_anas >Anas</a>
         </li>
         <li>
             <a id='cv_atime' href=#cv_atime>Atime</a>
@@ -128,19 +128,20 @@ $cvcurrent = basename ($path);
         $('#cv_simon').click(function ()
         {
 
-            document.getElementById('name_cv').innerHTML='Al DOURI--RAVOUX';
+            document.getElementById('name_cv').innerHTML='Simon AL-DOURI--RAVOUX';
             document.getElementById('age_cv').innerHTML='20 ans';
             document.getElementById('adress_cv1').innerHTML='40 avenue Joseph Claussat ';
             document.getElementById('adress_cv2').innerHTML='63400 Chamalières ';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
             document.getElementById('contact_cv2').innerHTML='azerty@gmail.com';
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Aviation Civile à Toulouse';
+
         });
     });
     $(document).ready(function () {
         $('#cv_darian').click(function ()
         {
-            document.getElementById('name_cv').innerHTML='MOTAMED';
+            document.getElementById('name_cv').innerHTML='Darian MOTAMED';
             document.getElementById('age_cv').innerHTML='20 ans';
             document.getElementById('adress_cv1').innerHTML='Residence bledard';
             document.getElementById('adress_cv2').innerHTML='le ghetto';
@@ -153,7 +154,7 @@ $cvcurrent = basename ($path);
         $('#cv_anas').click(function ()
         {
 
-            document.getElementById('name_cv').innerHTML='DARWICH';
+            document.getElementById('name_cv').innerHTML='Anas DARWICH';
             document.getElementById('age_cv').innerHTML='22 ans';
             document.getElementById('adress_cv1').innerHTML='Residence BG';
             document.getElementById('adress_cv2').innerHTML='Residence BG';
@@ -167,7 +168,7 @@ $cvcurrent = basename ($path);
         $('#cv_atime').click(function ()
         {
 
-            document.getElementById('name_cv').innerHTML='RONDA';
+            document.getElementById('name_cv').innerHTML='Atime RONDA';
             document.getElementById('age_cv').innerHTML='37 ans';
             document.getElementById('adress_cv1').innerHTML='Residence PUCEAU';
             document.getElementById('adress_cv2').innerHTML='31500';
