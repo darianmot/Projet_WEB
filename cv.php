@@ -133,7 +133,7 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv1').innerHTML='40 avenue Joseph Claussat ';
             document.getElementById('adress_cv2').innerHTML='63400 Chamalières ';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML='azerty@gmail.com'
+            document.getElementById('contact_cv2').innerHTML='azerty@gmail.com';
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Aviation Civile à Toulouse';
         });
     });
@@ -143,9 +143,9 @@ $cvcurrent = basename ($path);
             document.getElementById('name_cv').innerHTML='MOTAMED';
             document.getElementById('age_cv').innerHTML='20 ans';
             document.getElementById('adress_cv1').innerHTML='Residence bledard';
-            document.getElementById('adress_cv2').innerHTML='le ghetto'
+            document.getElementById('adress_cv2').innerHTML='le ghetto';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML='escort_girl@boulogne.com'
+            document.getElementById('contact_cv2').innerHTML='escort_girl@boulogne.com';
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse';        });
 
     });
@@ -170,9 +170,9 @@ $cvcurrent = basename ($path);
             document.getElementById('name_cv').innerHTML='RONDA';
             document.getElementById('age_cv').innerHTML='37 ans';
             document.getElementById('adress_cv1').innerHTML='Residence PUCEAU';
-            document.getElementById('adress_cv2').innerHTML='31500'
+            document.getElementById('adress_cv2').innerHTML='31500';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML="#_je_paye_des_p***@boulogne.com"
+            document.getElementById('contact_cv2').innerHTML="#_je_paye_des_p***@boulogne.com";
             document.getElementById('presentation_cv').innerHTML="j'aime les roumaines hmmmm!!!";
         });
     });

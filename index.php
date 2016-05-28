@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
 
-<header>
+<head>
 <?php include("template/head.php"); ?>
-</header>
+</head>
 
 <body>
 <?php include("template/menu.php"); ?>

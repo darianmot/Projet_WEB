@@ -145,8 +145,7 @@ $(document).ready(function () {
             toggle: [70]  // letter "f" - toggle fullscreen
         },
         scrolling : 'no'
-        }
-        );
+    });
 
     /*Génèration une plaque aléatoire lorsqu'on clique sur l'icone random*/
     $('#random').click(function () {

@@ -7,7 +7,7 @@
 <div id="delete_vehicule">
     <h1>Liste de mes véhicules</h1>
     Voici les véhicules enregistrés sur votre espace client.
-    </br>Vous pouvez ajouter ou suppimer des véhicules.
+    <br/>Vous pouvez ajouter ou suppimer des véhicules.
     <?php
     include ("database/get_list_vehicule.php");
     $number_vehicule = count($_SESSION['user_vehicule']);
@@ -74,7 +74,6 @@
     Complétez les informations requises
     <form id="form_add_vehicule">
         <label>Type de véhicule<select class="select_reserv" name="type_add_vehicule" size="1">
-            <option value="" disabled selected hidden>Type de véhicule</option>
                 <?php
                 include("database/type_vehicule.php");
                 $type_manager = new TypeManager();

@@ -9,7 +9,6 @@
 <h1>Espace Client</h1>
 
 <?php
-session_start();
 $prenom = $_SESSION['prenom'];
 $nom = $_SESSION['nom'];
 echo "Bienvenue $prenom $nom"
