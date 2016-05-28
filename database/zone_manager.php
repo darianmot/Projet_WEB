@@ -46,6 +46,7 @@ class ZoneManager
     /*Ajoute ou met à jour un véhicule dans la base*/
     private function addVehicule($plaque, $type_vehicule)
     {
+//        $req = $this->getBdd()->query("SELECT type_vehixule")
         /*On vérifie d'abord que le véhicule n'est pas déja garé*/
         $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (plaque='{$plaque}' AND etat='occupee')");
         $current_stationnement = $req->fetch(PDO::FETCH_ASSOC);

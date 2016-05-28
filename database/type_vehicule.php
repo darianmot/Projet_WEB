@@ -32,6 +32,12 @@ class TypeManager
         }
 //        echo '</select>';
     }
+
+    /*Renvoie le type d'un véhicule*/
+    public function getType($plaque)
+    {
+        
+    }
 }
 
 ?>
