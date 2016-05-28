@@ -11,7 +11,7 @@ $(document).ready(function () {
                 $('#bloc_vehicule').append('<h1>Véhicule ajouté</h1>');
                 $('#bloc_vehicule').append('Redirection en cours');
                 $('#bloc_vehicule').loader('show');
-                window.setTimeout("window.location.href=('mon_compte.php');",500);
+                window.setTimeout("window.location.href=('user_vehicule.php');",500);
             },
             
             error: function (msg) {
@@ -24,7 +24,30 @@ $(document).ready(function () {
         })
         
         
+    });
+
+
+    $('.quit_cross').click(function (e) {
+        e.preventDefault();
+        var id = $(this).attr('id');
+        id = id.replace('quit_cross_','');
+        var id_form = 'form_delete_vehicule_'.concat(id);
+        document.getElementById(id_form).submit();
+        $.ajax({
+            type: "POST",
+            url: "database/delete_vehicule_from_user.php",
+            datatype: "html",
+            data: $('#'+id_form).serialize(),
+            success: function (msg) {
+                $('#bulle_vehicule_'+id).empty();
+                $('#bulle_vehicule_'+id).loader('show');
+                
+            }
+            
+        })
+        
+        
     })
-    
+
     
 })

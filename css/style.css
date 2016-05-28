@@ -257,6 +257,12 @@ h4 {
     color: red;
 }
 
+
+.bulle_vehicule .quit_cross:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .quit_cross {
     padding-left: 80px;
 }
