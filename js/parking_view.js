@@ -14,7 +14,17 @@ function randomPlaque()
     return begin+middle+end;
 }
 
-
+/*Affiche la zone id_zone*/
+function afficherZone(id_zone, lg_table) {
+    $.post('database/zone_manager.php', {
+            id_zone: id_zone,
+            lg_table: lg_table,
+            id_form: 'zoneView'
+        },
+        function (data) {
+            $('#view').html(data);
+        });
+}
 /*Partie dynamique*/
 $(document).ready(function () {
     $.ajaxSetup({async: false});//Evite de poursuivre le script avant que les requetes ajax soit finies
@@ -22,14 +32,7 @@ $(document).ready(function () {
     var plaque_pattern = new RegExp('^[a-zA-Z]{2}-?[0-9]{3}-?[a-zA-Z]{2}$|^[0-9]{3}-?[a-zA-Z]{3}-?[0-9]{2}$');
 
     /*Affiche la zone 1 après le chargement de la page*/
-    $.post('database/zone_manager.php', {
-            id_zone: 1,
-            lg_table: lg_table,
-            id_form: 'zoneView'
-        },
-        function (data) {
-            $('#view').html(data);
-        });
+    afficherZone(1, lg_table);
 
     /*Ajout d'un stationnement*/
     $('#newStationnement').submit(function (e) {
@@ -48,7 +51,6 @@ $(document).ready(function () {
             $(".fancybox-inner").attr("tabindex",1).focus();
         }
         else {
-            // $.post('database/zone_manager.php', donnees);
             $.ajax({
                 type: "POST",
                 url: " database/zone_manager.php",
@@ -75,17 +77,10 @@ $(document).ready(function () {
             });
         }
 
-        /*On met a jour le visu*/
-        $.post('database/zone_manager.php', {
-                id_zone: zone,
-                lg_table: lg_table,
-                id_form: 'zoneView'
-            },
-            function (data) {
-                $('#view').html(data);
-            });
+        /*On met a jour le visu (après l'ajout d'un stationnement*/
+        afficherZone(zone, lg_table);
 
-        /*On donne surligne la plaque après la selection*/
+        /*On surligne la plaque après la selection*/
         $('#plaque').select()
     });
 
@@ -126,28 +121,16 @@ $(document).ready(function () {
             prix: prix_total
         });
         $.fancybox.close();
-        $.post('database/zone_manager.php', {
-                id_zone: id_zone,
-                lg_table: lg_table,
-                id_form: 'zoneView'
-            },
-            function (data) {
-                $('#view').html(data);
-            });
+
+        /*Mis a jour du visu*/
+        afficherZone(id_zone, lg_table)
     });
 
 
     /*Affichage de la zone selectionnée*/
     $('input[name="view_zone"]').change(function () {
         var zone = $('input[name="view_zone"]:checked').val();
-        $.post('database/zone_manager.php', {
-                id_zone: zone,
-                lg_table: lg_table,
-                id_form: 'zoneView'
-            },
-            function (data) {
-                $('#view').html(data);
-            });
+        afficherZone(zone, lg_table)
     });
 
     /*fancybox (fenetre modale)*/
