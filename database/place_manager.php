@@ -30,10 +30,8 @@ class PlaceManager
     }
 
     /*Retourne une place libre (non occuppee ni reservee) pour un véhicule donné selon le type et la zone selectionnée*/
-    public function getFreePlace($id_zone, $type_vehicule)
+    public function getFreePlace($id_zone, $type_vehicule, $date)
     {
-
-        $date = date("Y-m-d H:i:s");
         $response = $this->getBdd()->query("SELECT MIN(Place.id_place) as freeplace
                                             FROM (SELECT * 
                                                   FROM Stationnement 
@@ -54,6 +52,7 @@ class PlaceManager
             throw new Exception('full');
         }
     }
+    
     
     /*Renvoie un tableau contenant les informations associées à une place*/
     public function placeView($id_place)

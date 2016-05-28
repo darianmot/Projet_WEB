@@ -20,8 +20,10 @@
     <label for="type">Type d'emplacement :</label>
     <?php
     include("database/type_vehicule.php");
+    echo '<select name="type" id="type">';
     $type_manager = new TypeManager();
     $type_manager->typeList();
+    echo '</select>'
     ?>
     <br/>
 

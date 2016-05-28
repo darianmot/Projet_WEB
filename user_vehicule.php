@@ -11,9 +11,10 @@
     <form id="form_add_vehicule">
         <label>Type de véhicule<select class="select_reserv" name="type_add_vehicule" size="1">
             <option value="" disabled selected hidden>Type de véhicule</option>
-            <option>Voiture</option>
-            <option>Moto</option>
-            <option>Handicapé</option>
+                <?php
+                include("database/type_vehicule.php");
+                $type_manager = new TypeManager();
+                $type_manager->typeList();?>
         </select></label>
 
         <label>Plaque du véhicule <input name="plate_add_vehicule" class="encart_reserv"></label>
@@ -40,18 +41,34 @@
         $plaque = $_SESSION['user_vehicule'][$i]['plaque'];
         $type = $_SESSION['user_vehicule'][$i]['type_vehicule'];
 
-        if ($type == "Voiture") {
+        if ($type == "voiture") {
             echo "<div class=\"bulle_vehicule\"> 
                     <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
                     </br><i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i>
                     $plaque  
                   </div> ";
         }
-        elseif ($type == "Moto") {
+        elseif ($type == "moto") {
             echo "<div class=\"bulle_vehicule\"> 
                         <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
                         </br><i class='fa fa-3x fa-motorcycle' aria-hidden=\"true\"></i> 
                         $plaque 
+                  </div> ";
+        }
+        elseif ($type == "handicape"){
+            echo "<div class=\"bulle_vehicule\"> 
+                        <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                        </br><i class='fa fa-3x fa-wheelchair' aria-hidden=\"true\"></i> 
+                        $plaque 
+                  </div> ";
+        }
+
+        else
+        {
+            echo "<div class=\"bulle_vehicule\"> 
+                    <i class=\"fa fa-times quit_cross\" aria-hidden=\"true\"></i>
+                    </br><i class=\"fa fa-3x fa-car\" aria-hidden=\"true\"></i>
+                    $plaque  
                   </div> ";
         }
     }
@@ -60,7 +77,7 @@
 
 </div>
 
-<?php include("template/footer.php") ?>
     </body>
+<script type="text/javascript" src="js/add_vehicule_to_user.js"></script>
 </html>
 
