@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "bdd_connection.php";
+include_once "bdd_connection.php";
 $connection = new Connection();
 $bdd = $connection->getBdd();
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

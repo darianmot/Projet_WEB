@@ -3,7 +3,7 @@
 <html>
 <head>
 <?php include("template/head.php"); ?>
-    
+    <script type="text/javascript" src="js/reservation.js"></script>
 </head>
 
 <?php include("template/menu.php")?>
@@ -30,9 +30,10 @@
             <div class="col-md-3">
                 <label>Type de véhicule</label><select class="select_reserv" name="type" size="1">
                     <option value="" disabled selected hidden>Type de véhicule</option>
-                    <option>Voiture</option>
-                    <option>Moto</option>
-                    <option>Handicapé</option>
+                    <?php
+                    include("database/type_vehicule.php");
+                    $type_manager = new TypeManager();
+                    $type_manager->typeList();?>
                 </select>
             </div>
 

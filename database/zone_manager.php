@@ -49,10 +49,10 @@ class ZoneManager
         /*On vérifie d'abord que le véhicule n'est pas déja garé*/
         $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (plaque='{$plaque}' AND etat='occupee')");
         $current_stationnement = $req->fetch(PDO::FETCH_ASSOC);
-        if (isset($current_stationnement['id_place']))
-        {
-            throw new Exception('known_car');
-        }
+//        if (isset($current_stationnement['id_place']))
+//        {
+//            throw new Exception('known_car');
+//        }
         $this->getBdd()->query("INSERT INTO Vehicule (`plaque`, `type_vehicule`)
         VALUES('{$plaque}', '{$type_vehicule}') ON DUPLICATE KEY UPDATE plaque = '{$plaque}' ");
 
@@ -75,8 +75,8 @@ class ZoneManager
             {
                 $place = $reservation['id_place'];
             }
-            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee', NULL);");
+            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
+                    VALUES (NULL, '{$plaque}', '{$place}', '{$date}', NULL, 'occupee');");
         }
         catch (Exception $e)
         {
@@ -121,6 +121,7 @@ class ZoneManager
 
     }
 
+    
     /*Fin d'un stationnement*/
     public function endStationnement($id_stationnement, $prix = 0)
     {
@@ -138,14 +139,20 @@ class ZoneManager
     /*Création d'une reservation*/
     public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
     {
-        $date = date("Y-m-d H:i:s");
-        $this->addVehicule($plaque, $type_vehicule);
-        $placeManager = new PlaceManager($this->getBdd());
-        $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date);
-        $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`, `id_facture`)
-      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee', NULL);");
+        try {
+            $this->addVehicule($plaque, $type_vehicule);
+            $placeManager = new PlaceManager($this->getBdd());
+            $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date_debut);
+            $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
+      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee';");
+        }
+        catch (Exception $e)
+        {
+            throw new Exception($e->getMessage());
+        }
     }
 
+    
     /*Renvoie les informations liée à une réservation si le véhicule en a une, et null sinon*/
     public function hasReservation($date, $plaque)
     {
@@ -188,8 +195,7 @@ class ZoneManager
         $tarif_manager = new TarifManager($this->getBdd());
         $tarif_manager->setTarif($this->getTarif(), $new_price);
     }
-
-    /*Renvoie le prix effectif que devra payer un stationnement dans la zone pour une durée hours*/
+    
 
     /*** VISU ***/
     public function tableView($lg_table)
@@ -253,7 +259,6 @@ class ZoneManager
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
-
 if (isset($_POST['id_form'])) {
     try {$connection = new Connection();} 
     catch (Exception $e)
@@ -285,7 +290,8 @@ if (isset($_POST['id_form'])) {
                     }
                     else
                     {
-                        echo 'Erreur : ', $e->getMessage();
+                        echo json_encode(array('error' => true,
+                            'msg' => "<p style='width: 700px'>Erreur ". $e->getMessage() .".</p>"));
                     }
                 }
             }
@@ -305,7 +311,21 @@ if (isset($_POST['id_form'])) {
         case "newReservation":
             if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']) and isset($_POST['type_vehicule']))
             {
-                $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
+                try {
+                    $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
+                }
+                catch (Exception $e)
+                {
+                    if ($e->getMessage() == 'full') //Si la zone est pleine pour le type choisi
+                    {
+                        echo json_encode(array('error' => true,
+                            'msg' => "<p style='width: 700px'>Impossible d'ajouter un véhicule <b>{$_POST['type']}</b> car il n'y a plus de places dans la zone <b>{$_POST['id_zone']}</b>.</p>" ));
+                    }
+                    else
+                    {
+                        echo 'Erreur : ', $e->getMessage();
+                    }
+                }
             }
             break;
         case 'getPrice':
