@@ -10,17 +10,16 @@
 
 <!-- Début résumé -->
 
-<h2>Etape 2: Complétez les informations requises</h2>
-
-<h3>Votre réservation</h3>
+<h2>Votre réservation</h2>
 
 <?php
 
 $entry_date = $_POST['entry_date'];
 $exit_date = $_POST['exit_date'];
-$type = $_POST['type'];
+$vehicule = $_POST['selection_vehicule'];
 $prix = $_POST['price_input'];
-echo "Entrée le ";
+echo "Véhicule: $vehicule ";
+echo "</br>Entrée le ";
 echo "$entry_date " ;
 echo "</br>Sortie le ";
 echo "$exit_date ";
@@ -33,7 +32,7 @@ echo "</br> Prix: $prix €"
 </div>
 
 <br/> <br/>
-<button type="submit" class="button_reserv">Continuer</button>
+<button type="submit" class="button_reserv">Confirmer la réservation</button>
 
 <?php include ("template/footer.php");?>
 </body>
