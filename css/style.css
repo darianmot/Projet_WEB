@@ -607,7 +607,19 @@ li.current-menu-item a {
     font-size: 2em;
     margin: auto;
     margin-bottom: 10px;
-    margin-top: 25px;
+    margin-top: 35px;
+    font-weight: bold;
+}
+
+.manuel_first_title{
+    font-family: Calibri;
+    position: relative;
+    text-transform: uppercase;
+    color: #0280b5;
+    font-size: 3em;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 35px;
     font-weight: bold;
 }
 
@@ -621,9 +633,27 @@ li.current-menu-item a {
     margin-bottom: 5px;
     margin-top: 5px;
     font-weight: bold;
+    margin-left: 10%;
     text-align: left;
 }
 
 .manuel_img{
     width: 80%;
+}
+
+.manuel_text{
+    background-color: #0280b5;
+    opacity: 0.48;
+    font-family: Calibri;
+    position: relative;
+    color: #FFFFFF;
+    margin: auto;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1%;
+    margin-bottom: 6%;
+    font-size: 17px;
+    font-weight: bold;
+
 }
