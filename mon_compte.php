@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<header>
+<head>
     <?php include("template/head.php") ?>
-</header>
+</head>
 <body>
 <?php include("template/menu.php")?>
 
@@ -71,6 +71,5 @@ echo "Bienvenue $prenom $nom"
 
 
 
-<?php include("template/footer.php") ?>
 </body>
 </html>
