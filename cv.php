@@ -293,7 +293,7 @@ $cvcurrent = basename ($path);
         {
 
             document.getElementById('name_cv').innerHTML='Atime RONDA';
-            document.getElementById('age_cv').innerHTML='';
+            document.getElementById('age_cv').innerHTML='20 ans';
             document.getElementById('adress_cv1').innerHTML="Chez ENAC<br>7 avenue Edouard Belin</br>";
             document.getElementById('adress_cv2').innerHTML='31055 TOULOUSE';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
