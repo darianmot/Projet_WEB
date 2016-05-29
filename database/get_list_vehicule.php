@@ -1,5 +1,4 @@
 <?php
-//session_start();
 include_once "bdd_connection.php";
 $connection = new Connection();
 $bdd = $connection->getBdd();

@@ -57,10 +57,23 @@ Class ClientManager
         $this->getBdd()->query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
     }
 
-    /*Obtenir les factures d'un véhicule*/
+    /*Obtenir le tableau html des factures d'un véhicule*/
     public function getBill($plaque){
-        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix FROM Facture INNER JOIN Stationnement ON Facture.id_stationnement = Stationnement.id_stationnement WHERE Stationnement.plaque = '{$plaque}'");
-        return $query->fetchAll();
+        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix 
+                                         FROM Facture 
+                                         INNER JOIN Stationnement 
+                                         ON Facture.id_stationnement = Stationnement.id_stationnement 
+                                         WHERE Stationnement.plaque = '{$plaque}'");
+        echo '<table><tr><td>Facture n°</td><td>Début</td><td>Fin</td><td>Prix</td></tr>';
+        foreach ($query->fetchAll(PDO::FETCH_ASSOC) as $facture){
+            echo '<tr>';
+            echo '<td>'.$facture['id_facture'].'</td>';
+            echo '<td>'.$facture['date_debut'].'</td>';
+            echo '<td>'.$facture['date_fin'].'</td>';
+            echo '<td>'.$facture['prix'].'</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
     }
 }
 

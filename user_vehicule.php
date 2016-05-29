@@ -81,7 +81,7 @@
         </select></label>
 
         <label>Plaque du véhicule <input name="plate_add_vehicule" class="encart_reserv"></label>
-        </br>
+        <br/>
         <button type="submit" class="button_reserv" id="button_add_vehicule">
 
             <i class="fa fa-plus" aria-hidden="true"></i> Ajouter mon véhicule</button>
