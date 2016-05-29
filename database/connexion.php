@@ -22,6 +22,7 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
         $_SESSION['nom'] = $donnees['nom'];
         $_SESSION['prenom'] = $donnees['prenom'];
         $_SESSION['mail'] = $donnees['mail'];
+        
 
 
         if ($admin_verification['id_utilisateur']!='') 
