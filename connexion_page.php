@@ -13,7 +13,7 @@
                 </td></tr>
             </tbody>
         </table>
-        <button type = "button"  id="identifier" class="formulaire_button" > s'identifier </button>
+        <button type = "button"  id="identifier" class="formulaire_button" > S'identifier </button>
     </form>
 </div>
 <div id="zone_loader">

@@ -18,7 +18,7 @@
                 </td></tr>
             </tbody>
         </table>
-        <button type = "button"  id="inscrire" class="formulaire_button" > s'inscrire </button>
+        <button type = "button"  id="inscrire" class="formulaire_button" > S'inscrire </button>
     </form>
 </div>
 <?php include("template/footer.php") ?>

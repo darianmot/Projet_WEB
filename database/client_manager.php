@@ -56,8 +56,12 @@ Class ClientManager
         $new_solde = $old_solde - $montant;
         $this->getBdd()->query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
     }
-    
-    
+
+    /*Obtenir les factures d'un véhicule*/
+    public function getBill($plaque){
+        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix FROM Facture INNER JOIN Stationnement ON Facture.id_stationnement = Stationnement.id_stationnement WHERE Stationnement.plaque = {$plaque}");
+        return $query->fetchAll();
+    }
 }
 
 $connection = new Connection();
@@ -77,6 +81,10 @@ if (isset($_POST['id_form'], $_POST['id']))
         
         case 'addSolde':
             $client->addSolde($_POST['montant']);
+            break;
+
+        case 'getBill':
+            echo $client->getBill($_POST['plaque']);
             break;
     }
 }

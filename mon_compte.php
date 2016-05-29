@@ -42,7 +42,7 @@ echo "Bienvenue $prenom $nom"
             </div>
         </a>
         
-        <a href="">
+        <a href="history.php">
             <div class="col-md-3 bulle_compte">
                 <i class="fa fa-3x fa-history" aria-hidden="true"></i>
                 </br> Mes Réservations
