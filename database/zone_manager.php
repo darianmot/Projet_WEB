@@ -320,7 +320,7 @@ class ZoneManager
   On renvoie un résultat selon l'identifiant du formulaire posté
  */
 
-if (isset($_POST['id_form'])) {
+if (isset($_POST['id_form'], $_POST['id_zone'])) {
     try {$connection = new Connection();}
     catch (Exception $e)
     {
