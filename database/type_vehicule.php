@@ -36,7 +36,8 @@ class TypeManager
     /*Renvoie le type d'un véhicule*/
     public function getType($plaque)
     {
-        
+        $req = $this->getBdd()->query("SELECT type_vehicule FROM Vehicule WHERE plaque = '{$plaque}'");
+        return $req->fetch(PDO::FETCH_ASSOC)['type_vehicule'];
     }
 }
 
