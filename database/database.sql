@@ -57,6 +57,7 @@ CREATE TABLE Admin
   PRIMARY KEY(id_utilisateur),
   FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
 )ENGINE=INNODB;
+INSERT INTO `Admin` (`id_utilisateur`) VALUES ('admin');
 
 
 CREATE TABLE TypeVehicule

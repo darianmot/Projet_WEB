@@ -7,7 +7,7 @@ $(document).ready(function () {
             dataType : 'html',
             data: $('#connexion_form').serialize(),
             success: function(msg)
-            {
+            {alert (msg)
 
                 if (msg !='echec')
                 {

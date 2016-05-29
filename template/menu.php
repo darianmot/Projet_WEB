@@ -31,7 +31,7 @@ $current = basename ($path);
             if (isset($_SESSION['identifiant']))
             {
 
-                if ($_SESSION['identifiant']=='admin')
+                if ($_SESSION['type']=='admin')
 
                 {
                     echo("<li id='mon_compte_menu'> <li id = 'image_compte'>
