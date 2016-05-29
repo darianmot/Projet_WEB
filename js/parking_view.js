@@ -118,6 +118,7 @@ $(document).ready(function () {
             });
         $.post('database/zone_manager.php', {
             id_stationnement: id_stationnement,
+            id_zone: id_zone,
             id_form: 'endStationnement',
             prix: prix_total
         });

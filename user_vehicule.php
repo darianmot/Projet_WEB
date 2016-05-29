@@ -80,7 +80,7 @@
                 $type_manager->typeList();?>
         </select></label>
 
-        <label>Plaque du véhicule <input name="plate_add_vehicule" class="encart_reserv"></label>
+        <label>Plaque du véhicule <input name="plate_add_vehicule" class="encart_reserv" id="plaque"></label>
         <br/>
         <button type="submit" class="button_reserv" id="button_add_vehicule">
 

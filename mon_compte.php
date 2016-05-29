@@ -21,14 +21,14 @@ echo "Bienvenue $prenom $nom"
         <a href="compte_personal_data.php">
             <div class="col-md-3 bulle_compte ">
                 <i class="fa fa-3x fa-info-circle" aria-hidden="true"></i>
-                </br>Mes Infos
+                <br/>Mes Infos
             </div>
         </a>
 
         <a href="user_vehicule.php">
             <div class="col-md-3 bulle_compte ">
                 <i class="fa fa-3x fa-car" aria-hidden="true"></i>
-                </br>Gérer mes véhicules
+                <br/>Gérer mes véhicules
             </div>
         </a>
     </div>
@@ -38,14 +38,14 @@ echo "Bienvenue $prenom $nom"
         <a href="formulaire_reservation.php">
             <div class="col-md-3 bulle_compte ">
                 <i class="fa fa-3x fa-shopping-cart" aria-hidden="true"></i>
-                </br>Réserver
+                <br/>Réserver
             </div>
         </a>
         
         <a href="history.php">
             <div class="col-md-3 bulle_compte">
                 <i class="fa fa-3x fa-history" aria-hidden="true"></i>
-                </br> Mes Réservations
+                <br/> Mes Réservations
             </div>
         </a>
 
@@ -56,7 +56,7 @@ echo "Bienvenue $prenom $nom"
         <a href="solde.php">
             <div class="col-md-3 bulle_compte" href="solde.php">
                 <i class="fa fa-3x fa-credit-card-alt" aria-hidden="true"></i>
-                </br> Mon Solde
+                <br/> Mon Solde
             </div>
         </a>
 
