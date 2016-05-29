@@ -53,7 +53,7 @@ echo "Bienvenue $prenom $nom"
     </div>
 
     <div class="row">
-        <a href="">
+        <a href="solde.php">
             <div class="col-md-3 bulle_compte" href="solde.php">
                 <i class="fa fa-3x fa-credit-card-alt" aria-hidden="true"></i>
                 </br> Mon Solde
