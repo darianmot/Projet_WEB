@@ -56,8 +56,8 @@ $cvcurrent = basename ($path);
         <div class="contact" id="contact_cv2">
         </div>
 
-        <div class="picture" id="face_cv">
-        </div>
+        <img class="picture" id="face_cv">
+        </img>
 
     </div>
 
@@ -159,6 +159,7 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv2').innerHTML='63400 Chamalières ';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
             document.getElementById('contact_cv2').innerHTML='simon@gmail.com';
+            document.getElementById('face_cv').src="./media/images/lion.jpg";
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Aviation Civile à Toulouse';
             document.getElementById('titre1').innerHTML='ETUDES ET FORMATIONS';
             document.getElementById('year1').innerHTML='2015-2016';
