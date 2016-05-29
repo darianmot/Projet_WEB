@@ -59,13 +59,14 @@ Class ClientManager
 
     /*Obtenir les factures d'un véhicule*/
     public function getBill($plaque){
-        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix FROM Facture INNER JOIN Stationnement ON Facture.id_stationnement = Stationnement.id_stationnement WHERE Stationnement.plaque = {$plaque}");
+        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix FROM Facture INNER JOIN Stationnement ON Facture.id_stationnement = Stationnement.id_stationnement WHERE Stationnement.plaque = '{$plaque}'");
         return $query->fetchAll();
     }
 }
 
 $connection = new Connection();
 $bdd = $connection->getBdd();
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $client = new ClientManager($bdd, 'toto');
 
 if (isset($_POST['id_form'], $_POST['id']))
@@ -84,7 +85,7 @@ if (isset($_POST['id_form'], $_POST['id']))
             break;
 
         case 'getBill':
-            echo $client->getBill($_POST['plaque']);
+            echo json_encode($client->getBill($_POST['plaque']));
             break;
     }
 }

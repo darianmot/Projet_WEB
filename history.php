@@ -26,16 +26,16 @@ for ($i = 0; $i<$number_vehicule; ++$i){
 <script>
     $('.bill_vehicule').ready(function () {
         var plaque = "<?php echo $vehicule['plaque'] ?>";
-        alert(plaque);
         var donnees =$(this).serialize()+'&id_form=getBill' + '&id=' + '<?php echo $_SESSION['identifiant']?>' + '&plaque=' + plaque;
         $.ajax({
             type: "POST",
             url: "database/client_manager.php",
-            dataType: 'text',
+            dataType: 'JSON',
             data: donnees,
             async: false,
             success: function (retour) {
                 var number_bill = retour.length;
+                alert('retour ' + retour + 'longueur' + number_bill );
                 for(var i=0; i<number_bill; i++) {
                     var bill = retour[i];
                     var id_facture = bill[0];
@@ -43,7 +43,8 @@ for ($i = 0; $i<$number_vehicule; ++$i){
                     var date_debut = bill[2];
                     var date_fin = bill[3];
                     var prix = bill[4];
-                    $(this).append("</br><div class='bill_of_vehicule row'>" + "Facture: " + id_facture + "Stationnement: " + id_stationnement + "Début: " + date_debut + "Fin: " + date_fin + "Prix: " + prix + "</div>")
+                    alert(id_facture+ id_stationnement+ date_debut+ date_fin+ prix)
+                    $(this).html("</br><div class='bill_of_vehicule row'>" + "Facture: " + id_facture + "Stationnement: " + id_stationnement + "Début: " + date_debut + "Fin: " + date_fin + "Prix: " + prix + "</div>")
                 }
             },
 

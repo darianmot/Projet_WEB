@@ -31,6 +31,7 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
         else
         {
             echo('utilisateur_lambda');
+            $_SESSION['type'] = 'utilisateur_lambda';
         }
     }
     else
