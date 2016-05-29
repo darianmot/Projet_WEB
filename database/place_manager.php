@@ -1,6 +1,6 @@
 <?php
 
-include "bdd_connection.php";
+include_once "bdd_connection.php";
 
 class PlaceManager
 {
