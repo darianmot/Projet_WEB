@@ -103,6 +103,7 @@ $(document).ready(function () {
     $(document).on('click','#end_stat_button', function () {
         var id_stationnement = $('#id_stationnement').text();
         var id_zone  = $('input[name="view_zone"]:checked').val();
+        console.log(id_zone);
         var prix_total;
         $.post('database/zone_manager.php',
             {id_stationnement: id_stationnement,

@@ -127,8 +127,7 @@ class ZoneManager
     public function endStationnement($id_stationnement, $prix = 0)
     {
         /*On génère la facture*/
-        $this->getBdd()->query("INSERT INTO Facture VALUE (NULL,'parking', {$prix}, {$id_stationnement})");
-
+        $this->getBdd()->exec("INSERT INTO Facture VALUE (NULL,'parking', {$prix}, {$id_stationnement})");
         /*On change l'état du stationnement*/
         $date_fin = date("Y-m-d H:i:s");
         $this->getBdd()->query("UPDATE Stationnement SET etat = 'fini', date_fin='{$date_fin}' WHERE id_stationnement = {$id_stationnement}");
@@ -138,15 +137,20 @@ class ZoneManager
 
 
     /*Création d'une reservation*/
-    public function reservation($date_debut, $date_fin, $plaque)
+    public function reservation($date_debut, $date_fin, $plaque, $prix)
     {
         try {
             $type_manager = new TypeManager();
             $type_vehicule = $type_manager->getType($plaque);
             $placeManager = new PlaceManager($this->getBdd());
             $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date_debut);
+
+            /*On compte le nombre de stationnement pour choisir la clef du nouveau stationnement*/
+            $req = $this->getBdd()->query("SELECT count(id_stationnement) AS nb FROM Stationnement");
+            $id_stationnement = $req->fetch(PDO::FETCH_ASSOC)['nb'] + 1;
             $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
-      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee');");
+      VALUES ({$id_stationnement}, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee');");
+            $this->makeInternetFacture($prix, $id_stationnement);
         }
         catch (Exception $e)
         {
@@ -154,7 +158,12 @@ class ZoneManager
         }
     }
 
-    
+    /*Création de la facture liée à la réservation*/
+    public function makeInternetFacture($prix, $id_stationnement)
+    {
+        $this->getBdd()->query("INSERT INTO Facture VALUE (NULL, 'internet', {$prix}, {$id_stationnement})");
+    }
+
     /*Renvoie les informations liée à une réservation si le véhicule en a une, et null sinon*/
     public function hasReservation($date, $plaque)
     {
@@ -262,7 +271,7 @@ class ZoneManager
  */
 
 if (isset($_POST['id_form'])) {
-    try {$connection = new Connection();} 
+    try {$connection = new Connection();}
     catch (Exception $e)
     {
         echo 'erreur connexion BDD';

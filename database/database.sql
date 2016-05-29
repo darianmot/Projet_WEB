@@ -249,7 +249,7 @@ CREATE TABLE Stationnement
 
 CREATE TABLE Facture
 (
-  id_facture CHAR(20) NOT NULL,
+  id_facture INT NOT NULL auto_increment,
   type_facture CHAR(20),
   prix INT,
   id_stationnement INT,

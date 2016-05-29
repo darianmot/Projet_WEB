@@ -41,7 +41,7 @@ if (isset($_POST['entry_date'], $_POST['exit_date'], $_POST['selection_vehicule'
             $client->removeSolde($prix);
             echo "<br/>";
             echo 'Nouveau solde :', $client->getSolde();
-            $zone->reservation($entry_date, $exit_date, $vehicule);
+            $zone->reservation($entry_date, $exit_date, $vehicule, $prix);
 
         }
         catch (Exception $e)
