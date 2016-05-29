@@ -113,6 +113,42 @@ $cvcurrent = basename ($path);
 </section>
 
 <script type="text/javascript">
+    document.getElementById('name_cv').innerHTML='Anas DARWICH';
+    document.getElementById('age_cv').innerHTML='22 ans';
+    document.getElementById('adress_cv1').innerHTML='Chez ENAC, LB310';
+    document.getElementById('adress_cv2').innerHTML='7 av. Edouard Belin<br>31055 Toulouse</br>';
+    document.getElementById('contact_cv1').innerHTML="XX XX XX XX XX";
+    document.getElementById('contact_cv2').innerHTML="anas@aliceadsl.fr";
+    document.getElementById('presentation_cv').innerHTML="Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse";
+    document.getElementById('titre1').innerHTML='FORMATIONS';
+    document.getElementById('year1').innerHTML="2015-2016";
+    document.getElementById('year2').innerHTML='2012-2015';
+    document.getElementById('year3').innerHTML='Juin 2012';
+    document.getElementById('descript_year1').innerHTML="1er année Ingénieur<br>ENAC. Toulouse</br>";
+    document.getElementById('descript_year2').innerHTML="Classe préparatoire aux grandes écoles MPSI-MP<br>Lycée Fénelon. Paris 6è</br>";
+    document.getElementById('descript_year3').innerHTML="Baccalauréat scientifique mention bien<br>Lycée Gustave Eiffel. Cachan</br>";
+    document.getElementById('descript_year4').innerHTML='';
+    document.getElementById('titre2').innerHTML='STAGE';
+    document.getElementById('year2.1').innerHTML="2009";
+    document.getElementById('year2.2').innerHTML='';
+    document.getElementById('year2.3').innerHTML='';
+    document.getElementById('descript_year2.1').innerHTML=" Université PARIS 7<br>Découverte de l’organisation de l’université, des métiers d’enseignement et des métiers techniques liés à la gestion des matériels informatiques.</br>";
+    document.getElementById('descript_year2.2').innerHTML="";
+    document.getElementById('descript_year2.3').innerHTML="";
+    document.getElementById('descript1').innerHTML="";
+    document.getElementById('titre3').innerHTML='COMPETENCES';
+    document.getElementById('comp1').innerHTML='Informatique : ';
+    document.getElementById('comp2').innerHTML='Langues : ';
+    document.getElementById('comp3').innerHTML='';
+    document.getElementById('comp4').innerHTML='';
+    document.getElementById('descript_comp1').innerHTML="Utilisation des logiciels de la suite office<br>Programmation en Python, php, jquery, sql</br>";
+    document.getElementById('descript_comp2').innerHTML="Anglais niveau B2<br>(2 séjours en Angleterre d’une semaine et un séjour en Ecosse de 2 semaines)</br>Espagnol niveau B2";
+    document.getElementById('descript_comp3').innerHTML='';
+    document.getElementById('descript_comp4').innerHTML='';
+    document.getElementById('titre4').innerHTML="CENTRES D’INTERET";
+    document.getElementById('hobbies1').innerHTML="Sports pratiqués : Volley-ball, Basket-ball, Football, ski, planche à voile, catamaran";
+    document.getElementById('hobbies2').innerHTML="Musique : pratique du violon, musique de chambre";
+    document.getElementById('hobbies3').innerHTML="";
     $(document).ready(function () {
         $('#cv_simon').click(function ()
         {
@@ -161,6 +197,7 @@ $cvcurrent = basename ($path);
         });
     });
     $(document).ready(function () {
+
         $('#cv_darian').click(function ()
         {
             document.getElementById('name_cv').innerHTML='Darian MOTAMED';
