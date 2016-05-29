@@ -95,7 +95,7 @@ $cvcurrent = basename ($path);
             <tr class="tr1"><td class="td1" id="comp1"></td><td id="descript_comp1"></td></tr>
             <tr class="tr1"><td class="td1" id="comp2"></td><td id="descript_comp2"></td></tr>
             <tr class="tr1"><td class="td1" id="comp3"></td><td id="descript_comp3"></td></tr>
-            <tr class="tr1"><td colspan="2" id="comp4"></td></tr>
+            <tr class="tr1"><td colspan="2" id="comp4"></td><td id="descript_comp4"></td></tr>
             </tbody>
         </table>
     </article>
