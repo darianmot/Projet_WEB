@@ -37,7 +37,7 @@ Class ClientManager
     /*Obtention du solde*/
     public function getSolde()
     {
-        $req = $this->getBdd()->query("SELECT solde FROM ClientWeb where id_utilisateur = '{$this->getId()}'");
+        $req = $this->getBdd()->query("SELECT solde FROM ClientWeb where id_utilisateur = '{$this->getId()}';");
         return $req->fetch(PDO::FETCH_ASSOC)['solde'];
     }
 
@@ -46,7 +46,7 @@ Class ClientManager
     {
         $old_solde = $this->getSolde();
         $new_solde = $old_solde + $montant;
-        $this->getBdd()>query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
+        $this->getBdd()->exec("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}';");
     }
     
     /*Décréditer le solde*/
@@ -54,15 +54,11 @@ Class ClientManager
     {
         $old_solde = $this->getSolde();
         $new_solde = $old_solde - $montant;
-        $this->getBdd()>query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
+        $this->getBdd()->exec("UPDATE ClientWeb SET solde = {$new_solde} WHERE `ClientWeb`.id_utilisateur = '{$this->getId()}';");
+
     }
-    
-    
 }
 
-$connection = new Connection();
-$bdd = $connection->getBdd();
-$client = new ClientManager($bdd, 'toto');
 
 if (isset($_POST['id_form'], $_POST['id']))
 {
