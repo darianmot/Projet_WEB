@@ -34,8 +34,7 @@ $current = basename ($path);
                 if ($_SESSION['type']=='admin')
 
                 {
-                    echo("<li id='mon_compte_menu'> 
-                       <li><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i><a class='onglet' href='gestion.php'>Gestion</a></li>
+                    echo("<li id='mon_compte_menu'><li><a class='onglet' href='gestion.php'><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i>Gestion</a></li>
                        <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
                        ");
 

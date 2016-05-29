@@ -33,7 +33,6 @@
                     <label for="selection_vehicule">Mon véhicule</label><select class="select_reserv" name="selection_vehicule" size="1">
                         <option value="" disabled selected hidden>Mon véhicule</option>
                         <?php
-                        session_start();
                         include("database/get_list_vehicule.php");
                         $number_vehicule = count($_SESSION['user_vehicule']);
                         for($i=0 ; $i<$number_vehicule; ++$i){
