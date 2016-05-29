@@ -98,7 +98,7 @@ if (isset($_POST['id_form'], $_POST['id']))
             break;
 
         case 'getBill':
-            echo json_encode($client->getBill($_POST['plaque']));
+            $client->getBill($_POST['plaque']);
             break;
     }
 }
