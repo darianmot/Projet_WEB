@@ -26,6 +26,7 @@ if (isset($_POST['password'])AND isset($_POST['identifiant']))
         {
             echo ('admin');
             $_SESSION['type']='admin';
+            $_SESSION['isAdmin']=true;
         }
         else
         {

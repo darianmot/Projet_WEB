@@ -34,12 +34,9 @@ $current = basename ($path);
                 if ($_SESSION['type']=='admin')
 
                 {
-                    echo("<li id='mon_compte_menu'> <li id = 'image_compte'>
-                       <span class='fa-stack fa-lg'>
-                       <i class='fa fa-user fa-stack-1x fa-inverse'></i>
-                       </span><a href='mon_compte.php'>Votre Compte '{$_SESSION['identifiant']}'</a></li> 
-                       <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
+                    echo("<li id='mon_compte_menu'> 
                        <li><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i><a class='onglet' href='gestion.php'>Gestion</a></li>
+                       <li><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i><a href='deconnexion.php'>Deconnexion</a></li>
                        ");
 
                 }
