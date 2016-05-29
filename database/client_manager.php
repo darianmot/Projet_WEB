@@ -1,6 +1,7 @@
 <?php
 
 include_once "bdd_connection.php";
+include_once "template/head.php";
 
 Class ClientManager
 {
@@ -59,20 +60,21 @@ Class ClientManager
 
     /*Obtenir le tableau html des factures d'un client*/
     public function getBill(){
-        $query = $this->getBdd()->query("SELECT Facture.id_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix 
+        $query = $this->getBdd()->query("SELECT Facture.id_facture,Stationnement.plaque, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix 
                                          FROM Facture 
                                          INNER JOIN Stationnement 
                                          ON Facture.id_stationnement = Stationnement.id_stationnement 
                                          INNER JOIN Vehicule
                                          ON Stationnement.plaque = Vehicule.plaque
                                          WHERE Vehicule.id_clientweb = '{$this->getId()}'");
-        echo '<table id="factures"><tr><td>Facture n°</td><td>Début</td><td>Fin</td><td>Prix</td></tr>';
+        echo '<table id="factures" class="factures"><tr><td>Facture n°</td><td>Véhicule</td><td>Début</td><td>Fin</td><td>Prix</td></tr>';
         foreach ($query->fetchAll(PDO::FETCH_ASSOC) as $facture){
             echo '<tr>';
             echo '<td>'.$facture['id_facture'].'</td>';
+            echo '<td>'.$facture['plaque'].'</td>';
             echo '<td>'.$facture['date_debut'].'</td>';
             echo '<td>'.$facture['date_fin'].'</td>';
-            echo '<td>'.$facture['prix'].'</td>';
+            echo '<td>'."{$facture['prix']} €".'</td>';
             echo '</tr>';
         }
         echo '</table>';
