@@ -98,11 +98,15 @@ class ZoneManager
         {
             throw new Exception('known_car');
         }
-        
-        /*On insère/MAJ la bdd*/
-        $this->getBdd()->query("INSERT INTO Vehicule (`plaque`, `type_vehicule`)
-        VALUES('{$plaque}', '{$type_vehicule}') ON DUPLICATE KEY UPDATE plaque = '{$plaque}' ");
 
+        /*On regarde si le véhicule est connu*/
+        $req = $this->getBdd()->query("SELECT plaque FROM Vehicule WHERE plaque = '{$plaque}'");
+        if (!isset($req->fetch(PDO::FETCH_ASSOC)['plaque'])) {
+
+            /*On insère/MAJ la bdd*/
+            $this->getBdd()->query("INSERT INTO Vehicule (`plaque`, `type_vehicule`)
+        VALUES('{$plaque}', '{$type_vehicule}') ON DUPLICATE KEY UPDATE plaque = '{$plaque}' ");
+        }
     }
 
     /*Ajout d'un stationnement*/

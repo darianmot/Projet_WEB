@@ -20,7 +20,7 @@ function plotTarif(){
         {
             title: 'Tarif de chaque zone',
             axes: {
-                yaxis: {min: -10, max: 240, label: '€'},
+                yaxis: {min: 0, max: 250, label: '€'},
                 xaxis: {label: 'heures'}},
             legend: {
                 labels: ['Zone 1'.fontcolor('black'), 'Zone 2'.fontcolor('black'), 'Zone 3'.fontcolor('black')],
@@ -66,7 +66,7 @@ $(document).ready(function (e) {
         }
         else {
             $.post('database/place_manager.php', donnees);
-            var msg = '<p style="color:green;">' + $('#nombre').val() +
+            var msg = '<p style="color:green; width: 300px">' + $('#nombre').val() +
                 ' place(s) de type "' + $('#type').val() +
                 '" ajoutée(s) à la zone ' + zone + '</p>';
             $.fancybox({content: msg});
