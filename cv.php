@@ -56,8 +56,7 @@ $cvcurrent = basename ($path);
         <div class="contact" id="contact_cv2">
         </div>
 
-        <img class="picture" id="face_cv">
-        </img>
+        <img class="picture" id="face_cv"></img>
 
     </div>
 
@@ -119,7 +118,8 @@ $cvcurrent = basename ($path);
     document.getElementById('adress_cv2').innerHTML='7 av. Edouard Belin<br>31055 Toulouse</br>';
     document.getElementById('contact_cv1').innerHTML="XX XX XX XX XX";
     document.getElementById('contact_cv2').innerHTML="anas@aliceadsl.fr";
-    document.getElementById('presentation_cv').innerHTML="Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse";
+    document.getElementById('face_cv').src="./media/images/";
+    document.getElementById('presentation_cv').innerHTML="";
     document.getElementById('titre1').innerHTML='FORMATIONS';
     document.getElementById('year1').innerHTML="2015-2016";
     document.getElementById('year2').innerHTML='2012-2015';
@@ -159,7 +159,7 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv2').innerHTML='63400 Chamalières ';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
             document.getElementById('contact_cv2').innerHTML='simon@gmail.com';
-            document.getElementById('face_cv').src="./media/images/lion.jpg";
+            document.getElementById('face_cv').src="./media/images/simon_pic.jpg";
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Aviation Civile à Toulouse';
             document.getElementById('titre1').innerHTML='ETUDES ET FORMATIONS';
             document.getElementById('year1').innerHTML='2015-2016';
@@ -207,6 +207,7 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv2').innerHTML='31400 Toulouse';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
             document.getElementById('contact_cv2').innerHTML='darian@gmail.com';
+            document.getElementById('face_cv').src="./media/images/darian_pic.jpg";
             document.getElementById('presentation_cv').innerHTML="Étudiant à l'École Nationale de l'Aviation Civile (ENAC)<br>Première année du cursus ingénieur IENAC</br>";
             document.getElementById('titre1').innerHTML='FORMATIONS';
             document.getElementById('year1').innerHTML="2015-Aujourd'hui";
@@ -252,7 +253,8 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv2').innerHTML='7 av. Edouard Belin<br>31055 Toulouse</br>';
             document.getElementById('contact_cv1').innerHTML="XX XX XX XX XX";
             document.getElementById('contact_cv2').innerHTML="anas@aliceadsl.fr";
-            document.getElementById('presentation_cv').innerHTML="Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse";
+            document.getElementById('face_cv').src="./media/images/";
+            document.getElementById('presentation_cv').innerHTML="";
             document.getElementById('titre1').innerHTML='FORMATIONS';
             document.getElementById('year1').innerHTML="2015-2016";
             document.getElementById('year2').innerHTML='2012-2015';
@@ -296,6 +298,7 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv2').innerHTML='31055 TOULOUSE';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
             document.getElementById('contact_cv2').innerHTML="atime.ronda@alumni.enac.fr";
+            document.getElementById('face_cv').src="./media/images/.jpg";
             document.getElementById('presentation_cv').innerHTML="";
             document.getElementById('titre1').innerHTML='Formation';
             document.getElementById('year1').innerHTML="2015-Aujourd'hui";
