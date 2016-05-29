@@ -1,7 +1,7 @@
 <?php
 
 include_once "bdd_connection.php";
-
+include_once "zone_manager.php";
 class PlaceManager
 {
     private $bdd;
@@ -22,11 +22,17 @@ class PlaceManager
         $this->bdd = $bdd;
     }
 
-    /*Ajouts/suppresions/modfication d'une place*/
+    /*Ajouts d'une place*/
     public function addPlace($id_zone, $type_vehicule)
     {
         $this->getBdd()->query("INSERT INTO Place (`id_place`, `id_zone`, `type_vehicule`) 
         VALUES (NULL, {$id_zone}, '{$type_vehicule}');");
+    }
+
+    /*Suppression d'une place*/
+    public  function delPlace($id_place)
+    {
+        $this->getBdd()->query("DELETE FROM Place WHERE id_place = {$id_place};");
     }
 
     /*Retourne une place libre (non occuppee ni reservee) pour un véhicule donné selon le type et la zone selectionnée*/
@@ -112,10 +118,24 @@ if (isset($_POST['id_form'])) {
     $placeManager = new PlaceManager($bdd);
     switch ($_POST['id_form']) {
         case 'newPlace':
-            if (isset($_POST['nombre']) and isset($_POST['id_zone'])) {
+            if (isset($_POST['nombre']) and isset($_POST['id_zone']) and isset($_POST['type'])) {
                 for ($i = 1; $i <= $_POST['nombre']; $i++) {
                     $placeManager->addPlace($_POST['id_zone'], $_POST['type']);
                 }
+            }
+            break;
+        case 'delPlace':
+            if (isset($_POST['nombre']) and isset($_POST['id_zone']) and isset($_POST['type']))
+            {
+                $zone = new ZoneManager($bdd, $_POST['id_zone']);
+                $freecapacity = $zone->effectiveCapacityByType($_POST['type']);
+                $number_deleted = min($_POST['nombre'], $freecapacity);
+                for($i = 1; $i<=$number_deleted; $i++)
+                {
+                    $date = date("Y-m-d H:i:s");
+                    $placeManager->delPlace($placeManager->getFreePlace($_POST['id_zone'], $_POST['type'], $date));
+                }
+                
             }
             break;
         case 'place_view':

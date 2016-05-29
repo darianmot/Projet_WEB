@@ -39,21 +39,67 @@ class ZoneManager
     {
         $this->id_zone = $id_zone;
     }
+    /*** ETAT GLOBALE DE LA ZONE ***/
     
+    /*Retourne la capacité totalle de la zone*/
+    public function capacity()
+    {
+        $req = $this->getBdd()->query("SELECT count(id_place) as capacity 
+                                       FROM Place 
+                                       WHERE Place.id_zone = {$this->getIdZone()}");
+        return $req->fetch(PDO::FETCH_ASSOC)['capacity'];
+    }
 
+    /*Retourne le nombre de place libre de la zone*/
+    public function effectiveCapacity()
+    {
+        $date = date("Y-m-d H:i:s");
+        $req = $this->getBdd()->query("SELECT count(Place.id_place) as freecapacity
+                                            FROM (SELECT * 
+                                                  FROM Stationnement 
+                                                  WHERE etat = 'occupee'
+                                                        OR (etat='reservee') and '{$date}' <= date_fin)
+                                            AS stationnement_occupee 
+                                            RIGHT JOIN Place 
+                                            ON stationnement_occupee.id_place = Place.id_place 
+                                            WHERE (stationnement_occupee.id_place IS NULL
+                                              AND Place.id_zone = {$this->getIdZone()})");
+        return $req->fetch(PDO::FETCH_ASSOC)['freecapacity'];
+    }
+
+
+    /*Retourne le nombre de place libre de la zone*/
+    public function effectiveCapacityByType($type_vehicule)
+    {
+        $date = date("Y-m-d H:i:s");
+        $req = $this->getBdd()->query("SELECT count(Place.id_place) as freecapacity
+                                            FROM (SELECT * 
+                                                  FROM Stationnement 
+                                                  WHERE etat = 'occupee'
+                                                        OR (etat='reservee') and '{$date}' <= date_fin)
+                                            AS stationnement_occupee 
+                                            RIGHT JOIN Place 
+                                            ON stationnement_occupee.id_place = Place.id_place 
+                                            WHERE (stationnement_occupee.id_place IS NULL
+                                              AND Place.id_zone = {$this->getIdZone()}
+                                              AND Place.type_vehicule = '{$type_vehicule}')");
+        return $req->fetch(PDO::FETCH_ASSOC)['freecapacity'];
+    }
+    
     /*** STATIONNEMENT ***/
 
     /*Ajoute ou met à jour un véhicule dans la base*/
-    private function addVehicule($plaque, $type_vehicule)
+    public function addVehicule($plaque, $type_vehicule)
     {
-//        $req = $this->getBdd()->query("SELECT type_vehixule")
         /*On vérifie d'abord que le véhicule n'est pas déja garé*/
         $req = $this->getBdd()->query("SELECT id_place FROM Stationnement WHERE (plaque='{$plaque}' AND etat='occupee')");
         $current_stationnement = $req->fetch(PDO::FETCH_ASSOC);
-//        if (isset($current_stationnement['id_place']))
-//        {
-//            throw new Exception('known_car');
-//        }
+        if (isset($current_stationnement['id_place']))
+        {
+            throw new Exception('known_car');
+        }
+        
+        /*On insère/MAJ la bdd*/
         $this->getBdd()->query("INSERT INTO Vehicule (`plaque`, `type_vehicule`)
         VALUES('{$plaque}', '{$type_vehicule}') ON DUPLICATE KEY UPDATE plaque = '{$plaque}' ");
 
@@ -320,10 +366,10 @@ if (isset($_POST['id_form'])) {
             }
             break;
         case "newReservation":
-            if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']))
+            if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']) and isset($_POST['prix']))
             {
                 try {
-                    $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque']);
+                    $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['prix']);
                 }
                 catch (Exception $e)
                 {
@@ -357,6 +403,12 @@ if (isset($_POST['id_form'])) {
         case 'getIdTarif':
             echo $zone->getTarif();
             break;
+        case 'getCapacityByType':
+            if (isset($_POST['type']))
+            {
+                echo $zone->effectiveCapacityByType($_POST['type']);
+                break;
+            }
     }
 }
 

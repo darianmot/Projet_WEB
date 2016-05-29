@@ -48,32 +48,74 @@ $(document).ready(function (e) {
         });
     }
 
-    /*On afiche et on dynamise les tarifs en graph*/
+    /*On affiche et on dynamise les tarifs en graph*/
     plotTarif();
     $('.tarif').on('change', function() {plotTarif()});
 
     /*Ajout de places dans la BDD*/
-    $('#newPlace').submit(function (e) {
+    $('#submit_newPlace').click(function (e) {
         e.preventDefault();
 
         //On met a jour la database
-        var $this = $(this);
+        var $this = $('#newPlace');
         var zone = $('input[name="id_zone"]:checked').val();
         var donnees = $this.serialize() + "&id_form=newPlace";
+        console.log(donnees);
         if ($('#nombre').val() <= 0) {
             alert("Le nombre de places à rajouter est incorrect");
         }
         else {
             $.post('database/place_manager.php', donnees);
-            $('#msg').hide();
-            $('#msg').html('<p style="color:green;">' + $('#nombre').val() +
+            var msg = '<p style="color:green;">' + $('#nombre').val() +
                 ' place(s) de type "' + $('#type').val() +
-                '" ajoutée(s) à la zone ' + zone + '</p>');
-            $('#msg').show(700);
+                '" ajoutée(s) à la zone ' + zone + '</p>';
+            $.fancybox({content: msg});
         }
 
         /*On reset le form*/
-        $('#nombre').val(0);
+        donnees = $this.serialize() + "&id_form=getCapacityByType";
+        $.post('database/zone_manager.php', donnees, function (retour) {
+            $('#freecapacity').text(retour);
+            $('#nombre').val(1);
+        });
+
+    });
+
+    /*Mis à jour du nombre de places que l'on peut supprimer*/
+    $('input[name="id_zone"], #type').change(function () {
+        var $this = $('#newPlace');
+        var donnees = $this.serialize() + "&id_form=getCapacityByType";
+        $.post('database/zone_manager.php', donnees, function (retour) {
+            $('#freecapacity').text(retour);
+        });
+    });
+
+
+    /*Suppression de places*/
+    $('#submit_delPlace').click(function (e) {
+        e.preventDefault();
+
+        //On met a jour la database
+        var $this = $('#newPlace');
+        var zone = $('input[name="id_zone"]:checked').val();
+        var donnees = $this.serialize() + "&id_form=delPlace";
+        if ($('#nombre').val() <= 0) {
+            alert("Le nombre de places à supprimer est incorrect");
+        }
+        else {
+            $.post('database/place_manager.php', donnees);
+            var msg = '<p style="color:green;">' + $('#nombre').val() +
+                ' place(s) de type "' + $('#type').val() +
+                '" supprimée(s) de la zone ' + zone + '</p>';
+            $.fancybox({content: msg});
+        }
+
+        /*On reset le form*/
+        donnees = $this.serialize() + "&id_form=getCapacityByType";
+        $.post('database/zone_manager.php', donnees, function (retour) {
+            $('#freecapacity').text(retour);
+            $('#nombre').val(1);
+        });
     });
 
     /*Modification des tarfis dans la BDD*/

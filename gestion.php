@@ -14,7 +14,7 @@
 if (isset($_SESSION['isAdmin']))
 {
         echo '<h1>Ajouter des emplacements</h1>
-<form method="POST"  id="newPlace">
+<form  id="newPlace">
 
     <label for="zone" id="view_zone">Zone :</label>
     <input type="radio" name="id_zone" value="1" checked="checked"/> <label for="1">1</label>
@@ -24,22 +24,29 @@ if (isset($_SESSION['isAdmin']))
     <label for="type">Type d\'emplacement :</label>';
 
     include("database/type_vehicule.php");
+    include_once "database/zone_manager.php";
     echo '<select name="type" id="type">';
     $type_manager = new TypeManager();
     $type_manager->typeList();
+    $connection = new connection();
+    $bdd  = $connection->getBdd();
+    $zone = new ZoneManager($bdd, 1);
     echo '</select>
                 <br/>
         
             <label for="nombre">Nombre :</label>
-            <input type="number" name="nombre" id="nombre" value="1" min="1" max="999"/><br/>
-        
-        
-            <input type="submit" value="Ajouter" id="submit_newPlace"/>
-        
-        </form>
-        
-        <h1>Modifier les tarifs</h1>
-        <div classs="row">
+                <input type="number" name="nombre" id="nombre" value="0" min="1" max="999"/><br/>
+            <button type="button" class="button_reserv" id="submit_newPlace">Ajouter</button>
+            <button type="button" class="button_reserv" id="submit_delPlace">Supprimer</button>
+        </form>';
+    echo "Vous pouvez supprimer <b id='freecapacity'>".$zone->effectiveCapacityByType('handicape')."</b> places de ce type au maximum (car elle ne sont ni occupées ni reservées)." ;
+
+
+
+
+
+    echo '<h1>Modifier les tarifs</h1>
+        <div class="row">
             <div class="formulaire container">
                 <div class="col-md-3 col-md-offset-2">
         

@@ -17,13 +17,7 @@ $(document).ready(function () {
             error: function (msg) {
                 alert('Script non trouvé')
             }
-                
-            
-            
-            
         })
-        
-        
     });
 
 
@@ -41,7 +35,7 @@ $(document).ready(function () {
             success: function (msg) {
                 $('#bulle_vehicule_'+id).empty();
                 $('#bulle_vehicule_'+id).loader('show');
-                
+                window.setTimeout("window.location.href=('user_vehicule.php');",500);
             }
             
         })
