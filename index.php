@@ -48,7 +48,7 @@
 <div class="container reserv" id="invit_connexion">
 
     <h1>Réservation</h1>
-    <h3>Réservez votre place dans notre parking grâce à votre espace client en ligne !</h3>
+    <h3>Réservez votre place dans notre parking grâce à votre espace client en ligne</h3>
     <h4>Réservation immédiate et sécurisée </h4>
     <?php
 //        session_start();

@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="row" id="disp_price">
+            <div class="row zone_price" id="disp_price">
 
                 <!-- Complétage par script price.js -->
             </div>

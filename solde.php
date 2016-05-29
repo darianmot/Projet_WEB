@@ -10,7 +10,7 @@
 
 <h1>Votre Solde Car'Park</h1>
 
-<div id="solde">
+<div id="solde" class="zone_montant">
 
 </div>
 
