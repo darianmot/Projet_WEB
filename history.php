@@ -14,7 +14,6 @@
 
 <script>
     $(document).ready(function () {
-        var plaque = "<?php echo $vehicule['plaque'] ?>";
         var donnees =$(this).serialize()+'&id_form=getBill' + '&id=' + '<?php echo $_SESSION['identifiant']?>';
         $.ajax({
             type: "POST",
