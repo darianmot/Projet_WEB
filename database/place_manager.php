@@ -29,10 +29,10 @@ class PlaceManager
         VALUES (NULL, {$id_zone}, '{$type_vehicule}');");
     }
 
-    /*Suppression d'une place*/
+    /*Suppression d'une place : en réalité on la place dans une zone 0 virtuelle pour ne pas devoir supprimer des stationnements antérieurs*/
     public  function delPlace($id_place)
     {
-        $this->getBdd()->query("DELETE FROM Place WHERE id_place = {$id_place};");
+        $this->getBdd()->query("UPDATE Place set id_zone = 0 WHERE id_place = {$id_place};");
     }
 
     /*Retourne une place libre (non occuppee ni reservee) pour un véhicule donné selon le type et la zone selectionnée*/
@@ -135,6 +135,7 @@ if (isset($_POST['id_form'])) {
                     $date = date("Y-m-d H:i:s");
                     $placeManager->delPlace($placeManager->getFreePlace($_POST['id_zone'], $_POST['type'], $date));
                 }
+                echo $number_deleted;
                 
             }
             break;

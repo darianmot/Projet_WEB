@@ -103,11 +103,13 @@ $(document).ready(function (e) {
             alert("Le nombre de places à supprimer est incorrect");
         }
         else {
-            $.post('database/place_manager.php', donnees);
-            var msg = '<p style="color:green;">' + $('#nombre').val() +
-                ' place(s) de type "' + $('#type').val() +
-                '" supprimée(s) de la zone ' + zone + '</p>';
-            $.fancybox({content: msg});
+            $.post('database/place_manager.php', donnees,
+                function(retour){
+                    var msg = '<p style="color:green;">' + retour +
+                        ' place(s) de type "' + $('#type').val() +
+                        '" supprimée(s) de la zone ' + zone + '</p>';
+                    $.fancybox({content: msg});
+                });
         }
 
         /*On reset le form*/
