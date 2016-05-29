@@ -1,8 +1,8 @@
 <?php
 
-include "place_manager.php";
-include "tarif_manager.php";
-
+include_once "place_manager.php";
+include_once "tarif_manager.php";
+include_once "type_vehicule.php";
 
 class ZoneManager
 {
@@ -138,14 +138,15 @@ class ZoneManager
 
 
     /*Création d'une reservation*/
-    public function reservation($date_debut, $date_fin, $plaque, $type_vehicule)
+    public function reservation($date_debut, $date_fin, $plaque)
     {
         try {
-            $this->addVehicule($plaque, $type_vehicule);
+            $type_manager = new TypeManager();
+            $type_vehicule = $type_manager->getType($plaque);
             $placeManager = new PlaceManager($this->getBdd());
             $place = $placeManager->getFreePlace($this->getIdZone(), $type_vehicule, $date_debut);
             $this->getBdd()->query("INSERT INTO Stationnement(`id_stationnement`, `plaque`, `id_place`, `date_debut`, `date_fin`, `etat`)
-      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee';");
+      VALUES (NULL, '{$plaque}', '{$place}', '{$date_debut}', '{$date_fin}', 'reservee');");
         }
         catch (Exception $e)
         {
@@ -310,10 +311,10 @@ if (isset($_POST['id_form'])) {
             }
             break;
         case "newReservation":
-            if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']) and isset($_POST['type_vehicule']))
+            if (isset($_POST['date_debut']) and isset($_POST['date_fin']) and isset($_POST['plaque']))
             {
                 try {
-                    $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque'], $_POST['type_vehicule']);
+                    $zone->reservation($_POST['date_debut'], $_POST['date_fin'], $_POST['plaque']);
                 }
                 catch (Exception $e)
                 {

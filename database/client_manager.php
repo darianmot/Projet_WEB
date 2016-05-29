@@ -46,7 +46,7 @@ Class ClientManager
     {
         $old_solde = $this->getSolde();
         $new_solde = $old_solde + $montant;
-        $this->getBdd()->query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
+        $this->getBdd()>query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
     }
     
     /*Décréditer le solde*/
@@ -54,7 +54,7 @@ Class ClientManager
     {
         $old_solde = $this->getSolde();
         $new_solde = $old_solde - $montant;
-        $this->getBdd()->query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
+        $this->getBdd()>query("UPDATE ClientWeb SET solde = {$new_solde} WHERE id_utilisateur = '{$this->getId()}'");
     }
     
     
@@ -73,10 +73,6 @@ if (isset($_POST['id_form'], $_POST['id']))
     {
         case 'getSolde':
             echo $client->getSolde();
-            break;
-        
-        case 'addSolde':
-            $client->addSolde($_POST['montant']);
             break;
     }
 }

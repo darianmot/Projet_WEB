@@ -65,22 +65,19 @@ $cvcurrent = basename ($path);
     </article>
 
     <article>
-        <div class="title_article">
-            ETUDES ET FORMATIONS
-        </div>
+        <div class="title_article" id="titre1"></div>
         <table class="cvtable">
             <tbody>
-            <tr class="tr1"><td class="td1">2015-2016</td><td>Elève ingénieur à l’Ecole Nationale de l’Aviation Civile à Toulouse</td></tr>
-            <tr class="tr1"><td class="td1">2014-2015</td><td>Classe préparatoire aux Grandes Ecoles, Maths Physique option Sciences de l’Ingénieur Lycée Blaise Pascal à Clermont-Ferrand</td></tr>
-            <tr class="tr1"><td class="td1">2013-2014</td><td>Classe préparatoire aux Grandes Ecoles, Maths Physique Sciences de l’Ingénieur Lycée Blaise Pascal à Clermont-Ferrand</td></tr>
-            <tr class="tr1"><td class="td1">2012-2013</td><td>Baccalauréat S section européenne anglais   Mention Très Bien et  félicitations du jury  Lycée Blaise Pascal à Clermont-Ferrand </td></tr>
+            <tr class="tr1"><td class="td1" id="year1"></td><td id="descript_year1"></td></tr>
+            <tr class="tr1"><td class="td1" id="year2"></td><td id="descript_year2"></td></tr>
+            <tr class="tr1"><td class="td1" id="year3"></td><td id="descript_year3"></td></tr>
+            <tr class="tr1"><td class="td1" id="year4"></td><td id="descript_year4"></td></tr>
             </tbody>
         </table>
     </article>
 
     <article>
-        <div class="title_article">
-            EXPERIENCES PROFESSIONNELLES
+        <div class="title_article" id="titre2">
         </div>
         <table class="cvtable">
             <tbody>
@@ -133,9 +130,18 @@ $cvcurrent = basename ($path);
             document.getElementById('adress_cv1').innerHTML='40 avenue Joseph Claussat ';
             document.getElementById('adress_cv2').innerHTML='63400 Chamalières ';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML='azerty@gmail.com';
+            document.getElementById('contact_cv2').innerHTML='simon@gmail.com';
             document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Aviation Civile à Toulouse';
-
+            document.getElementById('titre1').innerHTML='ETUDES ET FORMATIONS';
+            document.getElementById('year1').innerHTML='2015-2016';
+            document.getElementById('year2').innerHTML='2014-2015';
+            document.getElementById('year3').innerHTML='2013-2014';
+            document.getElementById('year4').innerHTML='2012-2013';
+            document.getElementById('descript_year1').innerHTML='Elève ingénieur à l’Ecole Nationale de l’Aviation Civile à Toulouse';
+            document.getElementById('descript_year2').innerHTML='Classe préparatoire aux Grandes Ecoles, Maths Physique option Sciences de l’Ingénieur Lycée Blaise Pascal à Clermont-Ferrand';
+            document.getElementById('descript_year3').innerHTML='Classe préparatoire aux Grandes Ecoles, Maths Physique Sciences de l’Ingénieur Lycée Blaise Pascal à Clermont-Ferrand';
+            document.getElementById('descript_year4').innerHTML='Baccalauréat S section européenne anglais   Mention Très Bien et  félicitations du jury  Lycée Blaise Pascal à Clermont-Ferrand ';
+            document.getElementById('titre2').innerHTML='EXPERIENCES PROFESSIONNELLES';
         });
     });
     $(document).ready(function () {
@@ -143,11 +149,20 @@ $cvcurrent = basename ($path);
         {
             document.getElementById('name_cv').innerHTML='Darian MOTAMED';
             document.getElementById('age_cv').innerHTML='20 ans';
-            document.getElementById('adress_cv1').innerHTML='Residence bledard';
-            document.getElementById('adress_cv2').innerHTML='le ghetto';
+            document.getElementById('adress_cv1').innerHTML='7 avenue Edouar Belin, n°MB355,';
+            document.getElementById('adress_cv2').innerHTML='31400 Toulouse';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML='escort_girl@boulogne.com';
-            document.getElementById('presentation_cv').innerHTML='Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse';        });
+            document.getElementById('contact_cv2').innerHTML='darian@gmail.com';
+            document.getElementById('presentation_cv').innerHTML="Étudiant à l'École Nationale de l'Aviation Civile (ENAC)<br>Première année du cursus ingénieur IENAC</br>";
+            document.getElementById('titre1').innerHTML='FORMATIONS';
+            document.getElementById('year1').innerHTML="2015-Aujourd'hui";
+            document.getElementById('year2').innerHTML='2013-2015';
+            document.getElementById('year3').innerHTML='2010-2013';
+            document.getElementById('descript_year1').innerHTML="École Nationale de l'Aviation Civile (ENAC)<br>Cursus ingénieur aéronautique IENAC</br>";
+            document.getElementById('descript_year2').innerHTML="Lycée Marcelin Berthelot (94)<br>Classes préparatoires MPSI/MP*</br>";
+            document.getElementById('descript_year3').innerHTML="Lycée Marcelin Berthelot (94)<br>Bac S mention Bien</br>";
+
+        });
 
     });
     $(document).ready(function () {
@@ -161,6 +176,8 @@ $cvcurrent = basename ($path);
             document.getElementById('contact_cv1').innerHTML="tout le monde veut mon num ";
             document.getElementById('contact_cv2').innerHTML="le_bg@bg_land.com";
             document.getElementById('presentation_cv').innerHTML="Elève ingénieur en première année à l’Ecole Nationale de l’Anal Civile à Toulouse";
+            document.getElementById('titre1').innerHTML='FORMATIONS';
+
         });
     });
 
@@ -170,11 +187,18 @@ $cvcurrent = basename ($path);
 
             document.getElementById('name_cv').innerHTML='Atime RONDA';
             document.getElementById('age_cv').innerHTML='37 ans';
-            document.getElementById('adress_cv1').innerHTML='Residence PUCEAU';
-            document.getElementById('adress_cv2').innerHTML='31500';
+            document.getElementById('adress_cv1').innerHTML="Chez ENAC<br>7 avenue Edouard Belin</br>";
+            document.getElementById('adress_cv2').innerHTML='31055 TOULOUSE';
             document.getElementById('contact_cv1').innerHTML='XX XX XX XX XX ';
-            document.getElementById('contact_cv2').innerHTML="#_je_paye_des_p***@boulogne.com";
-            document.getElementById('presentation_cv').innerHTML="j'aime les roumaines hmmmm!!!";
+            document.getElementById('contact_cv2').innerHTML="atime.ronda@alumni.enac.fr";
+            document.getElementById('presentation_cv').innerHTML="";
+            document.getElementById('titre1').innerHTML='FORMATIONS';
+            document.getElementById('year1').innerHTML="2015-Aujourd'hui";
+            document.getElementById('year2').innerHTML='2013-2015';
+            document.getElementById('year3').innerHTML='2013';
+            document.getElementById('descript_year1').innerHTML='';
+            document.getElementById('descript_year2').innerHTML='';
+            document.getElementById('descript_year3').innerHTML='';
         });
     });
 </script>
