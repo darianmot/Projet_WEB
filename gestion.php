@@ -36,8 +36,8 @@ if (isset($_SESSION['isAdmin']))
         
             <label for="nombre">Nombre :</label>
                 <input type="number" name="nombre" id="nombre" value="0" min="1" max="999"/><br/>
-            <button type="button" class="button_reserv" id="submit_newPlace">Ajouter</button>
             <button type="button" class="button_reserv" id="submit_delPlace">Supprimer</button>
+            <button type="button" class="button_reserv" id="submit_newPlace">Ajouter</button>
         </form>';
     echo "Vous pouvez supprimer <b id='freecapacity'>".$zone->effectiveCapacityByType('handicape')."</b> places de ce type au maximum (car elle ne sont ni occupées ni reservées)." ;
 

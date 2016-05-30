@@ -99,6 +99,13 @@ class PlaceManager
 
                 /*Début du stationnement*/
                 echo '<tr><td>Début :</td><td ><divid = "date_debut">' .$data['date_debut'] .'</div></td></tr>';
+
+                /*Fin de stationnement si on a un reservation*/
+                if ($data['etat']=='reservee')
+                {
+                    echo '<tr><td>Fin :</td><td ><divid = "date_fin">' .$data['date_fin'] .'</div></td></tr>';
+                }
+
             }
             echo '</td></tr>';
 
