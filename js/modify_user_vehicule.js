@@ -3,7 +3,9 @@ $(document).ready(function () {
 
     $('#button_add_vehicule').click(function (e) {
         e.preventDefault();
-        if (!plaque_pattern.test($('#plaque').val().replace(' ','')))
+        var plaque = $('#plaque').val().replace(/ /g,"").toUpperCase();
+        $('#plaque').val(plaque);
+        if (!plaque_pattern.test(plaque))
         {
             var help_plaque= "<p style='width: 600px'>Les plaques françaises sont de la forme <b>AA 000 AA </b> ou <b>000 AAA 00</b>.</p>";
             var error = "<h2 class = 'error'>Erreur</h2>"+help_plaque;
