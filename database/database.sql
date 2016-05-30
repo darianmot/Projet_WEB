@@ -41,7 +41,8 @@ CREATE TABLE Utilisateur
 )ENGINE=INNODB;
 
 INSERT INTO `Utilisateur` (`id_utilisateur`, `password`, `nom`, `prenom`, `mail`) VALUES
-('admin', 'admin', 'admin', 'admin', 'admin');
+('admin', 'admin', 'admin', 'admin', 'admin'),
+('toto', 'toto', 'toto', 'toto','toto');
 
 CREATE TABLE ClientWeb
 (
@@ -51,6 +52,7 @@ CREATE TABLE ClientWeb
   FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
 )ENGINE=INNODB;
 
+INSERT INTO `ClientWeb`(`id_utilisateur`, `solde`) VALUES ('toto', 0);
 
 CREATE TABLE Admin
 (

@@ -1,0 +1,2 @@
+ADMIN : id = 'admin' et mdp ='admin';
+CLIENT : id = 'toto' et mdp = 'toto';
