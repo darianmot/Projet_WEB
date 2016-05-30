@@ -61,7 +61,7 @@ Class ClientManager
     public function getBill(){
         $id_client_web = $this->getId();
         $id_client_web_delete = ($this->getId()).'*';
-        $query = $this->getBdd()->query("SELECT Facture.id_facture,Stationnement.plaque, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix 
+        $query = $this->getBdd()->query("SELECT Facture.id_facture,Stationnement.plaque, Facture.type_facture, Stationnement.id_stationnement, Stationnement.date_debut, Stationnement.date_fin, Facture.prix 
                                          FROM Facture 
                                          INNER JOIN Stationnement 
                                          ON Facture.id_stationnement = Stationnement.id_stationnement 
@@ -69,10 +69,11 @@ Class ClientManager
                                          ON Stationnement.plaque = Vehicule.plaque
                                          WHERE Vehicule.id_clientweb = '{$id_client_web}' OR Vehicule.id_clientweb = '{$id_client_web_delete}'
                                          ");
-        echo '<table id="factures" class="factures"><tr><td>Facture n°</td><td>Véhicule</td><td>Début</td><td>Fin</td><td>Prix</td></tr>';
+        echo '<table id="factures" class="factures"><tr><td>Facture n°</td><td>Type</td><td>Véhicule</td><td>Début</td><td>Fin</td><td>Prix</td></tr>';
         foreach ($query->fetchAll(PDO::FETCH_ASSOC) as $facture){
             echo '<tr>';
             echo '<td>'.$facture['id_facture'].'</td>';
+            echo '<td>'.$facture['type_facture'].'</td>';
             echo '<td>'.$facture['plaque'].'</td>';
             echo '<td>'.$facture['date_debut'].'</td>';
             echo '<td>'.$facture['date_fin'].'</td>';
