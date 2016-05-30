@@ -93,7 +93,7 @@ $(document).ready(function () {
             var info = data;
             if (isOccupee)
             {
-                info += "<button type='submit' value="+id_place+" id='end_stat_button'>Mettre fin au stationnement</button>";
+                info += "<button type='submit' class = 'button_reserv' value="+id_place+" id='end_stat_button'>Mettre fin au stationnement</button>";
             }
             $.fancybox({content: info});
         });
